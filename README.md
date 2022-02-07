@@ -2,14 +2,20 @@
 
 # Excel File Processing in the Cloud
 
-[Aspose.Cells Cloud SDK for C++](https://products.aspose.cloud/cells/cpp) allows to work with document headers, footers, page numbering, tables, sections, document comments, drawing objects, FormFields, fonts, hyperlinks, ranges, paragraphs, math objects, watermarks, track changes and document protection. It also assists in appending documents, splitting documents as well as converting document to other supported file formats. 
-
+[Aspose.Cells Cloud SDK for C++](https://products.aspose.cloud/cells/cpp) allows working with converting file to other supported file formats and protecting file. 
 Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/cellscloud/Developer+Guide) & [API Reference](https://apireference.aspose.cloud/cells/) to know all about Aspose.Cells Cloud API. 
 
 ## Document Processing Features
 
 
 ## Enhancements in Version 22.1
+
+- Support to upload/download/copy/move/delete file.
+- Support to copy/move/delete folder.
+- Support to get the file list.
+- Support to convert local Excel file.
+- Support to convert online Excel file.
+- Support to protect local Excel file.
 
 
 ## Read & Write Spreadsheet Formats
