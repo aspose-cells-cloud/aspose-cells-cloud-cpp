@@ -8,14 +8,6 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 
 ## Document Processing Features
 
-- Convert between various document-related formats, including Word to PDF & vice versa.
-- Mail merge and report generation in the Cloud.
-- Split & merge Excel files.
-- Access Excel dile metadata.
-- Find and replace text.
-- Add & remove watermarks and protection.
-- Read & write access to Document Object Model.
-- Thread safe
 
 ## Enhancements in Version 22.1
 
