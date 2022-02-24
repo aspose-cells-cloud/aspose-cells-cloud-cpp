@@ -826,7 +826,7 @@ namespace aspose::cells::cloud::models {
                 convertUtf8( json["FileName"].get< std::string >() )
             );
         }
-        if (json.contains("Password") && !json["FileName"].is_null()) {
+        if (json.contains("Password") && !json["Password"].is_null()) {
             m_Password = std::make_shared< std::wstring >(
                 convertUtf8( json["Password"].get< std::string >() )
             );
@@ -977,6 +977,1887 @@ namespace aspose::cells::cloud::models {
         m_Workbook =value;
     }
 
-    
+    /*
+     * WorkbookEncryptionRequest implementation
+     */
+    void WorkbookEncryptionRequest::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Password) {
+            json["Password"] = convertUtf16(*m_Password);
+        }
+        if (m_EncryptionType) {
+            json["EncryptionType"] = convertUtf16(*m_EncryptionType);
+        }       
+        if (m_KeyLength) {
+            json["KeyLength"] = *m_KeyLength;
+        }  
+    }
 
+    void WorkbookEncryptionRequest::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("EncryptionType") && !json["EncryptionType"].is_null()) {
+            m_EncryptionType = std::make_shared< std::wstring >(
+                convertUtf8( json["EncryptionType"].get< std::string >() )
+            );
+        }
+        if (json.contains("Password") && !json["Password"].is_null()) {
+            m_Password = std::make_shared< std::wstring >(
+                convertUtf8( json["Password"].get< std::string >() )
+            );
+        }
+        if (json.contains("KeyLength") && !json["KeyLength"].is_null()) {
+            m_KeyLength = std::make_shared< int >(
+                json["KeyLength"].get< int >()
+            );
+        }
+    }
+
+    std::shared_ptr< std::wstring > WorkbookEncryptionRequest::getEncryptionType() const
+    {
+        return m_EncryptionType;
+    };
+        
+
+    void WorkbookEncryptionRequest::setEncryptionType(std::shared_ptr< std::wstring > value)
+    {
+        m_EncryptionType =value;
+    }
+
+    std::shared_ptr< std::wstring > WorkbookEncryptionRequest::getPassword() const
+    {
+        return  m_Password;
+    }
+
+    void WorkbookEncryptionRequest::setPassword(std::shared_ptr< std::wstring > value)
+    {
+        m_Password =value;
+    }    
+
+    std::shared_ptr< int > WorkbookEncryptionRequest::getKeyLength() const
+    {
+        return  m_KeyLength;
+    }
+
+    void WorkbookEncryptionRequest::setKeyLength(std::shared_ptr< int > value)
+    {
+        m_KeyLength =value;
+    }    
+
+    /// <summary>
+    /// SaveOptions class implementation
+    /// </summary>
+    void SaveOptions::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_EnableHTTPCompression) {
+            json["EnableHTTPCompression"] =*m_EnableHTTPCompression;
+        }
+        if (m_SaveFormat) {
+            json["SaveFormat"] = convertUtf16(*m_SaveFormat);
+        }
+        if (m_ClearData) {
+            json["ClearData"] =*m_ClearData;
+        }
+        if (m_CachedFileFolder) {
+            json["CachedFileFolder"] = convertUtf16(*m_CachedFileFolder);
+        }
+        if (m_ValidateMergedAreas) {
+            json["ValidateMergedAreas"] =*m_ValidateMergedAreas;
+        }
+        if (m_RefreshChartCache) {
+            json["RefreshChartCache"] =*m_RefreshChartCache;
+        }
+        if (m_CreateDirectory) {
+            json["CreateDirectory"] =*m_CreateDirectory;
+        }
+        if (m_SortNames) {
+            json["SortNames"] =*m_SortNames;
+        }
+    }
+    void SaveOptions::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("EnableHTTPCompression") && !json["EnableHTTPCompression"].is_null()) {
+            m_EnableHTTPCompression = std::make_shared< bool >( json["EnableHTTPCompression"].get< bool >());
+        }
+        if (json.contains("SaveFormat") && !json["SaveFormat"].is_null()) {
+            m_SaveFormat = std::make_shared< std::wstring >( convertUtf8( json["SaveFormat"].get< std::string >() ));
+        }
+        if (json.contains("ClearData") && !json["ClearData"].is_null()) {
+            m_ClearData = std::make_shared< bool >( json["ClearData"].get< bool >());
+        }
+        if (json.contains("CachedFileFolder") && !json["CachedFileFolder"].is_null()) {
+            m_CachedFileFolder = std::make_shared< std::wstring >( convertUtf8( json["CachedFileFolder"].get< std::string >() ));
+        }
+        if (json.contains("ValidateMergedAreas") && !json["ValidateMergedAreas"].is_null()) {
+            m_ValidateMergedAreas = std::make_shared< bool >( json["ValidateMergedAreas"].get< bool >());
+        }
+        if (json.contains("RefreshChartCache") && !json["RefreshChartCache"].is_null()) {
+            m_RefreshChartCache = std::make_shared< bool >( json["RefreshChartCache"].get< bool >());
+        }
+        if (json.contains("CreateDirectory") && !json["CreateDirectory"].is_null()) {
+            m_CreateDirectory = std::make_shared< bool >( json["CreateDirectory"].get< bool >());
+        }
+        if (json.contains("SortNames") && !json["SortNames"].is_null()) {
+            m_SortNames = std::make_shared< bool >( json["SortNames"].get< bool >());
+        }
+    }
+    std::shared_ptr< bool > SaveOptions::getEnableHTTPCompression() const
+    {
+        return m_EnableHTTPCompression;
+    }
+    void SaveOptions::setEnableHTTPCompression( std::shared_ptr< bool > value)
+    {
+        m_EnableHTTPCompression = value;
+    }
+    std::shared_ptr< std::wstring > SaveOptions::getSaveFormat() const
+    {
+        return m_SaveFormat;
+    }
+    void SaveOptions::setSaveFormat( std::shared_ptr< std::wstring > value)
+    {
+        m_SaveFormat = value;
+    }
+    std::shared_ptr< bool > SaveOptions::getClearData() const
+    {
+        return m_ClearData;
+    }
+    void SaveOptions::setClearData( std::shared_ptr< bool > value)
+    {
+        m_ClearData = value;
+    }
+    std::shared_ptr< std::wstring > SaveOptions::getCachedFileFolder() const
+    {
+        return m_CachedFileFolder;
+    }
+    void SaveOptions::setCachedFileFolder( std::shared_ptr< std::wstring > value)
+    {
+        m_CachedFileFolder = value;
+    }
+    std::shared_ptr< bool > SaveOptions::getValidateMergedAreas() const
+    {
+        return m_ValidateMergedAreas;
+    }
+    void SaveOptions::setValidateMergedAreas( std::shared_ptr< bool > value)
+    {
+        m_ValidateMergedAreas = value;
+    }
+    std::shared_ptr< bool > SaveOptions::getRefreshChartCache() const
+    {
+        return m_RefreshChartCache;
+    }
+    void SaveOptions::setRefreshChartCache( std::shared_ptr< bool > value)
+    {
+        m_RefreshChartCache = value;
+    }
+    std::shared_ptr< bool > SaveOptions::getCreateDirectory() const
+    {
+        return m_CreateDirectory;
+    }
+    void SaveOptions::setCreateDirectory( std::shared_ptr< bool > value)
+    {
+        m_CreateDirectory = value;
+    }
+    std::shared_ptr< bool > SaveOptions::getSortNames() const
+    {
+        return m_SortNames;
+    }
+    void SaveOptions::setSortNames( std::shared_ptr< bool > value)
+    {
+        m_SortNames = value;
+    }
+    /// <summary>
+    /// ImageSaveOptions class implementation
+    /// </summary>
+    void ImageSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_ChartImageType) {
+            json["ChartImageType"] = convertUtf16(*m_ChartImageType);
+        }
+        if (m_EmbededImageNameInSvg) {
+            json["EmbededImageNameInSvg"] = convertUtf16(*m_EmbededImageNameInSvg);
+        }
+        if (m_HorizontalResolution) {
+            json["HorizontalResolution"] =*m_HorizontalResolution;
+        }
+        if (m_ImageFormat) {
+            json["ImageFormat"] = convertUtf16(*m_ImageFormat);
+        }
+        if (m_IsCellAutoFit) {
+            json["IsCellAutoFit"] =*m_IsCellAutoFit;
+        }
+        if (m_OnePagePerSheet) {
+            json["OnePagePerSheet"] =*m_OnePagePerSheet;
+        }
+        if (m_OnlyArea) {
+            json["OnlyArea"] =*m_OnlyArea;
+        }
+        if (m_PrintingPage) {
+            json["PrintingPage"] = convertUtf16(*m_PrintingPage);
+        }
+        if (m_PrintWithStatusDialog) {
+            json["PrintWithStatusDialog"] =*m_PrintWithStatusDialog;
+        }
+        if (m_Quality) {
+            json["Quality"] =*m_Quality;
+        }
+        if (m_TiffCompression) {
+            json["TiffCompression"] = convertUtf16(*m_TiffCompression);
+        }
+        if (m_VerticalResolution) {
+            json["VerticalResolution"] =*m_VerticalResolution;
+        }
+    }
+    void ImageSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("ChartImageType") && !json["ChartImageType"].is_null()) {
+            m_ChartImageType = std::make_shared< std::wstring >( convertUtf8( json["ChartImageType"].get< std::string >() ));
+        }
+        if (json.contains("EmbededImageNameInSvg") && !json["EmbededImageNameInSvg"].is_null()) {
+            m_EmbededImageNameInSvg = std::make_shared< std::wstring >( convertUtf8( json["EmbededImageNameInSvg"].get< std::string >() ));
+        }
+        if (json.contains("HorizontalResolution") && !json["HorizontalResolution"].is_null()) {
+            m_HorizontalResolution = std::make_shared< int >( json["HorizontalResolution"].get< int >());
+        }
+        if (json.contains("ImageFormat") && !json["ImageFormat"].is_null()) {
+            m_ImageFormat = std::make_shared< std::wstring >( convertUtf8( json["ImageFormat"].get< std::string >() ));
+        }
+        if (json.contains("IsCellAutoFit") && !json["IsCellAutoFit"].is_null()) {
+            m_IsCellAutoFit = std::make_shared< bool >( json["IsCellAutoFit"].get< bool >());
+        }
+        if (json.contains("OnePagePerSheet") && !json["OnePagePerSheet"].is_null()) {
+            m_OnePagePerSheet = std::make_shared< bool >( json["OnePagePerSheet"].get< bool >());
+        }
+        if (json.contains("OnlyArea") && !json["OnlyArea"].is_null()) {
+            m_OnlyArea = std::make_shared< bool >( json["OnlyArea"].get< bool >());
+        }
+        if (json.contains("PrintingPage") && !json["PrintingPage"].is_null()) {
+            m_PrintingPage = std::make_shared< std::wstring >( convertUtf8( json["PrintingPage"].get< std::string >() ));
+        }
+        if (json.contains("PrintWithStatusDialog") && !json["PrintWithStatusDialog"].is_null()) {
+            m_PrintWithStatusDialog = std::make_shared< int >( json["PrintWithStatusDialog"].get< int >());
+        }
+        if (json.contains("Quality") && !json["Quality"].is_null()) {
+            m_Quality = std::make_shared< int >( json["Quality"].get< int >());
+        }
+        if (json.contains("TiffCompression") && !json["TiffCompression"].is_null()) {
+            m_TiffCompression = std::make_shared< std::wstring >( convertUtf8( json["TiffCompression"].get< std::string >() ));
+        }
+        if (json.contains("VerticalResolution") && !json["VerticalResolution"].is_null()) {
+            m_VerticalResolution = std::make_shared< int >( json["VerticalResolution"].get< int >());
+        }
+    }
+    std::shared_ptr< std::wstring > ImageSaveOptions::getChartImageType() const
+    {
+        return m_ChartImageType;
+    }
+    void ImageSaveOptions::setChartImageType( std::shared_ptr< std::wstring > value)
+    {
+        m_ChartImageType = value;
+    }
+    std::shared_ptr< std::wstring > ImageSaveOptions::getEmbededImageNameInSvg() const
+    {
+        return m_EmbededImageNameInSvg;
+    }
+    void ImageSaveOptions::setEmbededImageNameInSvg( std::shared_ptr< std::wstring > value)
+    {
+        m_EmbededImageNameInSvg = value;
+    }
+    std::shared_ptr< int > ImageSaveOptions::getHorizontalResolution() const
+    {
+        return m_HorizontalResolution;
+    }
+    void ImageSaveOptions::setHorizontalResolution( std::shared_ptr< int > value)
+    {
+        m_HorizontalResolution = value;
+    }
+    std::shared_ptr< std::wstring > ImageSaveOptions::getImageFormat() const
+    {
+        return m_ImageFormat;
+    }
+    void ImageSaveOptions::setImageFormat( std::shared_ptr< std::wstring > value)
+    {
+        m_ImageFormat = value;
+    }
+    std::shared_ptr< bool > ImageSaveOptions::getIsCellAutoFit() const
+    {
+        return m_IsCellAutoFit;
+    }
+    void ImageSaveOptions::setIsCellAutoFit( std::shared_ptr< bool > value)
+    {
+        m_IsCellAutoFit = value;
+    }
+    std::shared_ptr< bool > ImageSaveOptions::getOnePagePerSheet() const
+    {
+        return m_OnePagePerSheet;
+    }
+    void ImageSaveOptions::setOnePagePerSheet( std::shared_ptr< bool > value)
+    {
+        m_OnePagePerSheet = value;
+    }
+    std::shared_ptr< bool > ImageSaveOptions::getOnlyArea() const
+    {
+        return m_OnlyArea;
+    }
+    void ImageSaveOptions::setOnlyArea( std::shared_ptr< bool > value)
+    {
+        m_OnlyArea = value;
+    }
+    std::shared_ptr< std::wstring > ImageSaveOptions::getPrintingPage() const
+    {
+        return m_PrintingPage;
+    }
+    void ImageSaveOptions::setPrintingPage( std::shared_ptr< std::wstring > value)
+    {
+        m_PrintingPage = value;
+    }
+    std::shared_ptr< int > ImageSaveOptions::getPrintWithStatusDialog() const
+    {
+        return m_PrintWithStatusDialog;
+    }
+    void ImageSaveOptions::setPrintWithStatusDialog( std::shared_ptr< int > value)
+    {
+        m_PrintWithStatusDialog = value;
+    }
+    std::shared_ptr< int > ImageSaveOptions::getQuality() const
+    {
+        return m_Quality;
+    }
+    void ImageSaveOptions::setQuality( std::shared_ptr< int > value)
+    {
+        m_Quality = value;
+    }
+    std::shared_ptr< std::wstring > ImageSaveOptions::getTiffCompression() const
+    {
+        return m_TiffCompression;
+    }
+    void ImageSaveOptions::setTiffCompression( std::shared_ptr< std::wstring > value)
+    {
+        m_TiffCompression = value;
+    }
+    std::shared_ptr< int > ImageSaveOptions::getVerticalResolution() const
+    {
+        return m_VerticalResolution;
+    }
+    void ImageSaveOptions::setVerticalResolution( std::shared_ptr< int > value)
+    {
+        m_VerticalResolution = value;
+    }
+    /// <summary>
+    /// DifSaveOptions class implementation
+    /// </summary>
+    void DifSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    void DifSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    /// <summary>
+    /// OdsSaveOptions class implementation
+    /// </summary>
+    void OdsSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    void OdsSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    /// <summary>
+    /// OoxmlSaveOptions class implementation
+    /// </summary>
+    void OoxmlSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_ExportCellName) {
+            json["ExportCellName"] =*m_ExportCellName;
+        }
+    }
+    void OoxmlSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("ExportCellName") && !json["ExportCellName"].is_null()) {
+            m_ExportCellName = std::make_shared< bool >( json["ExportCellName"].get< bool >());
+        }
+    }
+    std::shared_ptr< bool > OoxmlSaveOptions::getExportCellName() const
+    {
+        return m_ExportCellName;
+    }
+    void OoxmlSaveOptions::setExportCellName( std::shared_ptr< bool > value)
+    {
+        m_ExportCellName = value;
+    }
+    /// <summary>
+    /// SvgSaveOptions class implementation
+    /// </summary>
+    void SvgSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_SheetIndex) {
+            json["SheetIndex"] =*m_SheetIndex;
+        }
+    }
+    void SvgSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("SheetIndex") && !json["SheetIndex"].is_null()) {
+            m_SheetIndex = std::make_shared< int >( json["SheetIndex"].get< int >());
+        }
+    }
+    std::shared_ptr< int > SvgSaveOptions::getSheetIndex() const
+    {
+        return m_SheetIndex;
+    }
+    void SvgSaveOptions::setSheetIndex( std::shared_ptr< int > value)
+    {
+        m_SheetIndex = value;
+    }
+    /// <summary>
+    /// MarkdownSaveOptions class implementation
+    /// </summary>
+    void MarkdownSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Encoding) {
+            json["Encoding"] = convertUtf16(*m_Encoding);
+        }
+        if (m_FormatStrategy) {
+            json["FormatStrategy"] = convertUtf16(*m_FormatStrategy);
+        }
+        if (m_LineSeparator) {
+            json["LineSeparator"] = convertUtf16(*m_LineSeparator);
+        }
+    }
+    void MarkdownSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("Encoding") && !json["Encoding"].is_null()) {
+            m_Encoding = std::make_shared< std::wstring >( convertUtf8( json["Encoding"].get< std::string >() ));
+        }
+        if (json.contains("FormatStrategy") && !json["FormatStrategy"].is_null()) {
+            m_FormatStrategy = std::make_shared< std::wstring >( convertUtf8( json["FormatStrategy"].get< std::string >() ));
+        }
+        if (json.contains("LineSeparator") && !json["LineSeparator"].is_null()) {
+            m_LineSeparator = std::make_shared< std::wstring >( convertUtf8( json["LineSeparator"].get< std::string >() ));
+        }
+    }
+    std::shared_ptr< std::wstring > MarkdownSaveOptions::getEncoding() const
+    {
+        return m_Encoding;
+    }
+    void MarkdownSaveOptions::setEncoding( std::shared_ptr< std::wstring > value)
+    {
+        m_Encoding = value;
+    }
+    std::shared_ptr< std::wstring > MarkdownSaveOptions::getFormatStrategy() const
+    {
+        return m_FormatStrategy;
+    }
+    void MarkdownSaveOptions::setFormatStrategy( std::shared_ptr< std::wstring > value)
+    {
+        m_FormatStrategy = value;
+    }
+    std::shared_ptr< std::wstring > MarkdownSaveOptions::getLineSeparator() const
+    {
+        return m_LineSeparator;
+    }
+    void MarkdownSaveOptions::setLineSeparator( std::shared_ptr< std::wstring > value)
+    {
+        m_LineSeparator = value;
+    }
+    /// <summary>
+    /// TxtSaveOptions class implementation
+    /// </summary>
+    void TxtSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_QuoteType) {
+            json["QuoteType"] = convertUtf16(*m_QuoteType);
+        }
+        if (m_Separator) {
+            json["Separator"] = convertUtf16(*m_Separator);
+        }
+        if (m_SeparatorString) {
+            json["SeparatorString"] = convertUtf16(*m_SeparatorString);
+        }
+        if (m_AlwaysQuoted) {
+            json["AlwaysQuoted"] =*m_AlwaysQuoted;
+        }
+    }
+    void TxtSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("QuoteType") && !json["QuoteType"].is_null()) {
+            m_QuoteType = std::make_shared< std::wstring >( convertUtf8( json["QuoteType"].get< std::string >() ));
+        }
+        if (json.contains("Separator") && !json["Separator"].is_null()) {
+            m_Separator = std::make_shared< std::wstring >( convertUtf8( json["Separator"].get< std::string >() ));
+        }
+        if (json.contains("SeparatorString") && !json["SeparatorString"].is_null()) {
+            m_SeparatorString = std::make_shared< std::wstring >( convertUtf8( json["SeparatorString"].get< std::string >() ));
+        }
+        if (json.contains("AlwaysQuoted") && !json["AlwaysQuoted"].is_null()) {
+            m_AlwaysQuoted = std::make_shared< bool >( json["AlwaysQuoted"].get< bool >());
+        }
+    }
+    std::shared_ptr< std::wstring > TxtSaveOptions::getQuoteType() const
+    {
+        return m_QuoteType;
+    }
+    void TxtSaveOptions::setQuoteType( std::shared_ptr< std::wstring > value)
+    {
+        m_QuoteType = value;
+    }
+    std::shared_ptr< std::wstring > TxtSaveOptions::getSeparator() const
+    {
+        return m_Separator;
+    }
+    void TxtSaveOptions::setSeparator( std::shared_ptr< std::wstring > value)
+    {
+        m_Separator = value;
+    }
+    std::shared_ptr< std::wstring > TxtSaveOptions::getSeparatorString() const
+    {
+        return m_SeparatorString;
+    }
+    void TxtSaveOptions::setSeparatorString( std::shared_ptr< std::wstring > value)
+    {
+        m_SeparatorString = value;
+    }
+    std::shared_ptr< bool > TxtSaveOptions::getAlwaysQuoted() const
+    {
+        return m_AlwaysQuoted;
+    }
+    void TxtSaveOptions::setAlwaysQuoted( std::shared_ptr< bool > value)
+    {
+        m_AlwaysQuoted = value;
+    }
+    /// <summary>
+    /// MHtmlSaveOptions class implementation
+    /// </summary>
+    void MHtmlSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_AttachedFilesDirectory) {
+            json["AttachedFilesDirectory"] = convertUtf16(*m_AttachedFilesDirectory);
+        }
+        if (m_AttachedFilesUrlPrefix) {
+            json["AttachedFilesUrlPrefix"] = convertUtf16(*m_AttachedFilesUrlPrefix);
+        }
+        if (m_Encoding) {
+            json["Encoding"] = convertUtf16(*m_Encoding);
+        }
+        if (m_ExportActiveWorksheetOnly) {
+            json["ExportActiveWorksheetOnly"] =*m_ExportActiveWorksheetOnly;
+        }
+        if (m_ExportChartImageFormat) {
+            json["ExportChartImageFormat"] = convertUtf16(*m_ExportChartImageFormat);
+        }
+        if (m_ExportImagesAsBase64) {
+            json["ExportImagesAsBase64"] =*m_ExportImagesAsBase64;
+        }
+        if (m_HiddenColDisplayType) {
+            json["HiddenColDisplayType"] = convertUtf16(*m_HiddenColDisplayType);
+        }
+        if (m_HiddenRowDisplayType) {
+            json["HiddenRowDisplayType"] = convertUtf16(*m_HiddenRowDisplayType);
+        }
+        if (m_HtmlCrossStringType) {
+            json["HtmlCrossStringType"] = convertUtf16(*m_HtmlCrossStringType);
+        }
+        if (m_IsExpImageToTempDir) {
+            json["IsExpImageToTempDir"] =*m_IsExpImageToTempDir;
+        }
+        if (m_PageTitle) {
+            json["PageTitle"] = convertUtf16(*m_PageTitle);
+        }
+        if (m_ParseHtmlTagInCell) {
+            json["ParseHtmlTagInCell"] =*m_ParseHtmlTagInCell;
+        }
+    }
+    void MHtmlSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("AttachedFilesDirectory") && !json["AttachedFilesDirectory"].is_null()) {
+            m_AttachedFilesDirectory = std::make_shared< std::wstring >( convertUtf8( json["AttachedFilesDirectory"].get< std::string >() ));
+        }
+        if (json.contains("AttachedFilesUrlPrefix") && !json["AttachedFilesUrlPrefix"].is_null()) {
+            m_AttachedFilesUrlPrefix = std::make_shared< std::wstring >( convertUtf8( json["AttachedFilesUrlPrefix"].get< std::string >() ));
+        }
+        if (json.contains("Encoding") && !json["Encoding"].is_null()) {
+            m_Encoding = std::make_shared< std::wstring >( convertUtf8( json["Encoding"].get< std::string >() ));
+        }
+        if (json.contains("ExportActiveWorksheetOnly") && !json["ExportActiveWorksheetOnly"].is_null()) {
+            m_ExportActiveWorksheetOnly = std::make_shared< bool >( json["ExportActiveWorksheetOnly"].get< bool >());
+        }
+        if (json.contains("ExportChartImageFormat") && !json["ExportChartImageFormat"].is_null()) {
+            m_ExportChartImageFormat = std::make_shared< std::wstring >( convertUtf8( json["ExportChartImageFormat"].get< std::string >() ));
+        }
+        if (json.contains("ExportImagesAsBase64") && !json["ExportImagesAsBase64"].is_null()) {
+            m_ExportImagesAsBase64 = std::make_shared< bool >( json["ExportImagesAsBase64"].get< bool >());
+        }
+        if (json.contains("HiddenColDisplayType") && !json["HiddenColDisplayType"].is_null()) {
+            m_HiddenColDisplayType = std::make_shared< std::wstring >( convertUtf8( json["HiddenColDisplayType"].get< std::string >() ));
+        }
+        if (json.contains("HiddenRowDisplayType") && !json["HiddenRowDisplayType"].is_null()) {
+            m_HiddenRowDisplayType = std::make_shared< std::wstring >( convertUtf8( json["HiddenRowDisplayType"].get< std::string >() ));
+        }
+        if (json.contains("HtmlCrossStringType") && !json["HtmlCrossStringType"].is_null()) {
+            m_HtmlCrossStringType = std::make_shared< std::wstring >( convertUtf8( json["HtmlCrossStringType"].get< std::string >() ));
+        }
+        if (json.contains("IsExpImageToTempDir") && !json["IsExpImageToTempDir"].is_null()) {
+            m_IsExpImageToTempDir = std::make_shared< bool >( json["IsExpImageToTempDir"].get< bool >());
+        }
+        if (json.contains("PageTitle") && !json["PageTitle"].is_null()) {
+            m_PageTitle = std::make_shared< std::wstring >( convertUtf8( json["PageTitle"].get< std::string >() ));
+        }
+        if (json.contains("ParseHtmlTagInCell") && !json["ParseHtmlTagInCell"].is_null()) {
+            m_ParseHtmlTagInCell = std::make_shared< bool >( json["ParseHtmlTagInCell"].get< bool >());
+        }
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getAttachedFilesDirectory() const
+    {
+        return m_AttachedFilesDirectory;
+    }
+    void MHtmlSaveOptions::setAttachedFilesDirectory( std::shared_ptr< std::wstring > value)
+    {
+        m_AttachedFilesDirectory = value;
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getAttachedFilesUrlPrefix() const
+    {
+        return m_AttachedFilesUrlPrefix;
+    }
+    void MHtmlSaveOptions::setAttachedFilesUrlPrefix( std::shared_ptr< std::wstring > value)
+    {
+        m_AttachedFilesUrlPrefix = value;
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getEncoding() const
+    {
+        return m_Encoding;
+    }
+    void MHtmlSaveOptions::setEncoding( std::shared_ptr< std::wstring > value)
+    {
+        m_Encoding = value;
+    }
+    std::shared_ptr< bool > MHtmlSaveOptions::getExportActiveWorksheetOnly() const
+    {
+        return m_ExportActiveWorksheetOnly;
+    }
+    void MHtmlSaveOptions::setExportActiveWorksheetOnly( std::shared_ptr< bool > value)
+    {
+        m_ExportActiveWorksheetOnly = value;
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getExportChartImageFormat() const
+    {
+        return m_ExportChartImageFormat;
+    }
+    void MHtmlSaveOptions::setExportChartImageFormat( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportChartImageFormat = value;
+    }
+    std::shared_ptr< bool > MHtmlSaveOptions::getExportImagesAsBase64() const
+    {
+        return m_ExportImagesAsBase64;
+    }
+    void MHtmlSaveOptions::setExportImagesAsBase64( std::shared_ptr< bool > value)
+    {
+        m_ExportImagesAsBase64 = value;
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getHiddenColDisplayType() const
+    {
+        return m_HiddenColDisplayType;
+    }
+    void MHtmlSaveOptions::setHiddenColDisplayType( std::shared_ptr< std::wstring > value)
+    {
+        m_HiddenColDisplayType = value;
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getHiddenRowDisplayType() const
+    {
+        return m_HiddenRowDisplayType;
+    }
+    void MHtmlSaveOptions::setHiddenRowDisplayType( std::shared_ptr< std::wstring > value)
+    {
+        m_HiddenRowDisplayType = value;
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getHtmlCrossStringType() const
+    {
+        return m_HtmlCrossStringType;
+    }
+    void MHtmlSaveOptions::setHtmlCrossStringType( std::shared_ptr< std::wstring > value)
+    {
+        m_HtmlCrossStringType = value;
+    }
+    std::shared_ptr< bool > MHtmlSaveOptions::getIsExpImageToTempDir() const
+    {
+        return m_IsExpImageToTempDir;
+    }
+    void MHtmlSaveOptions::setIsExpImageToTempDir( std::shared_ptr< bool > value)
+    {
+        m_IsExpImageToTempDir = value;
+    }
+    std::shared_ptr< std::wstring > MHtmlSaveOptions::getPageTitle() const
+    {
+        return m_PageTitle;
+    }
+    void MHtmlSaveOptions::setPageTitle( std::shared_ptr< std::wstring > value)
+    {
+        m_PageTitle = value;
+    }
+    std::shared_ptr< bool > MHtmlSaveOptions::getParseHtmlTagInCell() const
+    {
+        return m_ParseHtmlTagInCell;
+    }
+    void MHtmlSaveOptions::setParseHtmlTagInCell( std::shared_ptr< bool > value)
+    {
+        m_ParseHtmlTagInCell = value;
+    }
+    /// <summary>
+    /// HtmlSaveOptions class implementation
+    /// </summary>
+    void HtmlSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_SaveAsSingleFile) {
+            json["SaveAsSingleFile"] = convertUtf16(*m_SaveAsSingleFile);
+        }
+        if (m_ExportHiddenWorksheet) {
+            json["ExportHiddenWorksheet"] = convertUtf16(*m_ExportHiddenWorksheet);
+        }
+        if (m_ExportGridLines) {
+            json["ExportGridLines"] = convertUtf16(*m_ExportGridLines);
+        }
+        if (m_PresentationPreference) {
+            json["PresentationPreference"] = convertUtf16(*m_PresentationPreference);
+        }
+        if (m_CellCssPrefix) {
+            json["CellCssPrefix"] = convertUtf16(*m_CellCssPrefix);
+        }
+        if (m_TableCssId) {
+            json["TableCssId"] = convertUtf16(*m_TableCssId);
+        }
+        if (m_IsFullPathLink) {
+            json["IsFullPathLink"] = convertUtf16(*m_IsFullPathLink);
+        }
+        if (m_ExportWorksheetCSSSeparately) {
+            json["ExportWorksheetCSSSeparately"] = convertUtf16(*m_ExportWorksheetCSSSeparately);
+        }
+        if (m_ExportSimilarBorderStyle) {
+            json["ExportSimilarBorderStyle"] = convertUtf16(*m_ExportSimilarBorderStyle);
+        }
+        if (m_MergeEmptyTdForcely) {
+            json["MergeEmptyTdForcely"] = convertUtf16(*m_MergeEmptyTdForcely);
+        }
+        if (m_ExportCellCoordinate) {
+            json["ExportCellCoordinate"] = convertUtf16(*m_ExportCellCoordinate);
+        }
+        if (m_ExportExtraHeadings) {
+            json["ExportExtraHeadings"] = convertUtf16(*m_ExportExtraHeadings);
+        }
+        if (m_ExportHeadings) {
+            json["ExportHeadings"] = convertUtf16(*m_ExportHeadings);
+        }
+        if (m_ExportFormula) {
+            json["ExportFormula"] = convertUtf16(*m_ExportFormula);
+        }
+        if (m_AddTooltipText) {
+            json["AddTooltipText"] = convertUtf16(*m_AddTooltipText);
+        }
+        if (m_ExportBogusRowData) {
+            json["ExportBogusRowData"] = convertUtf16(*m_ExportBogusRowData);
+        }
+        if (m_ExcludeUnusedStyles) {
+            json["ExcludeUnusedStyles"] = convertUtf16(*m_ExcludeUnusedStyles);
+        }
+        if (m_ExportDocumentProperties) {
+            json["ExportDocumentProperties"] = convertUtf16(*m_ExportDocumentProperties);
+        }
+        if (m_ExportWorksheetProperties) {
+            json["ExportWorksheetProperties"] = convertUtf16(*m_ExportWorksheetProperties);
+        }
+        if (m_ExportWorkbookProperties) {
+            json["ExportWorkbookProperties"] = convertUtf16(*m_ExportWorkbookProperties);
+        }
+        if (m_ExportFrameScriptsAndProperties) {
+            json["ExportFrameScriptsAndProperties"] = convertUtf16(*m_ExportFrameScriptsAndProperties);
+        }
+        if (m_AttachedFilesDirectory) {
+            json["AttachedFilesDirectory"] = convertUtf16(*m_AttachedFilesDirectory);
+        }
+        if (m_AttachedFilesUrlPrefix) {
+            json["AttachedFilesUrlPrefix"] = convertUtf16(*m_AttachedFilesUrlPrefix);
+        }
+        if (m_Encoding) {
+            json["Encoding"] = convertUtf16(*m_Encoding);
+        }
+        if (m_ExportActiveWorksheetOnly) {
+            json["ExportActiveWorksheetOnly"] =*m_ExportActiveWorksheetOnly;
+        }
+        if (m_ExportChartImageFormat) {
+            json["ExportChartImageFormat"] = convertUtf16(*m_ExportChartImageFormat);
+        }
+        if (m_ExportImagesAsBase64) {
+            json["ExportImagesAsBase64"] =*m_ExportImagesAsBase64;
+        }
+        if (m_HiddenColDisplayType) {
+            json["HiddenColDisplayType"] = convertUtf16(*m_HiddenColDisplayType);
+        }
+        if (m_HiddenRowDisplayType) {
+            json["HiddenRowDisplayType"] = convertUtf16(*m_HiddenRowDisplayType);
+        }
+        if (m_HtmlCrossStringType) {
+            json["HtmlCrossStringType"] = convertUtf16(*m_HtmlCrossStringType);
+        }
+        if (m_IsExpImageToTempDir) {
+            json["IsExpImageToTempDir"] =*m_IsExpImageToTempDir;
+        }
+        if (m_PageTitle) {
+            json["PageTitle"] = convertUtf16(*m_PageTitle);
+        }
+        if (m_ParseHtmlTagInCell) {
+            json["ParseHtmlTagInCell"] =*m_ParseHtmlTagInCell;
+        }
+    }
+    void HtmlSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("SaveAsSingleFile") && !json["SaveAsSingleFile"].is_null()) {
+            m_SaveAsSingleFile = std::make_shared< std::wstring >( convertUtf8( json["SaveAsSingleFile"].get< std::string >() ));
+        }
+        if (json.contains("ExportHiddenWorksheet") && !json["ExportHiddenWorksheet"].is_null()) {
+            m_ExportHiddenWorksheet = std::make_shared< std::wstring >( convertUtf8( json["ExportHiddenWorksheet"].get< std::string >() ));
+        }
+        if (json.contains("ExportGridLines") && !json["ExportGridLines"].is_null()) {
+            m_ExportGridLines = std::make_shared< std::wstring >( convertUtf8( json["ExportGridLines"].get< std::string >() ));
+        }
+        if (json.contains("PresentationPreference") && !json["PresentationPreference"].is_null()) {
+            m_PresentationPreference = std::make_shared< std::wstring >( convertUtf8( json["PresentationPreference"].get< std::string >() ));
+        }
+        if (json.contains("CellCssPrefix") && !json["CellCssPrefix"].is_null()) {
+            m_CellCssPrefix = std::make_shared< std::wstring >( convertUtf8( json["CellCssPrefix"].get< std::string >() ));
+        }
+        if (json.contains("TableCssId") && !json["TableCssId"].is_null()) {
+            m_TableCssId = std::make_shared< std::wstring >( convertUtf8( json["TableCssId"].get< std::string >() ));
+        }
+        if (json.contains("IsFullPathLink") && !json["IsFullPathLink"].is_null()) {
+            m_IsFullPathLink = std::make_shared< std::wstring >( convertUtf8( json["IsFullPathLink"].get< std::string >() ));
+        }
+        if (json.contains("ExportWorksheetCSSSeparately") && !json["ExportWorksheetCSSSeparately"].is_null()) {
+            m_ExportWorksheetCSSSeparately = std::make_shared< std::wstring >( convertUtf8( json["ExportWorksheetCSSSeparately"].get< std::string >() ));
+        }
+        if (json.contains("ExportSimilarBorderStyle") && !json["ExportSimilarBorderStyle"].is_null()) {
+            m_ExportSimilarBorderStyle = std::make_shared< std::wstring >( convertUtf8( json["ExportSimilarBorderStyle"].get< std::string >() ));
+        }
+        if (json.contains("MergeEmptyTdForcely") && !json["MergeEmptyTdForcely"].is_null()) {
+            m_MergeEmptyTdForcely = std::make_shared< std::wstring >( convertUtf8( json["MergeEmptyTdForcely"].get< std::string >() ));
+        }
+        if (json.contains("ExportCellCoordinate") && !json["ExportCellCoordinate"].is_null()) {
+            m_ExportCellCoordinate = std::make_shared< std::wstring >( convertUtf8( json["ExportCellCoordinate"].get< std::string >() ));
+        }
+        if (json.contains("ExportExtraHeadings") && !json["ExportExtraHeadings"].is_null()) {
+            m_ExportExtraHeadings = std::make_shared< std::wstring >( convertUtf8( json["ExportExtraHeadings"].get< std::string >() ));
+        }
+        if (json.contains("ExportHeadings") && !json["ExportHeadings"].is_null()) {
+            m_ExportHeadings = std::make_shared< std::wstring >( convertUtf8( json["ExportHeadings"].get< std::string >() ));
+        }
+        if (json.contains("ExportFormula") && !json["ExportFormula"].is_null()) {
+            m_ExportFormula = std::make_shared< std::wstring >( convertUtf8( json["ExportFormula"].get< std::string >() ));
+        }
+        if (json.contains("AddTooltipText") && !json["AddTooltipText"].is_null()) {
+            m_AddTooltipText = std::make_shared< std::wstring >( convertUtf8( json["AddTooltipText"].get< std::string >() ));
+        }
+        if (json.contains("ExportBogusRowData") && !json["ExportBogusRowData"].is_null()) {
+            m_ExportBogusRowData = std::make_shared< std::wstring >( convertUtf8( json["ExportBogusRowData"].get< std::string >() ));
+        }
+        if (json.contains("ExcludeUnusedStyles") && !json["ExcludeUnusedStyles"].is_null()) {
+            m_ExcludeUnusedStyles = std::make_shared< std::wstring >( convertUtf8( json["ExcludeUnusedStyles"].get< std::string >() ));
+        }
+        if (json.contains("ExportDocumentProperties") && !json["ExportDocumentProperties"].is_null()) {
+            m_ExportDocumentProperties = std::make_shared< std::wstring >( convertUtf8( json["ExportDocumentProperties"].get< std::string >() ));
+        }
+        if (json.contains("ExportWorksheetProperties") && !json["ExportWorksheetProperties"].is_null()) {
+            m_ExportWorksheetProperties = std::make_shared< std::wstring >( convertUtf8( json["ExportWorksheetProperties"].get< std::string >() ));
+        }
+        if (json.contains("ExportWorkbookProperties") && !json["ExportWorkbookProperties"].is_null()) {
+            m_ExportWorkbookProperties = std::make_shared< std::wstring >( convertUtf8( json["ExportWorkbookProperties"].get< std::string >() ));
+        }
+        if (json.contains("ExportFrameScriptsAndProperties") && !json["ExportFrameScriptsAndProperties"].is_null()) {
+            m_ExportFrameScriptsAndProperties = std::make_shared< std::wstring >( convertUtf8( json["ExportFrameScriptsAndProperties"].get< std::string >() ));
+        }
+        if (json.contains("AttachedFilesDirectory") && !json["AttachedFilesDirectory"].is_null()) {
+            m_AttachedFilesDirectory = std::make_shared< std::wstring >( convertUtf8( json["AttachedFilesDirectory"].get< std::string >() ));
+        }
+        if (json.contains("AttachedFilesUrlPrefix") && !json["AttachedFilesUrlPrefix"].is_null()) {
+            m_AttachedFilesUrlPrefix = std::make_shared< std::wstring >( convertUtf8( json["AttachedFilesUrlPrefix"].get< std::string >() ));
+        }
+        if (json.contains("Encoding") && !json["Encoding"].is_null()) {
+            m_Encoding = std::make_shared< std::wstring >( convertUtf8( json["Encoding"].get< std::string >() ));
+        }
+        if (json.contains("ExportActiveWorksheetOnly") && !json["ExportActiveWorksheetOnly"].is_null()) {
+            m_ExportActiveWorksheetOnly = std::make_shared< bool >( json["ExportActiveWorksheetOnly"].get< bool >());
+        }
+        if (json.contains("ExportChartImageFormat") && !json["ExportChartImageFormat"].is_null()) {
+            m_ExportChartImageFormat = std::make_shared< std::wstring >( convertUtf8( json["ExportChartImageFormat"].get< std::string >() ));
+        }
+        if (json.contains("ExportImagesAsBase64") && !json["ExportImagesAsBase64"].is_null()) {
+            m_ExportImagesAsBase64 = std::make_shared< bool >( json["ExportImagesAsBase64"].get< bool >());
+        }
+        if (json.contains("HiddenColDisplayType") && !json["HiddenColDisplayType"].is_null()) {
+            m_HiddenColDisplayType = std::make_shared< std::wstring >( convertUtf8( json["HiddenColDisplayType"].get< std::string >() ));
+        }
+        if (json.contains("HiddenRowDisplayType") && !json["HiddenRowDisplayType"].is_null()) {
+            m_HiddenRowDisplayType = std::make_shared< std::wstring >( convertUtf8( json["HiddenRowDisplayType"].get< std::string >() ));
+        }
+        if (json.contains("HtmlCrossStringType") && !json["HtmlCrossStringType"].is_null()) {
+            m_HtmlCrossStringType = std::make_shared< std::wstring >( convertUtf8( json["HtmlCrossStringType"].get< std::string >() ));
+        }
+        if (json.contains("IsExpImageToTempDir") && !json["IsExpImageToTempDir"].is_null()) {
+            m_IsExpImageToTempDir = std::make_shared< bool >( json["IsExpImageToTempDir"].get< bool >());
+        }
+        if (json.contains("PageTitle") && !json["PageTitle"].is_null()) {
+            m_PageTitle = std::make_shared< std::wstring >( convertUtf8( json["PageTitle"].get< std::string >() ));
+        }
+        if (json.contains("ParseHtmlTagInCell") && !json["ParseHtmlTagInCell"].is_null()) {
+            m_ParseHtmlTagInCell = std::make_shared< bool >( json["ParseHtmlTagInCell"].get< bool >());
+        }
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getSaveAsSingleFile() const
+    {
+        return m_SaveAsSingleFile;
+    }
+    void HtmlSaveOptions::setSaveAsSingleFile( std::shared_ptr< std::wstring > value)
+    {
+        m_SaveAsSingleFile = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportHiddenWorksheet() const
+    {
+        return m_ExportHiddenWorksheet;
+    }
+    void HtmlSaveOptions::setExportHiddenWorksheet( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportHiddenWorksheet = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportGridLines() const
+    {
+        return m_ExportGridLines;
+    }
+    void HtmlSaveOptions::setExportGridLines( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportGridLines = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getPresentationPreference() const
+    {
+        return m_PresentationPreference;
+    }
+    void HtmlSaveOptions::setPresentationPreference( std::shared_ptr< std::wstring > value)
+    {
+        m_PresentationPreference = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getCellCssPrefix() const
+    {
+        return m_CellCssPrefix;
+    }
+    void HtmlSaveOptions::setCellCssPrefix( std::shared_ptr< std::wstring > value)
+    {
+        m_CellCssPrefix = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getTableCssId() const
+    {
+        return m_TableCssId;
+    }
+    void HtmlSaveOptions::setTableCssId( std::shared_ptr< std::wstring > value)
+    {
+        m_TableCssId = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getIsFullPathLink() const
+    {
+        return m_IsFullPathLink;
+    }
+    void HtmlSaveOptions::setIsFullPathLink( std::shared_ptr< std::wstring > value)
+    {
+        m_IsFullPathLink = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportWorksheetCSSSeparately() const
+    {
+        return m_ExportWorksheetCSSSeparately;
+    }
+    void HtmlSaveOptions::setExportWorksheetCSSSeparately( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportWorksheetCSSSeparately = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportSimilarBorderStyle() const
+    {
+        return m_ExportSimilarBorderStyle;
+    }
+    void HtmlSaveOptions::setExportSimilarBorderStyle( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportSimilarBorderStyle = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getMergeEmptyTdForcely() const
+    {
+        return m_MergeEmptyTdForcely;
+    }
+    void HtmlSaveOptions::setMergeEmptyTdForcely( std::shared_ptr< std::wstring > value)
+    {
+        m_MergeEmptyTdForcely = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportCellCoordinate() const
+    {
+        return m_ExportCellCoordinate;
+    }
+    void HtmlSaveOptions::setExportCellCoordinate( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportCellCoordinate = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportExtraHeadings() const
+    {
+        return m_ExportExtraHeadings;
+    }
+    void HtmlSaveOptions::setExportExtraHeadings( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportExtraHeadings = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportHeadings() const
+    {
+        return m_ExportHeadings;
+    }
+    void HtmlSaveOptions::setExportHeadings( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportHeadings = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportFormula() const
+    {
+        return m_ExportFormula;
+    }
+    void HtmlSaveOptions::setExportFormula( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportFormula = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getAddTooltipText() const
+    {
+        return m_AddTooltipText;
+    }
+    void HtmlSaveOptions::setAddTooltipText( std::shared_ptr< std::wstring > value)
+    {
+        m_AddTooltipText = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportBogusRowData() const
+    {
+        return m_ExportBogusRowData;
+    }
+    void HtmlSaveOptions::setExportBogusRowData( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportBogusRowData = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExcludeUnusedStyles() const
+    {
+        return m_ExcludeUnusedStyles;
+    }
+    void HtmlSaveOptions::setExcludeUnusedStyles( std::shared_ptr< std::wstring > value)
+    {
+        m_ExcludeUnusedStyles = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportDocumentProperties() const
+    {
+        return m_ExportDocumentProperties;
+    }
+    void HtmlSaveOptions::setExportDocumentProperties( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportDocumentProperties = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportWorksheetProperties() const
+    {
+        return m_ExportWorksheetProperties;
+    }
+    void HtmlSaveOptions::setExportWorksheetProperties( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportWorksheetProperties = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportWorkbookProperties() const
+    {
+        return m_ExportWorkbookProperties;
+    }
+    void HtmlSaveOptions::setExportWorkbookProperties( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportWorkbookProperties = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportFrameScriptsAndProperties() const
+    {
+        return m_ExportFrameScriptsAndProperties;
+    }
+    void HtmlSaveOptions::setExportFrameScriptsAndProperties( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportFrameScriptsAndProperties = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getAttachedFilesDirectory() const
+    {
+        return m_AttachedFilesDirectory;
+    }
+    void HtmlSaveOptions::setAttachedFilesDirectory( std::shared_ptr< std::wstring > value)
+    {
+        m_AttachedFilesDirectory = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getAttachedFilesUrlPrefix() const
+    {
+        return m_AttachedFilesUrlPrefix;
+    }
+    void HtmlSaveOptions::setAttachedFilesUrlPrefix( std::shared_ptr< std::wstring > value)
+    {
+        m_AttachedFilesUrlPrefix = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getEncoding() const
+    {
+        return m_Encoding;
+    }
+    void HtmlSaveOptions::setEncoding( std::shared_ptr< std::wstring > value)
+    {
+        m_Encoding = value;
+    }
+    std::shared_ptr< bool > HtmlSaveOptions::getExportActiveWorksheetOnly() const
+    {
+        return m_ExportActiveWorksheetOnly;
+    }
+    void HtmlSaveOptions::setExportActiveWorksheetOnly( std::shared_ptr< bool > value)
+    {
+        m_ExportActiveWorksheetOnly = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getExportChartImageFormat() const
+    {
+        return m_ExportChartImageFormat;
+    }
+    void HtmlSaveOptions::setExportChartImageFormat( std::shared_ptr< std::wstring > value)
+    {
+        m_ExportChartImageFormat = value;
+    }
+    std::shared_ptr< bool > HtmlSaveOptions::getExportImagesAsBase64() const
+    {
+        return m_ExportImagesAsBase64;
+    }
+    void HtmlSaveOptions::setExportImagesAsBase64( std::shared_ptr< bool > value)
+    {
+        m_ExportImagesAsBase64 = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getHiddenColDisplayType() const
+    {
+        return m_HiddenColDisplayType;
+    }
+    void HtmlSaveOptions::setHiddenColDisplayType( std::shared_ptr< std::wstring > value)
+    {
+        m_HiddenColDisplayType = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getHiddenRowDisplayType() const
+    {
+        return m_HiddenRowDisplayType;
+    }
+    void HtmlSaveOptions::setHiddenRowDisplayType( std::shared_ptr< std::wstring > value)
+    {
+        m_HiddenRowDisplayType = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getHtmlCrossStringType() const
+    {
+        return m_HtmlCrossStringType;
+    }
+    void HtmlSaveOptions::setHtmlCrossStringType( std::shared_ptr< std::wstring > value)
+    {
+        m_HtmlCrossStringType = value;
+    }
+    std::shared_ptr< bool > HtmlSaveOptions::getIsExpImageToTempDir() const
+    {
+        return m_IsExpImageToTempDir;
+    }
+    void HtmlSaveOptions::setIsExpImageToTempDir( std::shared_ptr< bool > value)
+    {
+        m_IsExpImageToTempDir = value;
+    }
+    std::shared_ptr< std::wstring > HtmlSaveOptions::getPageTitle() const
+    {
+        return m_PageTitle;
+    }
+    void HtmlSaveOptions::setPageTitle( std::shared_ptr< std::wstring > value)
+    {
+        m_PageTitle = value;
+    }
+    std::shared_ptr< bool > HtmlSaveOptions::getParseHtmlTagInCell() const
+    {
+        return m_ParseHtmlTagInCell;
+    }
+    void HtmlSaveOptions::setParseHtmlTagInCell( std::shared_ptr< bool > value)
+    {
+        m_ParseHtmlTagInCell = value;
+    }
+    /// <summary>
+    /// SpreadsheetML2003SaveOptions class implementation
+    /// </summary>
+    void SpreadsheetML2003SaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_ExportColumnIndexOfCell) {
+            json["ExportColumnIndexOfCell"] =*m_ExportColumnIndexOfCell;
+        }
+        if (m_IsIndentedFormatting) {
+            json["IsIndentedFormatting"] =*m_IsIndentedFormatting;
+        }
+        if (m_LimitAsXls) {
+            json["LimitAsXls"] =*m_LimitAsXls;
+        }
+    }
+    void SpreadsheetML2003SaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("ExportColumnIndexOfCell") && !json["ExportColumnIndexOfCell"].is_null()) {
+            m_ExportColumnIndexOfCell = std::make_shared< bool >( json["ExportColumnIndexOfCell"].get< bool >());
+        }
+        if (json.contains("IsIndentedFormatting") && !json["IsIndentedFormatting"].is_null()) {
+            m_IsIndentedFormatting = std::make_shared< bool >( json["IsIndentedFormatting"].get< bool >());
+        }
+        if (json.contains("LimitAsXls") && !json["LimitAsXls"].is_null()) {
+            m_LimitAsXls = std::make_shared< bool >( json["LimitAsXls"].get< bool >());
+        }
+    }
+    std::shared_ptr< bool > SpreadsheetML2003SaveOptions::getExportColumnIndexOfCell() const
+    {
+        return m_ExportColumnIndexOfCell;
+    }
+    void SpreadsheetML2003SaveOptions::setExportColumnIndexOfCell( std::shared_ptr< bool > value)
+    {
+        m_ExportColumnIndexOfCell = value;
+    }
+    std::shared_ptr< bool > SpreadsheetML2003SaveOptions::getIsIndentedFormatting() const
+    {
+        return m_IsIndentedFormatting;
+    }
+    void SpreadsheetML2003SaveOptions::setIsIndentedFormatting( std::shared_ptr< bool > value)
+    {
+        m_IsIndentedFormatting = value;
+    }
+    std::shared_ptr< bool > SpreadsheetML2003SaveOptions::getLimitAsXls() const
+    {
+        return m_LimitAsXls;
+    }
+    void SpreadsheetML2003SaveOptions::setLimitAsXls( std::shared_ptr< bool > value)
+    {
+        m_LimitAsXls = value;
+    }
+    /// <summary>
+    /// XlsbSaveOptions class implementation
+    /// </summary>
+    void XlsbSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    void XlsbSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    /// <summary>
+    /// XlsSaveOptions class implementation
+    /// </summary>
+    void XlsSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    void XlsSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    /// <summary>
+    /// XpsSaveOptions class implementation
+    /// </summary>
+    void XpsSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    void XpsSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    /// <summary>
+    /// PdfSaveOptions class implementation
+    /// </summary>
+    void PdfSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_CalculateFormula) {
+            json["CalculateFormula"] =*m_CalculateFormula;
+        }
+        if (m_CheckFontCompatibility) {
+            json["CheckFontCompatibility"] =*m_CheckFontCompatibility;
+        }
+        if (m_OnePagePerSheet) {
+            json["OnePagePerSheet"] =*m_OnePagePerSheet;
+        }
+        if (m_Compliance) {
+            json["Compliance"] = convertUtf16(*m_Compliance);
+        }
+        if (m_DefaultFont) {
+            json["DefaultFont"] = convertUtf16(*m_DefaultFont);
+        }
+        if (m_PrintingPageType) {
+            json["PrintingPageType"] = convertUtf16(*m_PrintingPageType);
+        }
+        if (m_ImageType) {
+            json["ImageType"] = convertUtf16(*m_ImageType);
+        }
+        if (m_DesiredPPI) {
+            json["DesiredPPI"] =*m_DesiredPPI;
+        }
+        if (m_JpegQuality) {
+            json["JpegQuality"] =*m_JpegQuality;
+        }
+        if (m_SecurityOptions) {
+            m_SecurityOptions->toJson(&json["SecurityOptions"]);
+        }
+    }
+    void PdfSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("CalculateFormula") && !json["CalculateFormula"].is_null()) {
+            m_CalculateFormula = std::make_shared< bool >( json["CalculateFormula"].get< bool >());
+        }
+        if (json.contains("CheckFontCompatibility") && !json["CheckFontCompatibility"].is_null()) {
+            m_CheckFontCompatibility = std::make_shared< bool >( json["CheckFontCompatibility"].get< bool >());
+        }
+        if (json.contains("OnePagePerSheet") && !json["OnePagePerSheet"].is_null()) {
+            m_OnePagePerSheet = std::make_shared< bool >( json["OnePagePerSheet"].get< bool >());
+        }
+        if (json.contains("Compliance") && !json["Compliance"].is_null()) {
+            m_Compliance = std::make_shared< std::wstring >( convertUtf8( json["Compliance"].get< std::string >() ));
+        }
+        if (json.contains("DefaultFont") && !json["DefaultFont"].is_null()) {
+            m_DefaultFont = std::make_shared< std::wstring >( convertUtf8( json["DefaultFont"].get< std::string >() ));
+        }
+        if (json.contains("PrintingPageType") && !json["PrintingPageType"].is_null()) {
+            m_PrintingPageType = std::make_shared< std::wstring >( convertUtf8( json["PrintingPageType"].get< std::string >() ));
+        }
+        if (json.contains("ImageType") && !json["ImageType"].is_null()) {
+            m_ImageType = std::make_shared< std::wstring >( convertUtf8( json["ImageType"].get< std::string >() ));
+        }
+        if (json.contains("DesiredPPI") && !json["DesiredPPI"].is_null()) {
+            m_DesiredPPI = std::make_shared< int >( json["DesiredPPI"].get< int >());
+        }
+        if (json.contains("JpegQuality") && !json["JpegQuality"].is_null()) {
+            m_JpegQuality = std::make_shared< int >( json["JpegQuality"].get< int >());
+        }
+        if (json.contains("SecurityOptions") && !json["SecurityOptions"].is_null()) {
+            m_SecurityOptions = std::make_shared< aspose::cells::cloud::models::PdfSecurityOptions >();
+            m_SecurityOptions->fromJson(&json["SecurityOptions"]);
+        }
+    }
+    std::shared_ptr< bool > PdfSaveOptions::getCalculateFormula() const
+    {
+        return m_CalculateFormula;
+    }
+    void PdfSaveOptions::setCalculateFormula( std::shared_ptr< bool > value)
+    {
+        m_CalculateFormula = value;
+    }
+    std::shared_ptr< bool > PdfSaveOptions::getCheckFontCompatibility() const
+    {
+        return m_CheckFontCompatibility;
+    }
+    void PdfSaveOptions::setCheckFontCompatibility( std::shared_ptr< bool > value)
+    {
+        m_CheckFontCompatibility = value;
+    }
+    std::shared_ptr< bool > PdfSaveOptions::getOnePagePerSheet() const
+    {
+        return m_OnePagePerSheet;
+    }
+    void PdfSaveOptions::setOnePagePerSheet( std::shared_ptr< bool > value)
+    {
+        m_OnePagePerSheet = value;
+    }
+    std::shared_ptr< std::wstring > PdfSaveOptions::getCompliance() const
+    {
+        return m_Compliance;
+    }
+    void PdfSaveOptions::setCompliance( std::shared_ptr< std::wstring > value)
+    {
+        m_Compliance = value;
+    }
+    std::shared_ptr< std::wstring > PdfSaveOptions::getDefaultFont() const
+    {
+        return m_DefaultFont;
+    }
+    void PdfSaveOptions::setDefaultFont( std::shared_ptr< std::wstring > value)
+    {
+        m_DefaultFont = value;
+    }
+    std::shared_ptr< std::wstring > PdfSaveOptions::getPrintingPageType() const
+    {
+        return m_PrintingPageType;
+    }
+    void PdfSaveOptions::setPrintingPageType( std::shared_ptr< std::wstring > value)
+    {
+        m_PrintingPageType = value;
+    }
+    std::shared_ptr< std::wstring > PdfSaveOptions::getImageType() const
+    {
+        return m_ImageType;
+    }
+    void PdfSaveOptions::setImageType( std::shared_ptr< std::wstring > value)
+    {
+        m_ImageType = value;
+    }
+    std::shared_ptr< int > PdfSaveOptions::getDesiredPPI() const
+    {
+        return m_DesiredPPI;
+    }
+    void PdfSaveOptions::setDesiredPPI( std::shared_ptr< int > value)
+    {
+        m_DesiredPPI = value;
+    }
+    std::shared_ptr< int > PdfSaveOptions::getJpegQuality() const
+    {
+        return m_JpegQuality;
+    }
+    void PdfSaveOptions::setJpegQuality( std::shared_ptr< int > value)
+    {
+        m_JpegQuality = value;
+    }
+    std::shared_ptr< aspose::cells::cloud::models::PdfSecurityOptions > PdfSaveOptions::getSecurityOptions() const
+    {
+        return m_SecurityOptions;
+    }
+    void PdfSaveOptions::setSecurityOptions( std::shared_ptr< aspose::cells::cloud::models::PdfSecurityOptions > value)
+    {
+        m_SecurityOptions = value;
+    }
+    /// <summary>
+    /// PdfSecurityOptions class implementation
+    /// </summary>
+    void PdfSecurityOptions::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_AnnotationsPermission) {
+            json["AnnotationsPermission"] =*m_AnnotationsPermission;
+        }
+        if (m_AssembleDocumentPermission) {
+            json["AssembleDocumentPermission"] =*m_AssembleDocumentPermission;
+        }
+        if (m_ExtractContentPermission) {
+            json["ExtractContentPermission"] =*m_ExtractContentPermission;
+        }
+        if (m_ExtractContentPermissionObsolete) {
+            json["ExtractContentPermissionObsolete"] =*m_ExtractContentPermissionObsolete;
+        }
+        if (m_FillFormsPermission) {
+            json["FillFormsPermission"] =*m_FillFormsPermission;
+        }
+        if (m_FullQualityPrintPermission) {
+            json["FullQualityPrintPermission"] =*m_FullQualityPrintPermission;
+        }
+        if (m_ModifyDocumentPermission) {
+            json["ModifyDocumentPermission"] =*m_ModifyDocumentPermission;
+        }
+        if (m_OwnerPassword) {
+            json["OwnerPassword"] = convertUtf16(*m_OwnerPassword);
+        }
+        if (m_PrintPermission) {
+            json["PrintPermission"] =*m_PrintPermission;
+        }
+        if (m_UserPassword) {
+            json["UserPassword"] = convertUtf16(*m_UserPassword);
+        }
+    }
+    void PdfSecurityOptions::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("AnnotationsPermission") && !json["AnnotationsPermission"].is_null()) {
+            m_AnnotationsPermission = std::make_shared< bool >( json["AnnotationsPermission"].get< bool >());
+        }
+        if (json.contains("AssembleDocumentPermission") && !json["AssembleDocumentPermission"].is_null()) {
+            m_AssembleDocumentPermission = std::make_shared< bool >( json["AssembleDocumentPermission"].get< bool >());
+        }
+        if (json.contains("ExtractContentPermission") && !json["ExtractContentPermission"].is_null()) {
+            m_ExtractContentPermission = std::make_shared< bool >( json["ExtractContentPermission"].get< bool >());
+        }
+        if (json.contains("ExtractContentPermissionObsolete") && !json["ExtractContentPermissionObsolete"].is_null()) {
+            m_ExtractContentPermissionObsolete = std::make_shared< bool >( json["ExtractContentPermissionObsolete"].get< bool >());
+        }
+        if (json.contains("FillFormsPermission") && !json["FillFormsPermission"].is_null()) {
+            m_FillFormsPermission = std::make_shared< bool >( json["FillFormsPermission"].get< bool >());
+        }
+        if (json.contains("FullQualityPrintPermission") && !json["FullQualityPrintPermission"].is_null()) {
+            m_FullQualityPrintPermission = std::make_shared< bool >( json["FullQualityPrintPermission"].get< bool >());
+        }
+        if (json.contains("ModifyDocumentPermission") && !json["ModifyDocumentPermission"].is_null()) {
+            m_ModifyDocumentPermission = std::make_shared< bool >( json["ModifyDocumentPermission"].get< bool >());
+        }
+        if (json.contains("OwnerPassword") && !json["OwnerPassword"].is_null()) {
+            m_OwnerPassword = std::make_shared< std::wstring >( convertUtf8( json["OwnerPassword"].get< std::string >() ));
+        }
+        if (json.contains("PrintPermission") && !json["PrintPermission"].is_null()) {
+            m_PrintPermission = std::make_shared< bool >( json["PrintPermission"].get< bool >());
+        }
+        if (json.contains("UserPassword") && !json["UserPassword"].is_null()) {
+            m_UserPassword = std::make_shared< std::wstring >( convertUtf8( json["UserPassword"].get< std::string >() ));
+        }
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getAnnotationsPermission() const
+    {
+        return m_AnnotationsPermission;
+    }
+    void PdfSecurityOptions::setAnnotationsPermission( std::shared_ptr< bool > value)
+    {
+        m_AnnotationsPermission = value;
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getAssembleDocumentPermission() const
+    {
+        return m_AssembleDocumentPermission;
+    }
+    void PdfSecurityOptions::setAssembleDocumentPermission( std::shared_ptr< bool > value)
+    {
+        m_AssembleDocumentPermission = value;
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getExtractContentPermission() const
+    {
+        return m_ExtractContentPermission;
+    }
+    void PdfSecurityOptions::setExtractContentPermission( std::shared_ptr< bool > value)
+    {
+        m_ExtractContentPermission = value;
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getExtractContentPermissionObsolete() const
+    {
+        return m_ExtractContentPermissionObsolete;
+    }
+    void PdfSecurityOptions::setExtractContentPermissionObsolete( std::shared_ptr< bool > value)
+    {
+        m_ExtractContentPermissionObsolete = value;
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getFillFormsPermission() const
+    {
+        return m_FillFormsPermission;
+    }
+    void PdfSecurityOptions::setFillFormsPermission( std::shared_ptr< bool > value)
+    {
+        m_FillFormsPermission = value;
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getFullQualityPrintPermission() const
+    {
+        return m_FullQualityPrintPermission;
+    }
+    void PdfSecurityOptions::setFullQualityPrintPermission( std::shared_ptr< bool > value)
+    {
+        m_FullQualityPrintPermission = value;
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getModifyDocumentPermission() const
+    {
+        return m_ModifyDocumentPermission;
+    }
+    void PdfSecurityOptions::setModifyDocumentPermission( std::shared_ptr< bool > value)
+    {
+        m_ModifyDocumentPermission = value;
+    }
+    std::shared_ptr< std::wstring > PdfSecurityOptions::getOwnerPassword() const
+    {
+        return m_OwnerPassword;
+    }
+    void PdfSecurityOptions::setOwnerPassword( std::shared_ptr< std::wstring > value)
+    {
+        m_OwnerPassword = value;
+    }
+    std::shared_ptr< bool > PdfSecurityOptions::getPrintPermission() const
+    {
+        return m_PrintPermission;
+    }
+    void PdfSecurityOptions::setPrintPermission( std::shared_ptr< bool > value)
+    {
+        m_PrintPermission = value;
+    }
+    std::shared_ptr< std::wstring > PdfSecurityOptions::getUserPassword() const
+    {
+        return m_UserPassword;
+    }
+    void PdfSecurityOptions::setUserPassword( std::shared_ptr< std::wstring > value)
+    {
+        m_UserPassword = value;
+    }
+
+    /// <summary>
+    /// SaveResult class implementation
+    /// </summary>
+    void SaveResult::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Documents) {
+            json["Documents"] = ::nlohmann::json::array();
+            for (auto& element : *m_Documents) {
+                element->toJson(&json["Documents"].emplace_back());
+            }
+        }
+    }
+    void SaveResult::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("Documents") && !json["Documents"].is_null()) {
+            m_Documents = std::make_shared< std::vector< std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>> >();
+            for (auto& element : *m_Documents) {
+                m_Documents->emplace_back( std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>())->fromJson(&element);
+            }
+        }
+    }
+    std::shared_ptr< std::vector< std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>> > SaveResult::getDocuments() const
+    {
+        return m_Documents;
+    }
+    void SaveResult::setDocuments( std::shared_ptr< std::vector< std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>> > value)
+    {
+        m_Documents = value;
+    }
+    /// <summary>
+    /// SaveResponse class implementation
+    /// </summary>
+    void SaveResponse::toJson(void* jsonIfc) const
+    {
+        CellsCloudResponse::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_SaveResult) {
+            m_SaveResult->toJson(&json["SaveResult"]);
+        }
+    }
+    void SaveResponse::fromJson(const void* jsonIfc)
+    {
+        CellsCloudResponse::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("SaveResult") && !json["SaveResult"].is_null()) {
+            m_SaveResult = std::make_shared< aspose::cells::cloud::models::SaveResult >();
+            m_SaveResult->fromJson(&json["SaveResult"]);
+        }
+    }
+    std::shared_ptr< aspose::cells::cloud::models::SaveResult > SaveResponse::getSaveResult() const
+    {
+        return m_SaveResult;
+    }
+    void SaveResponse::setSaveResult( std::shared_ptr< aspose::cells::cloud::models::SaveResult > value)
+    {
+        m_SaveResult = value;
+    }
+    /// <summary>
+    /// CellsCloudResponse class implementation
+    /// </summary>
+    void CellsCloudResponse::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Status) {
+            json["Status"] = convertUtf16(*m_Status);
+        }
+        if (m_Code) {
+            json["Code"] =*m_Code;
+        }
+    }
+    void CellsCloudResponse::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("Status") && !json["Status"].is_null()) {
+            m_Status = std::make_shared< std::wstring >( convertUtf8( json["Status"].get< std::string >() ));
+        }
+        if (json.contains("Code") && !json["Code"].is_null()) {
+            m_Code = std::make_shared< int >( json["Code"].get< int >());
+        }
+    }
+    std::shared_ptr< std::wstring > CellsCloudResponse::getStatus() const
+    {
+        return m_Status;
+    }
+    void CellsCloudResponse::setStatus( std::shared_ptr< std::wstring > value)
+    {
+        m_Status = value;
+    }
+    std::shared_ptr< int > CellsCloudResponse::getCode() const
+    {
+        return m_Code;
+    }
+    void CellsCloudResponse::setCode( std::shared_ptr< int > value)
+    {
+        m_Code = value;
+    }
+    /// <summary>
+    /// CellsCloudFileInfo class implementation
+    /// </summary>
+    void CellsCloudFileInfo::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Name) {
+            json["Name"] = convertUtf16(*m_Name);
+        }
+        if (m_Size) {
+            json["Size"] =*m_Size;
+        }
+        if (m_Folder) {
+            json["Folder"] = convertUtf16(*m_Folder);
+        }
+        if (m_Storage) {
+            json["Storage"] = convertUtf16(*m_Storage);
+        }
+    }
+    void CellsCloudFileInfo::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("Name") && !json["Name"].is_null()) {
+            m_Name = std::make_shared< std::wstring >( convertUtf8( json["Name"].get< std::string >() ));
+        }
+        if (json.contains("Size") && !json["Size"].is_null()) {
+            m_Size = std::make_shared< int >( json["Size"].get< int >());
+        }
+        if (json.contains("Folder") && !json["Folder"].is_null()) {
+            m_Folder = std::make_shared< std::wstring >( convertUtf8( json["Folder"].get< std::string >() ));
+        }
+        if (json.contains("Storage") && !json["Storage"].is_null()) {
+            m_Storage = std::make_shared< std::wstring >( convertUtf8( json["Storage"].get< std::string >() ));
+        }
+    }
+    std::shared_ptr< std::wstring > CellsCloudFileInfo::getName() const
+    {
+        return m_Name;
+    }
+    void CellsCloudFileInfo::setName( std::shared_ptr< std::wstring > value)
+    {
+        m_Name = value;
+    }
+    std::shared_ptr< int > CellsCloudFileInfo::getSize() const
+    {
+        return m_Size;
+    }
+    void CellsCloudFileInfo::setSize( std::shared_ptr< int > value)
+    {
+        m_Size = value;
+    }
+    std::shared_ptr< std::wstring > CellsCloudFileInfo::getFolder() const
+    {
+        return m_Folder;
+    }
+    void CellsCloudFileInfo::setFolder( std::shared_ptr< std::wstring > value)
+    {
+        m_Folder = value;
+    }
+    std::shared_ptr< std::wstring > CellsCloudFileInfo::getStorage() const
+    {
+        return m_Storage;
+    }
+    void CellsCloudFileInfo::setStorage( std::shared_ptr< std::wstring > value)
+    {
+        m_Storage = value;
+    }
+    /// <summary>
+    /// SplitResult class implementation
+    /// </summary>
+    void SplitResult::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Documents) {
+            json["Documents"] = ::nlohmann::json::array();
+            for (auto& element : *m_Documents) {
+                element->toJson(&json["Documents"].emplace_back());
+            }
+        }
+    }
+    void SplitResult::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("Documents") && !json["Documents"].is_null()) {
+            m_Documents = std::make_shared< std::vector< std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>> >();
+            for (auto& element : *m_Documents) {
+                m_Documents->emplace_back( std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>())->fromJson(&element);
+            }
+        }
+    }
+    std::shared_ptr< std::vector< std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>> > SplitResult::getDocuments() const
+    {
+        return m_Documents;
+    }
+    void SplitResult::setDocuments( std::shared_ptr< std::vector< std::shared_ptr<aspose::cells::cloud::models::CellsCloudFileInfo>> > value)
+    {
+        m_Documents = value;
+    }
+    /// <summary>
+    /// SplitResultResponse class implementation
+    /// </summary>
+    void SplitResultResponse::toJson(void* jsonIfc) const
+    {
+        CellsCloudResponse::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Result) {
+            m_Result->toJson(&json["Result"]);
+        }
+    }
+    void SplitResultResponse::fromJson(const void* jsonIfc)
+    {
+        CellsCloudResponse::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("Result") && !json["Result"].is_null()) {
+            m_Result = std::make_shared< aspose::cells::cloud::models::SplitResult >();
+            m_Result->fromJson(&json["Result"]);
+        }
+    }
+    std::shared_ptr< aspose::cells::cloud::models::SplitResult > SplitResultResponse::getResult() const
+    {
+        return m_Result;
+    }
+    void SplitResultResponse::setResult( std::shared_ptr< aspose::cells::cloud::models::SplitResult > value)
+    {
+        m_Result = value;
+    }
+    /// <summary>
+    /// SplitResultDocument class implementation
+    /// </summary>
+    void SplitResultDocument::toJson(void* jsonIfc) const
+    {
+        Link::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Id) {
+            json["Id"] =*m_Id;
+        }
+    }
+    void SplitResultDocument::fromJson(const void* jsonIfc)
+    {
+        Link::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("Id") && !json["Id"].is_null()) {
+            m_Id = std::make_shared< int >( json["Id"].get< int >());
+        }
+    }
+    std::shared_ptr< int > SplitResultDocument::getId() const
+    {
+        return m_Id;
+    }
+    void SplitResultDocument::setId( std::shared_ptr< int > value)
+    {
+        m_Id = value;
+    }        
 }

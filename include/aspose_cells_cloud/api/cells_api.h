@@ -38,6 +38,8 @@
 #include "aspose_cells_cloud/requests/get_files_list_request.h"
 #include "aspose_cells_cloud/requests/move_file_request.h"
 #include "aspose_cells_cloud/requests/move_folder_request.h"
+#include "aspose_cells_cloud/requests/post_split_request.h"
+#include "aspose_cells_cloud/requests/post_workbook_split_request.h"
 #include "aspose_cells_cloud/requests/upload_file_request.h"
 #include "aspose_cells_cloud/responses/create_folder_response.h"
 #include "aspose_cells_cloud/responses/copy_file_response.h"
@@ -152,73 +154,6 @@ namespace aspose::cells::cloud::api {
         /// <param name="destStorageName">Destination storage name.</param>
         ASPOSE_CELLS_CLOUD_EXPORT void moveFolder(std::shared_ptr<aspose::cells::cloud::requests::MoveFolderRequest> request);
 
-
-        // /// <summary>
-        // /// Replaces text in the document.
-        // /// </summary>
-        // /// <param name="name">The filename of the input document.</param>
-        // /// <param name="replaceText">The replace operation settings.</param>
-        // /// <param name="folder">Original document folder.</param>
-        // /// <param name="storage">Original document storage.</param>
-        // /// <param name="loadEncoding">Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.</param>
-        // /// <param name="password">Password for opening an encrypted document.</param>
-        // /// <param name="destFileName">Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.</param>
-        // /// <param name="revisionAuthor">Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.</param>
-        // /// <param name="revisionDateTime">The date and time to use for revisions.</param>
-        // ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::ReplaceTextResponse > replaceText(std::shared_ptr<aspose::cells::cloud::requests::ReplaceTextRequest> request);
-
-        // /// <summary>
-        // /// Converts a document in cloud storage to the specified format.
-        // /// </summary>
-        // /// <param name="name">The filename of the input document.</param>
-        // /// <param name="saveOptionsData">Save options.</param>
-        // /// <param name="folder">Original document folder.</param>
-        // /// <param name="storage">Original document storage.</param>
-        // /// <param name="loadEncoding">Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.</param>
-        // /// <param name="password">Password for opening an encrypted document.</param>
-        // /// <param name="fontsLocation">Folder in filestorage with custom fonts.</param>
-        // ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SaveResponse > saveAs(std::shared_ptr<aspose::cells::cloud::requests::SaveAsRequest> request);
-
-
-        // /// <summary>
-        // /// Searches text, specified by the regular expression, in the document.
-        // /// </summary>
-        // /// <param name="name">The filename of the input document.</param>
-        // /// <param name="pattern">The regular expression used to find matches.</param>
-        // /// <param name="folder">Original document folder.</param>
-        // /// <param name="storage">Original document storage.</param>
-        // /// <param name="loadEncoding">Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.</param>
-        // /// <param name="password">Password for opening an encrypted document.</param>
-        // ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SearchResponse > search(std::shared_ptr<aspose::cells::cloud::requests::SearchRequest> request);
-
-        // /// <summary>
-        // /// Splits a document into parts and saves them in the specified format.
-        // /// </summary>
-        // /// <param name="name">The filename of the input document.</param>
-        // /// <param name="format">The format to split.</param>
-        // /// <param name="folder">Original document folder.</param>
-        // /// <param name="storage">Original document storage.</param>
-        // /// <param name="loadEncoding">Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.</param>
-        // /// <param name="password">Password for opening an encrypted document.</param>
-        // /// <param name="destFileName">Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.</param>
-        // /// <param name="from">The start page.</param>
-        // /// <param name="to">The end page.</param>
-        // /// <param name="zipOutput">The flag indicating whether to ZIP the output.</param>
-        // /// <param name="fontsLocation">Folder in filestorage with custom fonts.</param>
-        // ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SplitDocumentResponse > splitDocument(std::shared_ptr<aspose::cells::cloud::requests::SplitDocumentRequest> request);
-
-        // /// <summary>
-        // /// Removes protection from the document.
-        // /// </summary>
-        // /// <param name="name">The filename of the input document.</param>
-        // /// <param name="protectionRequest">Protection request.</param>
-        // /// <param name="folder">Original document folder.</param>
-        // /// <param name="storage">Original document storage.</param>
-        // /// <param name="loadEncoding">Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.</param>
-        // /// <param name="password">Password for opening an encrypted document.</param>
-        // /// <param name="destFileName">Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.</param>
-        // ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::ProtectionDataResponse > unprotectDocument(std::shared_ptr<aspose::cells::cloud::requests::UnprotectDocumentRequest> request);
-
         /// <summary>
         /// Upload file.
         /// </summary>
@@ -254,12 +189,74 @@ namespace aspose::cells::cloud::api {
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< std::istream > getWorkbook(std::shared_ptr<aspose::cells::cloud::requests::GetWorkbookRequest> request);
 
         /// <summary>
-        /// Converts an Excel file on a local drive to the specified format.
+        /// Protect an Excel file on a local drive.
         /// </summary>
         /// <param name="name">Converting excel name.</param>
         /// <param name="password">The password of the excel file</param>
         /// <param name="saveOption">Folder in filestorage with custom fonts.</param>
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult > protectWorkbook(std::shared_ptr<aspose::cells::cloud::requests::ProtectWorkbookRequest> request);
+
+        /// <summary>
+        /// Protect an Excel file on a cloud drive.
+        /// </summary>
+        /// <param name="name">Converting excel name.</param>
+        /// <param name="password">The password of the excel file</param>
+        /// <param name="saveOption">Folder in filestorage with custom fonts.</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::CellsResponse > protectWorkbook(std::shared_ptr<aspose::cells::cloud::requests::EncryptionWorkbookRequest> request);
+
+        /// <summary>
+        /// Convert document and save result to storage.
+        /// </summary>
+        /// <param name="name">The document name.</param>
+        /// <param name="saveOptions">Save options.</param>
+        /// <param name="newfilename">The new file name.</param>
+        /// <param name="isAutoFitRows">False</param>
+        /// <param name="isAutoFitColumns">False</param>
+        /// <param name="folder">The document folder.</param>
+        /// <param name="storageName">storage name.</param>
+        /// <param name="outStorageName">output storage name.</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SaveResponse > postDocumentSaveAs(std::shared_ptr<aspose::cells::cloud::requests::postDocumentSaveAsRequest> request);
+        
+        /// <summary>
+        /// Split workbook.
+        /// </summary>
+        /// <param name="name">The workbook name.</param>
+        /// <param name="format">Split format.</param>
+        /// <param name="from">0</param>
+        /// <param name="to">0</param>
+        /// <param name="horizontalResolution">0</param>
+        /// <param name="verticalResolution">0</param>
+        /// <param name="folder">The workbook folder.</param>
+        /// <param name="outFolder">out Folder.</param>
+        /// <param name="storageName">storage name.</param>
+        /// <param name="outStorageName">output storage name.</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SplitResultResponse> postWorkbookSplit(std::shared_ptr<aspose::cells::cloud::requests::PostWorkbookSplitRequest> request);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file">File to upload</param>
+        /// <param name="format"> </param>
+        /// <param name="password"> </param>
+        /// <param name="from"> </param>
+        /// <param name="to"> </param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> postSplit(std::shared_ptr<aspose::cells::cloud::requests::PostSplitRequest> request);
+        /// <summary>
+        /// Merge workbooks.
+        /// </summary>
+        /// <param name="name">Workbook name.</param>
+        /// <param name="mergeWith">The workbook to merge with.</param>
+        /// <param name="folder">Source workbook folder.</param>
+        /// <param name="storageName">storage name.</param>
+        /// <param name="mergedStorageName">merged file storage name.</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::WorkbookResponse> postWorkbooksMerge(std::shared_ptr<aspose::cells::cloud::requests::PostWorkbooksMergeRequest> request);
+                /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file">File to upload</param>
+        /// <param name="format">xlsx</param>
+        /// <param name="mergeToOneSheet">False</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo> postMerge(std::shared_ptr<aspose::cells::cloud::requests::PostMergeRequest> request);
 
     public:
         ASPOSE_CELLS_CLOUD_EXPORT CellsApi(std::shared_ptr<ApiConfiguration> configuration);

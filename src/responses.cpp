@@ -288,6 +288,96 @@ namespace aspose::cells::cloud::responses {
         auto json = ::nlohmann::json::parse(response);
         m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
         m_Result->fromJson(&json);
-        // m_Result = std::shared_ptr< std::istream >(new std::istringstream(std::string(response), std::ios_base::in));
     }
+
+    /*
+     * Protect online Workbook  Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::CellsResponse  > EncryptionWorkbookResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void EncryptionWorkbookResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::CellsResponse >();
+        m_Result->fromJson(&json);
+    }    
+    /*
+     * postDocumentSaveAsResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::SaveResponse > postDocumentSaveAsResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void postDocumentSaveAsResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::SaveResponse >();
+        m_Result->fromJson(&json);
+    }
+    /*
+     * PostWorkbookSplitResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::SplitResultResponse > PostWorkbookSplitResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostWorkbookSplitResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::SplitResultResponse >();
+        m_Result->fromJson(&json);
+    }
+    /*
+     * PostSplitResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > PostSplitResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostSplitResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    }    
+
+    /*
+     * PostMergeResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > PostMergeResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostMergeResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }
+    /*
+     * PostWorkbooksMergeResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::WorkbookResponse > PostWorkbooksMergeResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostWorkbooksMergeResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::WorkbookResponse >();
+        m_Result->fromJson(&json);
+    }        
 }

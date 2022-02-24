@@ -1,5 +1,6 @@
-﻿/** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="protect_workbook_request.h">
+
+/** --------------------------------------------------------------------------------------------------------------------
+* <copyright company="Aspose" file=" post_merge_request.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -21,28 +22,34 @@
 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 *  SOFTWARE.
 * </summary> 
--------------------------------------------------------------------------------------------------------------------- **/
+-------------------------------------------------------------------------------------------------------------------- **/   
+        
 
 #pragma once
+#include <map>
 #include "./request_model_base.h"
 
 namespace aspose::cells::cloud::requests {
-    class ProtectWorkbookRequest : public RequestModelBase {
+    class PostMergeRequest : public RequestModelBase {
     public:
-        ASPOSE_CELLS_CLOUD_EXPORT ProtectWorkbookRequest(
+        ASPOSE_CELLS_CLOUD_EXPORT PostMergeRequest(            
             const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> files,
-            const std::shared_ptr< std::wstring > password
+            const std::shared_ptr< std::wstring > format =  nullptr,
+            const std::shared_ptr< bool > mergeToOneSheet =  nullptr
         );
-
+        
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream > > > getFiles() const;
-        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPassword() const;        
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getFormat() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< bool > getMergeToOneSheet() const;
 
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
 
     private:
-        const std::shared_ptr< std::wstring > m_Password;
+        
         const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > m_Files;
+        const std::shared_ptr<  std::wstring > m_Format;
+        const std::shared_ptr<  bool > m_MergeToOneSheet;
 
     };
 }

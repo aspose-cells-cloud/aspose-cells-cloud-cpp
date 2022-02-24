@@ -1,5 +1,5 @@
 ﻿/** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="protect_workbook_request.h">
+* <copyright company="Aspose" file="convert_document_response.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -24,25 +24,17 @@
 -------------------------------------------------------------------------------------------------------------------- **/
 
 #pragma once
-#include "./request_model_base.h"
+#include "./response_model_base.h"
 
-namespace aspose::cells::cloud::requests {
-    class ProtectWorkbookRequest : public RequestModelBase {
-    public:
-        ASPOSE_CELLS_CLOUD_EXPORT ProtectWorkbookRequest(
-            const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> files,
-            const std::shared_ptr< std::wstring > password
-        );
+namespace aspose::cells::cloud::responses {
+    class EncryptionWorkbookResponse : public ResponseModelBase {
+    public: 
+        ASPOSE_CELLS_CLOUD_EXPORT virtual ~EncryptionWorkbookResponse() = default;
 
-        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream > > > getFiles() const;
-        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPassword() const;        
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::CellsResponse > getResult() const;
 
-        ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
-        ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
-
+        ASPOSE_CELLS_CLOUD_EXPORT virtual void deserialize(const std::string_view& response) override;
     private:
-        const std::shared_ptr< std::wstring > m_Password;
-        const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > m_Files;
-
+        std::shared_ptr< aspose::cells::cloud::models::CellsResponse > m_Result;
     };
 }

@@ -168,4 +168,68 @@ namespace aspose::cells::cloud::api {
         }
         return response->getResult();
     }
+
+    std::shared_ptr< aspose::cells::cloud::models::CellsResponse > CellsApi::protectWorkbook(std::shared_ptr<aspose::cells::cloud::requests::EncryptionWorkbookRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::EncryptionWorkbookResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+        return response->getResult();
+    }
+
+    std::shared_ptr< aspose::cells::cloud::models::SaveResponse>  CellsApi::postDocumentSaveAs(std::shared_ptr<aspose::cells::cloud::requests::postDocumentSaveAsRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::postDocumentSaveAsResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }    
+    
+    std::shared_ptr< aspose::cells::cloud::models::SplitResultResponse>  CellsApi::postWorkbookSplit(std::shared_ptr<aspose::cells::cloud::requests::PostWorkbookSplitRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostWorkbookSplitResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }
+    
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::postSplit(std::shared_ptr<aspose::cells::cloud::requests::PostSplitRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostSplitResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }    
+
+    std::shared_ptr< aspose::cells::cloud::models::WorkbookResponse>  CellsApi::postWorkbooksMerge(std::shared_ptr<aspose::cells::cloud::requests::PostWorkbooksMergeRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostWorkbooksMergeResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo>  CellsApi::postMerge(std::shared_ptr<aspose::cells::cloud::requests::PostMergeRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostMergeResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }
 }

@@ -1,5 +1,5 @@
-﻿/** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="protect_test.h">
+/** --------------------------------------------------------------------------------------------------------------------
+* <copyright company="Aspose" file="merge_test.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -28,7 +28,7 @@
 /// <summary>
 /// Example of how to work with files.
 /// </summary>
-class ProtectTests : public InfrastructureTest {
+class MergeTests : public InfrastructureTest {
 protected:
     std::wstring remoteDataFolder = remoteBaseTestDataFolder + L"/Storage";
     std::wstring localFile = L"source/Book1.xlsx";
@@ -38,27 +38,28 @@ protected:
 /// <summary>
 /// Test for convert file.
 /// </summary>
-TEST_F(ProtectTests, TestProtectFile) {
-    std::wstring remoteFileName = L"TestProtectFile_CPP.xlsx";
+TEST_F(MergeTests, PostMergeTests) {
+    std::wstring remoteFileName = L"TestMerge_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
     std::map< std::wstring ,std::shared_ptr<  std::istream > > files;    
     files.insert( std::pair< std::wstring ,std::shared_ptr<  std::istream >>( std::wstring( L"Book1.xlsx"), std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary)) ) );
     files.insert( std::pair< std::wstring ,std::shared_ptr<  std::istream >>( std::wstring( L"myDocument.xlsx"), std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile2)), std::istream::binary)) ) );
     std::shared_ptr<std::map< std::wstring ,std::shared_ptr<  std::istream >>> ptrFiles =   std::make_shared<std::map<  std::wstring  ,std::shared_ptr<  std::istream > >>(files);
-        
-    std::shared_ptr<requests::ProtectWorkbookRequest> request(new requests::ProtectWorkbookRequest(
+    std::shared_ptr<requests::PostMergeRequest> request(new requests::PostMergeRequest(
         ptrFiles,
-        std::make_shared< std::wstring >(L"12345") 
+        std::make_shared< std::wstring >(L"pdf"),
+        nullptr
     ));
 
-    auto actual = getApi()->protectWorkbook(request);
+    auto actual = getApi()->postMerge(request);
 
 }
 
 /// <summary>
 /// Test for convert file.
 /// </summary>
-TEST_F(ProtectTests, TestProtectOnlineFile) {
-    std::wstring remoteFileName = L"TestProtectOnlineFile_CPP.xlsx";
+TEST_F(MergeTests, PostWorkbookMergeTests) {
+    std::wstring remoteFileName = L"TestMergeWorkbook_CPP.xlsx";
     auto requestFileContent = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
     std::shared_ptr<requests::UploadFileRequest> request(new requests::UploadFileRequest(
         requestFileContent,
@@ -66,18 +67,23 @@ TEST_F(ProtectTests, TestProtectOnlineFile) {
         nullptr
     ));
     auto actual = getApi()->uploadFile(request);
-    
-    std::shared_ptr<models::WorkbookEncryptionRequest> encryption  = std::make_shared<models::WorkbookEncryptionRequest>();
-    encryption->setPassword(std::make_shared< std::wstring >(L"123456"));
-    encryption->setEncryptionType(std::make_shared< std::wstring >(L"XOR"));
-    encryption->setKeyLength(std::make_shared< int >(128));
-    std::shared_ptr<requests::EncryptionWorkbookRequest> requestEncryption(new requests::EncryptionWorkbookRequest(
+    std::wstring remoteFileName2 = L"TestMergeMyDocument_CPP.xlsx";
+    auto requestFileContent2 = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile2)), std::istream::binary));
+    std::shared_ptr<requests::UploadFileRequest> request2(new requests::UploadFileRequest(
+        requestFileContent2,
+        std::make_shared< std::wstring >(remoteDataFolder + L"/" + remoteFileName2),
+        nullptr
+    ));
+    auto actual2 = getApi()->uploadFile(request2);
+
+    std::shared_ptr<requests::PostWorkbooksMergeRequest> requestEncryption(new requests::PostWorkbooksMergeRequest(
         std::make_shared< std::wstring >( remoteFileName ),
-        encryption,
-        std::make_shared< std::wstring >(remoteDataFolder ),
+        std::make_shared< std::wstring >(remoteDataFolder + L"/" +remoteFileName2 ),
+        std::make_shared< std::wstring >(  remoteDataFolder),
+        nullptr,
         nullptr
     ));
 
-    auto actualProtect = getApi()->protectWorkbook(requestEncryption);
+    auto actualMerge = getApi()->postWorkbooksMerge(requestEncryption);
 
 }

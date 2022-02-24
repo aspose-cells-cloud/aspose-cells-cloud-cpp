@@ -28,6 +28,9 @@
 #include "./api/folder_test.h"
 #include "./api/convert_test.h"
 #include "./api/protect_test.h"
+#include "./api/split_test.h"
+#include "./api/merge_test.h"
+
 // Include support headers
 #include <filesystem>
 #include <random>
@@ -129,9 +132,29 @@ void InfrastructureTest::uploadFileToStorage(const std::wstring& localPath, cons
     ASSERT_TRUE(result->getErrors()->size() == 0);
     ASSERT_TRUE(result->getUploaded()->size() == 1);
 }
+// std::vector<unsigned int > InfrastructureTest::FromBase64String(std::shared_ptr<std:wstring> value)
+// {
+//     char* input = value->c_str();
 
+//     while (inputLength > 0)
+// 	{
+// 		int num = (int)inputPtr[inputLength - 1];
+// 		if (num != 32 && num != 10 && num != 13 && num != 9)		
+// 		{
+// 			break;
+// 		}
+// 		inputLength--;
+// 	}
+// 	int num2 = Convert::FromBase64_ComputeResultLength(inputPtr, inputLength);
+// 	intrusive_ptr<BString> array = NEW Array1D<Byte>(num2);
+// 	Byte* ptr = &(array->At(0));
+// 	{
+// 		Convert::FromBase64_Decode(inputPtr, inputLength, ptr, num2);
+// 	}
+// 	return array;
+// }
 std::shared_ptr<api::CellsApi> InfrastructureTest::getApi()
 {
-    static std::shared_ptr<api::CellsApi> wordsApi = std::make_shared<api::CellsApi>(getConfig());
-    return wordsApi;
+    static std::shared_ptr<api::CellsApi> cellsApi = std::make_shared<api::CellsApi>(getConfig());
+    return cellsApi;
 }

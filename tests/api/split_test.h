@@ -1,5 +1,5 @@
-﻿/** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="protect_test.h">
+/** --------------------------------------------------------------------------------------------------------------------
+* <copyright company="Aspose" file="split_test.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -28,37 +28,42 @@
 /// <summary>
 /// Example of how to work with files.
 /// </summary>
-class ProtectTests : public InfrastructureTest {
+class SplitTests : public InfrastructureTest {
 protected:
     std::wstring remoteDataFolder = remoteBaseTestDataFolder + L"/Storage";
     std::wstring localFile = L"source/Book1.xlsx";
     std::wstring localFile2 = L"source/myDocument.xlsx";
+
 };
 
 /// <summary>
 /// Test for convert file.
 /// </summary>
-TEST_F(ProtectTests, TestProtectFile) {
-    std::wstring remoteFileName = L"TestProtectFile_CPP.xlsx";
+TEST_F(SplitTests, PostSplitTests) {
+    std::wstring remoteFileName = L"TestSplit_CPP.xlsx";
     std::map< std::wstring ,std::shared_ptr<  std::istream > > files;    
     files.insert( std::pair< std::wstring ,std::shared_ptr<  std::istream >>( std::wstring( L"Book1.xlsx"), std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary)) ) );
     files.insert( std::pair< std::wstring ,std::shared_ptr<  std::istream >>( std::wstring( L"myDocument.xlsx"), std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile2)), std::istream::binary)) ) );
     std::shared_ptr<std::map< std::wstring ,std::shared_ptr<  std::istream >>> ptrFiles =   std::make_shared<std::map<  std::wstring  ,std::shared_ptr<  std::istream > >>(files);
-        
-    std::shared_ptr<requests::ProtectWorkbookRequest> request(new requests::ProtectWorkbookRequest(
+      
+    
+    std::shared_ptr<requests::PostSplitRequest> request(new requests::PostSplitRequest(
         ptrFiles,
-        std::make_shared< std::wstring >(L"12345") 
+        std::make_shared< std::wstring >(L"pdf"),
+        nullptr,
+        nullptr,
+        nullptr
     ));
 
-    auto actual = getApi()->protectWorkbook(request);
+    auto actual = getApi()->postSplit(request);
 
 }
 
 /// <summary>
 /// Test for convert file.
 /// </summary>
-TEST_F(ProtectTests, TestProtectOnlineFile) {
-    std::wstring remoteFileName = L"TestProtectOnlineFile_CPP.xlsx";
+TEST_F(SplitTests, PostWorkbookSplitTests) {
+    std::wstring remoteFileName = L"TestSplitWorkbook_CPP.xlsx";
     auto requestFileContent = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
     std::shared_ptr<requests::UploadFileRequest> request(new requests::UploadFileRequest(
         requestFileContent,
@@ -67,17 +72,20 @@ TEST_F(ProtectTests, TestProtectOnlineFile) {
     ));
     auto actual = getApi()->uploadFile(request);
     
-    std::shared_ptr<models::WorkbookEncryptionRequest> encryption  = std::make_shared<models::WorkbookEncryptionRequest>();
-    encryption->setPassword(std::make_shared< std::wstring >(L"123456"));
-    encryption->setEncryptionType(std::make_shared< std::wstring >(L"XOR"));
-    encryption->setKeyLength(std::make_shared< int >(128));
-    std::shared_ptr<requests::EncryptionWorkbookRequest> requestEncryption(new requests::EncryptionWorkbookRequest(
+
+    std::shared_ptr<requests::PostWorkbookSplitRequest> requestEncryption(new requests::PostWorkbookSplitRequest(
         std::make_shared< std::wstring >( remoteFileName ),
-        encryption,
-        std::make_shared< std::wstring >(remoteDataFolder ),
+        std::make_shared< std::wstring >(L"pdf"),
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr,
+        std::make_shared< std::wstring >(  remoteDataFolder),
+        nullptr,
+        nullptr,
         nullptr
     ));
 
-    auto actualProtect = getApi()->protectWorkbook(requestEncryption);
+    auto actualSplit = getApi()->postWorkbookSplit(requestEncryption);
 
 }

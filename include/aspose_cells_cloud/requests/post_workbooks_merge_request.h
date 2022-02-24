@@ -1,5 +1,6 @@
-﻿/** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="protect_workbook_request.h">
+
+/** --------------------------------------------------------------------------------------------------------------------
+* <copyright company="Aspose" file=" post_workbooks_merge_request.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -21,28 +22,37 @@
 *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 *  SOFTWARE.
 * </summary> 
--------------------------------------------------------------------------------------------------------------------- **/
+-------------------------------------------------------------------------------------------------------------------- **/   
+        
 
 #pragma once
 #include "./request_model_base.h"
 
 namespace aspose::cells::cloud::requests {
-    class ProtectWorkbookRequest : public RequestModelBase {
+    class PostWorkbooksMergeRequest : public RequestModelBase {
     public:
-        ASPOSE_CELLS_CLOUD_EXPORT ProtectWorkbookRequest(
-            const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> files,
-            const std::shared_ptr< std::wstring > password
+        ASPOSE_CELLS_CLOUD_EXPORT PostWorkbooksMergeRequest(
+            const std::shared_ptr< std::wstring > name,
+            const std::shared_ptr< std::wstring > mergeWith,
+            const std::shared_ptr< std::wstring > folder =  nullptr,
+            const std::shared_ptr< std::wstring > storageName =  nullptr,
+            const std::shared_ptr< std::wstring > mergedStorageName =  nullptr
         );
-
-        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream > > > getFiles() const;
-        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPassword() const;        
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getName() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getMergeWith() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getFolder() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getStorageName() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getMergedStorageName() const;
 
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
 
     private:
-        const std::shared_ptr< std::wstring > m_Password;
-        const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > m_Files;
+        const std::shared_ptr<  std::wstring > m_Name;
+        const std::shared_ptr<  std::wstring > m_MergeWith;
+        const std::shared_ptr<  std::wstring > m_Folder;
+        const std::shared_ptr<  std::wstring > m_StorageName;
+        const std::shared_ptr<  std::wstring > m_MergedStorageName;
 
     };
 }

@@ -46,7 +46,7 @@ protected:
     std::string getFileText(const std::wstring& file);
     std::wstring getFileTextUtf16(const std::wstring& file);
     void uploadFileToStorage(const std::wstring& localPath, const std::wstring& remotePath);
-
+    // std::vector<unsigned int > FromBase64String(std::shared_ptr<std:wstring> value);
 public:
     std::shared_ptr<api::CellsApi> getApi();
 
@@ -55,8 +55,8 @@ protected:
     const std::wstring commonFolder = L"Common";
 
 #ifdef _WIN32
-    const std::wstring remoteBaseTestDataFolder = L"Temp/SdkTests/Cpp/Windows/TestData";
+    const std::wstring remoteBaseTestDataFolder = L"CppTest/Windows/TestData";
 #else
-    const std::wstring remoteBaseTestDataFolder = L"Temp/SdkTests/Cpp/Linux/TestData";
+    const std::wstring remoteBaseTestDataFolder = L"CppTest/Linux/TestData";
 #endif
 };

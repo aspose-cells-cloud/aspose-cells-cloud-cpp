@@ -8,15 +8,12 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Document Processing Features
 
 
-## Enhancements in Version 22.1
+## Enhancements in Version 22.2
 
-- Support to upload/download/copy/move/delete file.
-- Support to copy/move/delete folder.
-- Support to get the file list.
-- Support to convert local Excel file.
-- Support to convert online Excel file.
-- Support to protect local Excel file.
-
+- Add saveas apis.
+- Add split apis.
+- Add merge apis.
+- Improve protect api.
 
 ## Read & Write Spreadsheet Formats
 

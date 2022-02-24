@@ -24,9 +24,6 @@
 -------------------------------------------------------------------------------------------------------------------- **/
 
 #include <sstream>
-// #include <iostream>
-// #include <fstream>
-// #include <filesystem>
 #include "aspose_cells_cloud.h"
 
 // USE THIRD PARTY LIBS ONLY IN CPP FILES!!!
@@ -755,55 +752,39 @@ namespace aspose::cells::cloud::requests {
     */
 
     ProtectWorkbookRequest::ProtectWorkbookRequest(
-        const std::shared_ptr< std::istream > fileStream,
-        const std::shared_ptr< std::wstring > password
-        // const std::shared_ptr< bool > saveToCloud,
-        // const std::shared_ptr< std::wstring > outPath,
-        // const std::shared_ptr< std::wstring > storageName
-       
+        std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+        const std::shared_ptr< std::wstring > password       
     ) : 
-        m_FileStream(fileStream),
+        m_Files(files),
         m_Password(password)
-        // m_SaveToCloud(saveToCloud),
-        // m_OutPath(outPath),              
-        // m_StorageName(storageName)
     {
     }
 
-    // const std::shared_ptr< std::wstring > ProtectWorkbookRequest::getOutPath() const
-    // {
-    //     return m_OutPath;
-    // }
 
-    // const std::shared_ptr< bool > ProtectWorkbookRequest::getSaveToCloud() const
-    // {
-    //     return m_SaveToCloud;
-    // }
     
-    const std::shared_ptr< std::istream > ProtectWorkbookRequest::getFileStream() const
+    const  std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > ProtectWorkbookRequest::getFiles() const
     {
-        return m_FileStream;
+        return m_Files;
     }
-    // const std::shared_ptr< std::wstring > ProtectWorkbookRequest::getStorageName() const
-    // {
-    //     return m_StorageName;
-    // }
+
     const std::shared_ptr< std::wstring > ProtectWorkbookRequest::getPassword() const
     {
         return m_Password;
     }
+
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > ProtectWorkbookRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
         result->setMethod(HttpRequestMethod::HttpPOST);
         result->setPath(L"/cells/protect");
-        // if (!m_Format) throw aspose::cells::cloud::ApiException(400, L"Parameter 'm_Format' is required.");        
-        // if (m_Format) result->addQueryParam(L"format", *m_Format);
+
         if (m_Password) result->addQueryParam(L"password", *m_Password);
-        // if (m_OutPath) result->addQueryParam(L"outPath", *m_OutPath);
-        // if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
-        // result->setBody(*m_FileStream);
-        result->addFormDataParam(L"Book1.xlsx",*m_FileStream);
+        
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }       
         return result;
     }
 
@@ -811,6 +792,421 @@ namespace aspose::cells::cloud::requests {
     {
         return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
             new aspose::cells::cloud::responses::ProtectWorkbookResponse()
+        );
+    }
+
+    /*
+     * EncryptionWorkbookRequest implementation
+    */
+
+    EncryptionWorkbookRequest::EncryptionWorkbookRequest(
+        const std::shared_ptr< std::wstring > name,
+        const std::shared_ptr< aspose::cells::cloud::models::WorkbookEncryptionRequest > encryption,
+        const std::shared_ptr< std::wstring > folder,
+        const std::shared_ptr< std::wstring > storageName       
+    ):
+        m_Name(name),
+        m_Encryption(encryption),
+        m_Folder(folder),              
+        m_StorageName(storageName)
+    {
+    }
+
+    const std::shared_ptr< std::wstring > EncryptionWorkbookRequest::getName() const
+    {
+        return m_Name;
+    }
+
+    const std::shared_ptr< aspose::cells::cloud::models::WorkbookEncryptionRequest > EncryptionWorkbookRequest::getEncryption() const
+    {
+        return m_Encryption;
+    }
+    
+    const std::shared_ptr< std::wstring > EncryptionWorkbookRequest::getFolder() const
+    {
+        return m_Folder;
+    }
+
+    const std::shared_ptr< std::wstring > EncryptionWorkbookRequest::getStorageName() const
+    {
+        return m_StorageName;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > EncryptionWorkbookRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/{name}/encryption");
+        if (!m_Name) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Name' is required.");        
+        result->setPathParam(L"{name}", *m_Name);
+        if (m_Folder) result->addQueryParam(L"folder", *m_Folder);
+        if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
+        if (m_Encryption) result->setBody(*m_Encryption);
+        else throw aspose::cells::cloud::ApiException(400, L"Parameter 'm_Encryption' is required."); 
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > EncryptionWorkbookRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::EncryptionWorkbookResponse()
+        );
+    }
+    /*
+     * postDocumentSaveAsRequest implementation
+     */
+
+    postDocumentSaveAsRequest::postDocumentSaveAsRequest(
+            const std::shared_ptr< std::wstring > name,
+            const std::shared_ptr< aspose::cells::cloud::models::SaveOptions > saveOptions,
+            const std::shared_ptr< std::wstring > newfilename,
+            const std::shared_ptr< bool > isAutoFitRows,
+            const std::shared_ptr< bool > isAutoFitColumns,
+            const std::shared_ptr< std::wstring > folder,
+            const std::shared_ptr< std::wstring > storageName,
+            const std::shared_ptr< std::wstring > outStorageName
+    ) : 
+            m_Name(name),
+            m_SaveOptions(saveOptions),
+            m_Newfilename(newfilename),
+            m_IsAutoFitRows(isAutoFitRows),
+            m_IsAutoFitColumns(isAutoFitColumns),
+            m_Folder(folder),
+            m_StorageName(storageName),
+            m_OutStorageName(outStorageName)
+    {
+    }
+
+    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getName() const
+    {
+        return m_Name;
+    }
+    const std::shared_ptr< aspose::cells::cloud::models::SaveOptions > postDocumentSaveAsRequest::getSaveOptions() const
+    {
+        return m_SaveOptions;
+    }
+    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getNewfilename() const
+    {
+        return m_Newfilename;
+    }
+    const std::shared_ptr< bool > postDocumentSaveAsRequest::getIsAutoFitRows() const
+    {
+        return m_IsAutoFitRows;
+    }
+    const std::shared_ptr< bool > postDocumentSaveAsRequest::getIsAutoFitColumns() const
+    {
+        return m_IsAutoFitColumns;
+    }
+    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getFolder() const
+    {
+        return m_Folder;
+    }
+    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getStorageName() const
+    {
+        return m_StorageName;
+    }
+    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getOutStorageName() const
+    {
+        return m_OutStorageName;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > postDocumentSaveAsRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/{name}/SaveAs");
+        if (!m_Name) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Name' is required.");
+        result->setPathParam(L"{name}", *m_Name);
+        if (m_SaveOptions) result->setBody(*m_SaveOptions);
+        if (m_Newfilename) result->addQueryParam(L"newfilename", *m_Newfilename);
+        else throw aspose::cells::cloud::ApiException(400, L"Parameter 'Newfilename' is required.");
+        if (m_IsAutoFitRows) result->addQueryParam(L"isAutoFitRows", *m_IsAutoFitRows);        
+        if (m_IsAutoFitColumns) result->addQueryParam(L"isAutoFitColumns", *m_IsAutoFitColumns);        
+        if (m_Folder) result->addQueryParam(L"folder", *m_Folder);
+        if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
+        if (m_OutStorageName) result->addQueryParam(L"outStorageName", *m_OutStorageName);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > postDocumentSaveAsRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::postDocumentSaveAsResponse()
+        );
+    }
+    /*
+     * PostWorkbookSplitRequest implementation
+     */
+
+    PostWorkbookSplitRequest::PostWorkbookSplitRequest(
+            const std::shared_ptr< std::wstring > name,
+            const std::shared_ptr< std::wstring > format,
+            const std::shared_ptr< int > from,
+            const std::shared_ptr< int > to,
+            const std::shared_ptr< int > horizontalResolution,
+            const std::shared_ptr< int > verticalResolution,
+            const std::shared_ptr< std::wstring > folder,
+            const std::shared_ptr< std::wstring > outFolder,
+            const std::shared_ptr< std::wstring > storageName,
+            const std::shared_ptr< std::wstring > outStorageName
+    ) : 
+            m_Name(name),
+            m_Format(format),
+            m_From(from),
+            m_To(to),
+            m_HorizontalResolution(horizontalResolution),
+            m_VerticalResolution(verticalResolution),
+            m_Folder(folder),
+            m_OutFolder(outFolder),
+            m_StorageName(storageName),
+            m_OutStorageName(outStorageName)
+    {
+    }
+
+    const std::shared_ptr< std::wstring > PostWorkbookSplitRequest::getName() const
+    {
+        return m_Name;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbookSplitRequest::getFormat() const
+    {
+        return m_Format;
+    }
+    const std::shared_ptr< int > PostWorkbookSplitRequest::getFrom() const
+    {
+        return m_From;
+    }
+    const std::shared_ptr< int > PostWorkbookSplitRequest::getTo() const
+    {
+        return m_To;
+    }
+    const std::shared_ptr< int > PostWorkbookSplitRequest::getHorizontalResolution() const
+    {
+        return m_HorizontalResolution;
+    }
+    const std::shared_ptr< int > PostWorkbookSplitRequest::getVerticalResolution() const
+    {
+        return m_VerticalResolution;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbookSplitRequest::getFolder() const
+    {
+        return m_Folder;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbookSplitRequest::getOutFolder() const
+    {
+        return m_OutFolder;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbookSplitRequest::getStorageName() const
+    {
+        return m_StorageName;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbookSplitRequest::getOutStorageName() const
+    {
+        return m_OutStorageName;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostWorkbookSplitRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/{name}/split");
+        if (!m_Name) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Name' is required.");
+        result->setPathParam(L"{name}", *m_Name);
+        if (m_Format) result->addQueryParam(L"format", *m_Format);
+        if (m_From) result->addQueryParam(L"from", *m_From);
+        if (m_To) result->addQueryParam(L"to", *m_To);
+        if (m_HorizontalResolution) result->addQueryParam(L"horizontalResolution", *m_HorizontalResolution);
+        if (m_VerticalResolution) result->addQueryParam(L"verticalResolution", *m_VerticalResolution);
+        if (m_Folder) result->addQueryParam(L"folder", *m_Folder);
+        if (m_OutFolder) result->addQueryParam(L"outFolder", *m_OutFolder);
+        if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
+        if (m_OutStorageName) result->addQueryParam(L"outStorageName", *m_OutStorageName);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostWorkbookSplitRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostWorkbookSplitResponse()
+        );
+    }
+    /*
+     * PostSplitRequest implementation
+     */
+
+    PostSplitRequest::PostSplitRequest(
+            const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> files,
+            const std::shared_ptr< std::wstring > format,
+            const std::shared_ptr< std::wstring > password,
+            const std::shared_ptr< int > from,
+            const std::shared_ptr< int > to
+    ) : 
+            m_Files(files),
+            m_Format(format),
+            m_Password(password),
+            m_From(from),
+            m_To(to)
+    {
+    }
+
+    const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> PostSplitRequest::getFiles() const
+    {
+        return m_Files;
+    }
+    const std::shared_ptr< std::wstring > PostSplitRequest::getFormat() const
+    {
+        return m_Format;
+    }
+    const std::shared_ptr< std::wstring > PostSplitRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< int > PostSplitRequest::getFrom() const
+    {
+        return m_From;
+    }
+    const std::shared_ptr< int > PostSplitRequest::getTo() const
+    {
+        return m_To;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostSplitRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/split");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }     
+        if (m_Format) result->addQueryParam(L"format", *m_Format);
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_From) result->addQueryParam(L"from", *m_From);
+        if (m_To) result->addQueryParam(L"to", *m_To);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostSplitRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostSplitResponse()
+        );
+    }
+    
+    /*
+     * PostMergeRequest implementation
+     */
+
+    PostMergeRequest::PostMergeRequest(
+            std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+            const std::shared_ptr< std::wstring > format,
+            const std::shared_ptr< bool > mergeToOneSheet
+    ) : 
+            // m_File(file),
+            m_Files(files),
+            m_Format(format),
+            m_MergeToOneSheet(mergeToOneSheet)
+    {
+    }
+
+    // const std::shared_ptr< std::istream > PostMergeRequest::getFile() const
+    // {
+    //     return m_File;
+    // }
+    const std::shared_ptr< std::map< std::wstring,std::shared_ptr<  std::istream >> > PostMergeRequest::getFiles() const
+    {
+        return m_Files;
+    }
+    const std::shared_ptr< std::wstring > PostMergeRequest::getFormat() const
+    {
+        return m_Format;
+    }
+    const std::shared_ptr< bool > PostMergeRequest::getMergeToOneSheet() const
+    {
+        return m_MergeToOneSheet;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostMergeRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/merge");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }
+        if (m_Format) result->addQueryParam(L"format", *m_Format);
+        if (m_MergeToOneSheet) result->addQueryParam(L"mergeToOneSheet", *m_MergeToOneSheet);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostMergeRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostMergeResponse()
+        );
+    }    
+/*
+     * PostWorkbooksMergeRequest implementation
+     */
+
+    PostWorkbooksMergeRequest::PostWorkbooksMergeRequest(
+            const std::shared_ptr< std::wstring > name,
+            const std::shared_ptr< std::wstring > mergeWith,
+            const std::shared_ptr< std::wstring > folder,
+            const std::shared_ptr< std::wstring > storageName,
+            const std::shared_ptr< std::wstring > mergedStorageName
+    ) : 
+            m_Name(name),
+            m_MergeWith(mergeWith),
+            m_Folder(folder),
+            m_StorageName(storageName),
+            m_MergedStorageName(mergedStorageName)
+    {
+    }
+
+    const std::shared_ptr< std::wstring > PostWorkbooksMergeRequest::getName() const
+    {
+        return m_Name;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbooksMergeRequest::getMergeWith() const
+    {
+        return m_MergeWith;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbooksMergeRequest::getFolder() const
+    {
+        return m_Folder;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbooksMergeRequest::getStorageName() const
+    {
+        return m_StorageName;
+    }
+    const std::shared_ptr< std::wstring > PostWorkbooksMergeRequest::getMergedStorageName() const
+    {
+        return m_MergedStorageName;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostWorkbooksMergeRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/{name}/merge");
+        if (!m_Name) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Name' is required.");
+        result->setPathParam(L"{name}", *m_Name);
+        if (!m_MergeWith) throw aspose::cells::cloud::ApiException(400, L"Parameter 'MergeWith' is required.");
+        if (m_MergeWith) result->addQueryParam(L"mergeWith", *m_MergeWith);
+        else throw aspose::cells::cloud::ApiException(400, L"Parameter 'MergeWith' is required.");
+        if (m_Folder) result->addQueryParam(L"folder", *m_Folder);
+        if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
+        if (m_MergedStorageName) result->addQueryParam(L"mergedStorageName", *m_MergedStorageName);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostWorkbooksMergeRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostWorkbooksMergeResponse()
         );
     }
 
