@@ -379,5 +379,33 @@ namespace aspose::cells::cloud::responses {
         auto json = ::nlohmann::json::parse(response);
         m_Result = std::make_shared< aspose::cells::cloud::models::WorkbookResponse >();
         m_Result->fromJson(&json);
-    }        
+    }    
+    /*
+     * PostBatchConvertResponse implementation
+    */
+
+    std::shared_ptr< std::istream > PostBatchConvertResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostBatchConvertResponse::deserialize(const std::string_view& response)
+    {
+        m_Result = std::shared_ptr< std::istream >(new std::istringstream(std::string(response), std::ios_base::in));
+    }   
+    /*
+     * PostCompressResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > PostCompressResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostCompressResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    }     
 }

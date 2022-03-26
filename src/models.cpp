@@ -2859,5 +2859,161 @@ namespace aspose::cells::cloud::models {
     void SplitResultDocument::setId( std::shared_ptr< int > value)
     {
         m_Id = value;
+    }   
+// <summary>
+    /// BatchConvertRequest class implementation
+    /// </summary>
+    void BatchConvertRequest::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_SourceFolder) {
+            json["SourceFolder"] = convertUtf16(*m_SourceFolder);
+        }
+        if (m_SourceStorage) {
+            json["SourceStorage"] = convertUtf16(*m_SourceStorage);
+        }
+        if (m_MatchCondition) {
+            m_MatchCondition->toJson(&json["MatchCondition"]);
+        }
+        if (m_Format) {
+            json["Format"] = convertUtf16(*m_Format);
+        }
+        if (m_OutFolder) {
+            json["OutFolder"] = convertUtf16(*m_OutFolder);
+        }
+        if (m_OutStorage) {
+            json["OutStorage"] = convertUtf16(*m_OutStorage);
+        }
+        if (m_SaveOptions) {
+            m_SaveOptions->toJson(&json["SaveOptions"]);
+        }
+    }
+    void BatchConvertRequest::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("SourceFolder") && !json["SourceFolder"].is_null()) {
+            m_SourceFolder = std::make_shared< std::wstring >( convertUtf8( json["SourceFolder"].get< std::string >() ));
+        }
+        if (json.contains("SourceStorage") && !json["SourceStorage"].is_null()) {
+            m_SourceStorage = std::make_shared< std::wstring >( convertUtf8( json["SourceStorage"].get< std::string >() ));
+        }
+        if (json.contains("MatchCondition") && !json["MatchCondition"].is_null()) {
+            m_MatchCondition = std::make_shared< aspose::cells::cloud::models::MatchConditionRequest >();
+            m_MatchCondition->fromJson(&json["MatchCondition"]);
+        }
+        if (json.contains("Format") && !json["Format"].is_null()) {
+            m_Format = std::make_shared< std::wstring >( convertUtf8( json["Format"].get< std::string >() ));
+        }
+        if (json.contains("OutFolder") && !json["OutFolder"].is_null()) {
+            m_OutFolder = std::make_shared< std::wstring >( convertUtf8( json["OutFolder"].get< std::string >() ));
+        }
+        if (json.contains("OutStorage") && !json["OutStorage"].is_null()) {
+            m_OutStorage = std::make_shared< std::wstring >( convertUtf8( json["OutStorage"].get< std::string >() ));
+        }
+        if (json.contains("SaveOptions") && !json["SaveOptions"].is_null()) {
+            m_SaveOptions = std::make_shared< aspose::cells::cloud::models::SaveOptions >();
+            m_SaveOptions->fromJson(&json["SaveOptions"]);
+        }
+    }
+    std::shared_ptr< std::wstring > BatchConvertRequest::getSourceFolder() const
+    {
+        return m_SourceFolder;
+    }
+    void BatchConvertRequest::setSourceFolder( std::shared_ptr< std::wstring > value)
+    {
+        m_SourceFolder = value;
+    }
+    std::shared_ptr< std::wstring > BatchConvertRequest::getSourceStorage() const
+    {
+        return m_SourceStorage;
+    }
+    void BatchConvertRequest::setSourceStorage( std::shared_ptr< std::wstring > value)
+    {
+        m_SourceStorage = value;
+    }
+    std::shared_ptr< aspose::cells::cloud::models::MatchConditionRequest > BatchConvertRequest::getMatchCondition() const
+    {
+        return m_MatchCondition;
+    }
+    void BatchConvertRequest::setMatchCondition( std::shared_ptr< aspose::cells::cloud::models::MatchConditionRequest > value)
+    {
+        m_MatchCondition = value;
+    }
+    std::shared_ptr< std::wstring > BatchConvertRequest::getFormat() const
+    {
+        return m_Format;
+    }
+    void BatchConvertRequest::setFormat( std::shared_ptr< std::wstring > value)
+    {
+        m_Format = value;
+    }
+    std::shared_ptr< std::wstring > BatchConvertRequest::getOutFolder() const
+    {
+        return m_OutFolder;
+    }
+    void BatchConvertRequest::setOutFolder( std::shared_ptr< std::wstring > value)
+    {
+        m_OutFolder = value;
+    }
+    std::shared_ptr< std::wstring > BatchConvertRequest::getOutStorage() const
+    {
+        return m_OutStorage;
+    }
+    void BatchConvertRequest::setOutStorage( std::shared_ptr< std::wstring > value)
+    {
+        m_OutStorage = value;
+    }
+    std::shared_ptr< aspose::cells::cloud::models::SaveOptions > BatchConvertRequest::getSaveOptions() const
+    {
+        return m_SaveOptions;
+    }
+    void BatchConvertRequest::setSaveOptions( std::shared_ptr< aspose::cells::cloud::models::SaveOptions > value)
+    {
+        m_SaveOptions = value;
     }        
+    /// <summary>
+    /// MatchConditionRequest class implementation
+    /// </summary>
+    void MatchConditionRequest::toJson(void* jsonIfc) const
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_RegexPattern) {
+            json["RegexPattern"] = convertUtf16(*m_RegexPattern);
+        }
+        if (m_FullMatchConditions) {
+            json["FullMatchConditions"] = ::nlohmann::json::array();
+            for (auto& element : *m_FullMatchConditions) {
+                json["FullMatchConditions"].push_back(convertUtf16(*element));
+            }
+        }
+    }
+    void MatchConditionRequest::fromJson(const void* jsonIfc)
+    {
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("RegexPattern") && !json["RegexPattern"].is_null()) {
+            m_RegexPattern = std::make_shared< std::wstring >( convertUtf8( json["RegexPattern"].get< std::string >() ));
+        }
+        if (json.contains("FullMatchConditions") && !json["FullMatchConditions"].is_null()) {
+            m_FullMatchConditions = std::make_shared< std::vector< std::shared_ptr<std::wstring>> >();
+            for (auto& element : json["FullMatchConditions"]) {
+                m_FullMatchConditions->push_back(std::make_shared< std::wstring >(convertUtf8( element.get< std::string >() )));
+            }
+        }
+    }
+    std::shared_ptr< std::wstring > MatchConditionRequest::getRegexPattern() const
+    {
+        return m_RegexPattern;
+    }
+    void MatchConditionRequest::setRegexPattern( std::shared_ptr< std::wstring > value)
+    {
+        m_RegexPattern = value;
+    }
+    std::shared_ptr< std::vector< std::shared_ptr<std::wstring>> > MatchConditionRequest::getFullMatchConditions() const
+    {
+        return m_FullMatchConditions;
+    }
+    void MatchConditionRequest::setFullMatchConditions( std::shared_ptr< std::vector< std::shared_ptr<std::wstring>> > value)
+    {
+        m_FullMatchConditions = value;
+    }     
 }

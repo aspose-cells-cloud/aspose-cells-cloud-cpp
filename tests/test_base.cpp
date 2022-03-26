@@ -30,7 +30,8 @@
 #include "./api/protect_test.h"
 #include "./api/split_test.h"
 #include "./api/merge_test.h"
-
+#include "./api/compress_test.h"
+#include "./api/batch_convert_test.h"
 // Include support headers
 #include <filesystem>
 #include <random>

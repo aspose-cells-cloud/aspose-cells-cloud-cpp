@@ -1147,7 +1147,7 @@ namespace aspose::cells::cloud::requests {
             new aspose::cells::cloud::responses::PostMergeResponse()
         );
     }    
-/*
+    /*
      * PostWorkbooksMergeRequest implementation
      */
 
@@ -1209,5 +1209,81 @@ namespace aspose::cells::cloud::requests {
             new aspose::cells::cloud::responses::PostWorkbooksMergeResponse()
         );
     }
+    /*
+     * PostBatchConvertRequest implementation
+     */
 
+    PostBatchConvertRequest::PostBatchConvertRequest(
+            const std::shared_ptr< aspose::cells::cloud::models::BatchConvertRequest > batchConvertRequest
+    ) : 
+            m_BatchConvertRequest(batchConvertRequest)
+    {
+    }
+
+    const std::shared_ptr< aspose::cells::cloud::models::BatchConvertRequest > PostBatchConvertRequest::getBatchConvertRequest() const
+    {
+        return m_BatchConvertRequest;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostBatchConvertRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/batch/convert");
+        if (!m_BatchConvertRequest) throw aspose::cells::cloud::ApiException(400, L"Parameter 'BatchConvertRequest' is required.");
+        if (m_BatchConvertRequest) result->setBody(*m_BatchConvertRequest);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostBatchConvertRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostBatchConvertResponse()
+        );
+    }
+    /*
+     * PostCompressRequest implementation
+     */
+
+    PostCompressRequest::PostCompressRequest(
+            std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+            const std::shared_ptr< int > CompressLevel
+    ) : 
+            m_Files(files),
+            m_CompressLevel(CompressLevel)
+    {
+    }
+
+    const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> PostCompressRequest::getFiles() const
+    {
+        return m_Files;
+    }
+
+    const std::shared_ptr< int > PostCompressRequest::getCompressLevel() const
+    {
+        return m_CompressLevel;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostCompressRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/compress");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }
+        if (!m_CompressLevel) throw aspose::cells::cloud::ApiException(400, L"Parameter 'CompressLevel' is required.");
+        if (m_CompressLevel) result->addQueryParam(L"CompressLevel", *m_CompressLevel);
+        else throw aspose::cells::cloud::ApiException(400, L"Parameter 'CompressLevel' is required.");
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostCompressRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostCompressResponse()
+        );
+    }    
 }

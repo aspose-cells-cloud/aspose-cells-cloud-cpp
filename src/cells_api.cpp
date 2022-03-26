@@ -232,4 +232,24 @@ namespace aspose::cells::cloud::api {
 
         return response->getResult();
     }
+    std::shared_ptr< std::istream>  CellsApi::postBatchConvert(std::shared_ptr<aspose::cells::cloud::requests::PostBatchConvertRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostBatchConvertResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::PostCompress(std::shared_ptr<aspose::cells::cloud::requests::PostCompressRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostCompressResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }    
 }

@@ -257,6 +257,18 @@ namespace aspose::cells::cloud::api {
         /// <param name="format">xlsx</param>
         /// <param name="mergeToOneSheet">False</param>
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo> postMerge(std::shared_ptr<aspose::cells::cloud::requests::PostMergeRequest> request);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="batchConvertRequest"> </param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< std::istream> postBatchConvert(std::shared_ptr<aspose::cells::cloud::requests::PostBatchConvertRequest> request);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file">File to upload</param>
+        /// <param name="CompressLevel"> </param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> PostCompress(std::shared_ptr<aspose::cells::cloud::requests::PostCompressRequest> request);
 
     public:
         ASPOSE_CELLS_CLOUD_EXPORT CellsApi(std::shared_ptr<ApiConfiguration> configuration);
