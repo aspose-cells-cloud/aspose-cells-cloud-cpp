@@ -8,10 +8,10 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Document Processing Features
 
 
-## Enhancements in Version 22.3
+## Enhancements in Version 22.4
 
-- Add batch convert api.
-- Add compress api.
+- Add unlock api.
+- Add replace api.
 
 ## Read & Write Spreadsheet Formats
 

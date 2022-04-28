@@ -195,6 +195,13 @@ namespace aspose::cells::cloud::api {
         /// <param name="password">The password of the excel file</param>
         /// <param name="saveOption">Folder in filestorage with custom fonts.</param>
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult > protectWorkbook(std::shared_ptr<aspose::cells::cloud::requests::ProtectWorkbookRequest> request);
+        /// <summary>
+        /// Unlock an Excel file on a local drive.
+        /// </summary>
+        /// <param name="name">Converting excel name.</param>
+        /// <param name="password">The password of the excel file</param>
+        /// <param name="saveOption">Folder in filestorage with custom fonts.</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult > unlockWorkbook(std::shared_ptr<aspose::cells::cloud::requests::UnlockWorkbookRequest> request);
 
         /// <summary>
         /// Protect an Excel file on a cloud drive.
@@ -270,6 +277,12 @@ namespace aspose::cells::cloud::api {
         /// <param name="CompressLevel"> </param>
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> PostCompress(std::shared_ptr<aspose::cells::cloud::requests::PostCompressRequest> request);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file">File to upload</param>
+        /// <param name="CompressLevel"> </param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> PostReplace(std::shared_ptr<aspose::cells::cloud::requests::PostReplaceRequest> request);
     public:
         ASPOSE_CELLS_CLOUD_EXPORT CellsApi(std::shared_ptr<ApiConfiguration> configuration);
         ASPOSE_CELLS_CLOUD_EXPORT virtual ~CellsApi() = default;

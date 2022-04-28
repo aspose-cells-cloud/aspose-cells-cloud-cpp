@@ -159,6 +159,15 @@ namespace aspose::cells::cloud::api {
         return response->getResult();
     }
 
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > CellsApi::unlockWorkbook(std::shared_ptr<aspose::cells::cloud::requests::UnlockWorkbookRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::UnlockWorkbookResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+        return response->getResult();
+    }
     std::shared_ptr< aspose::cells::cloud::models::FilesResult > CellsApi::protectWorkbook(std::shared_ptr<aspose::cells::cloud::requests::ProtectWorkbookRequest> request)
     {
         auto response = std::make_shared< aspose::cells::cloud::responses::ProtectWorkbookResponse >();
@@ -168,7 +177,6 @@ namespace aspose::cells::cloud::api {
         }
         return response->getResult();
     }
-
     std::shared_ptr< aspose::cells::cloud::models::CellsResponse > CellsApi::protectWorkbook(std::shared_ptr<aspose::cells::cloud::requests::EncryptionWorkbookRequest> request)
     {
         auto response = std::make_shared< aspose::cells::cloud::responses::EncryptionWorkbookResponse >();
@@ -252,4 +260,14 @@ namespace aspose::cells::cloud::api {
 
         return response->getResult();
     }    
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::PostReplace(std::shared_ptr<aspose::cells::cloud::requests::PostReplaceRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostReplaceResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    } 
 }

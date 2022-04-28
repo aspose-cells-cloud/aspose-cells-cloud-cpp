@@ -289,6 +289,20 @@ namespace aspose::cells::cloud::responses {
         m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
         m_Result->fromJson(&json);
     }
+    /*
+     * Unlock Workbook  Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult  > UnlockWorkbookResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void UnlockWorkbookResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    }
 
     /*
      * Protect online Workbook  Response implementation
@@ -408,4 +422,19 @@ namespace aspose::cells::cloud::responses {
         m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
         m_Result->fromJson(&json);
     }     
+    /*
+     * PostReplaceResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > PostReplaceResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostReplaceResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    }   
 }

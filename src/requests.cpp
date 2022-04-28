@@ -794,6 +794,53 @@ namespace aspose::cells::cloud::requests {
             new aspose::cells::cloud::responses::ProtectWorkbookResponse()
         );
     }
+    /*
+     * UnlockWorkbookRequest implementation
+    */
+
+    UnlockWorkbookRequest::UnlockWorkbookRequest(
+        std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+        const std::shared_ptr< std::wstring > password       
+    ) : 
+        m_Files(files),
+        m_Password(password)
+    {
+    }
+
+
+    
+    const  std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > UnlockWorkbookRequest::getFiles() const
+    {
+        return m_Files;
+    }
+
+    const std::shared_ptr< std::wstring > UnlockWorkbookRequest::getPassword() const
+    {
+        return m_Password;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > UnlockWorkbookRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/unlock");
+
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }       
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > UnlockWorkbookRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::UnlockWorkbookResponse()
+        );
+    }
 
     /*
      * EncryptionWorkbookRequest implementation
@@ -1286,4 +1333,63 @@ namespace aspose::cells::cloud::requests {
             new aspose::cells::cloud::responses::PostCompressResponse()
         );
     }    
+
+    /*
+     * PostReplaceRequest implementation
+     */
+
+    PostReplaceRequest::PostReplaceRequest(
+            std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+            const std::shared_ptr< std::wstring > text,
+            const std::shared_ptr< std::wstring > newtext,
+            const std::shared_ptr< std::wstring > password
+    ) : 
+            m_Files(files),
+            m_Text(text),
+            m_Newtext(newtext),
+            m_Password(password)
+    {
+    }
+
+    const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> PostReplaceRequest::getFiles() const
+    {
+        return m_Files;
+    }
+
+    const std::shared_ptr<  std::wstring > PostReplaceRequest::getText() const
+    {
+        return m_Text;
+    }
+    const std::shared_ptr<  std::wstring > PostReplaceRequest::getNewtext() const
+    {
+        return m_Newtext;
+    }
+    const std::shared_ptr<  std::wstring > PostReplaceRequest::getPassword() const
+    {
+        return m_Password;
+    }    
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostReplaceRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/replace");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }
+        if (!m_Text) throw aspose::cells::cloud::ApiException(400, L"Parameter 'text' is required.");
+        if (m_Text) result->addQueryParam(L"text", *m_Text);
+        if (!m_Newtext) throw aspose::cells::cloud::ApiException(400, L"Parameter 'newtext' is required.");
+        if (m_Newtext) result->addQueryParam(L"newtext", *m_Newtext);        
+        if (m_Password) result->addQueryParam(L"password", *m_Password);        
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostReplaceRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostReplaceResponse()
+        );
+    }   
 }
