@@ -28,7 +28,7 @@
 /// <summary>
 /// Example of how to work with files.
 /// </summary>
-class SplitTests : public InfrastructureTest {
+class ReplaceTests : public InfrastructureTest {
 protected:
     std::wstring remoteDataFolder = remoteBaseTestDataFolder + L"/Storage";
     std::wstring localFile = L"source/Book1.xlsx";

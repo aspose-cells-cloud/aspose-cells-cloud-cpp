@@ -437,4 +437,34 @@ namespace aspose::cells::cloud::responses {
         m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
         m_Result->fromJson(&json);
     }   
+    /*
+     * PostClearObjectsResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > PostClearObjectsResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostClearObjectsResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    } 
+    /*
+     * PostWatermarkResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > PostWatermarkResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostWatermarkResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    } 
 }

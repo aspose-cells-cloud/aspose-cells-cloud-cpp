@@ -1392,4 +1392,109 @@ namespace aspose::cells::cloud::requests {
             new aspose::cells::cloud::responses::PostReplaceResponse()
         );
     }   
+
+    /*
+     * PostClearObjectsRequest implementation
+     */
+
+    PostClearObjectsRequest::PostClearObjectsRequest(
+            std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+            const std::shared_ptr< std::wstring > objecttype,
+            const std::shared_ptr< std::wstring > sheetname
+    ) : 
+            m_Files(files),
+            m_ObjectType(objecttype),
+            m_SheetName(sheetname)
+    {
+    }
+
+    const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> PostClearObjectsRequest::getFiles() const
+    {
+        return m_Files;
+    }
+
+    const std::shared_ptr<  std::wstring > PostClearObjectsRequest::getObjectType() const
+    {
+        return m_ObjectType;
+    }
+    const std::shared_ptr<  std::wstring > PostClearObjectsRequest::getSheetName() const
+    {
+        return m_SheetName;
+    }
+ 
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostClearObjectsRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/clearobjects");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }
+        if (!m_ObjectType) throw aspose::cells::cloud::ApiException(400, L"Parameter 'objecttype' is required.");
+        if (m_ObjectType) result->addQueryParam(L"objecttype", *m_ObjectType);
+        if (m_SheetName) result->addQueryParam(L"sheetname", *m_SheetName);       
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostClearObjectsRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostClearObjectsResponse()
+        );
+    }   
+
+     /*
+     * PostWatermarkRequest implementation
+     */
+
+    PostWatermarkRequest::PostWatermarkRequest(
+            std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+            const std::shared_ptr< std::wstring > text,
+            const std::shared_ptr< std::wstring > color
+    ) : 
+            m_Files(files),
+            m_Text(text),
+            m_Color(color)
+    {
+    }
+
+    const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> PostWatermarkRequest::getFiles() const
+    {
+        return m_Files;
+    }
+
+    const std::shared_ptr<  std::wstring > PostWatermarkRequest::getText() const
+    {
+        return m_Text;
+    }
+    const std::shared_ptr<  std::wstring > PostWatermarkRequest::getColor() const
+    {
+        return m_Color;
+    }
+ 
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostWatermarkRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/watermark");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }
+        if (!m_Text) throw aspose::cells::cloud::ApiException(400, L"Parameter 'text' is required.");
+        if (!m_Color) throw aspose::cells::cloud::ApiException(400, L"Parameter 'color' is required.");
+        if (m_Text) result->addQueryParam(L"text", *m_Text);
+        if (m_Color) result->addQueryParam(L"color", *m_Color);       
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostWatermarkRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostWatermarkResponse()
+        );
+    }   
 }

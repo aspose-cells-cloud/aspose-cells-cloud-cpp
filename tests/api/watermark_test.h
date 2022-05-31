@@ -1,5 +1,5 @@
-﻿/** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file="compress_test.h">
+/** --------------------------------------------------------------------------------------------------------------------
+* <copyright company="Aspose" file="replace_test.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -28,28 +28,31 @@
 /// <summary>
 /// Example of how to work with files.
 /// </summary>
-class CompressTests : public InfrastructureTest {
+class PostWatermarkTests : public InfrastructureTest {
 protected:
     std::wstring remoteDataFolder = remoteBaseTestDataFolder + L"/Storage";
     std::wstring localFile = L"source/Book1.xlsx";
     std::wstring localFile2 = L"source/myDocument.xlsx";
+
 };
 
 /// <summary>
-/// Test for convert file.
+/// 
 /// </summary>
-TEST_F(CompressTests, TestCompressFile) {
-    std::wstring remoteFileName = L"TestCompressFile_CPP.xlsx";
+TEST_F(PostWatermarkTests, PostWatermarkTextTests) {
     std::map< std::wstring ,std::shared_ptr<  std::istream > > files;    
     files.insert( std::pair< std::wstring ,std::shared_ptr<  std::istream >>( std::wstring( L"Book1.xlsx"), std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary)) ) );
     files.insert( std::pair< std::wstring ,std::shared_ptr<  std::istream >>( std::wstring( L"myDocument.xlsx"), std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile2)), std::istream::binary)) ) );
     std::shared_ptr<std::map< std::wstring ,std::shared_ptr<  std::istream >>> ptrFiles =   std::make_shared<std::map<  std::wstring  ,std::shared_ptr<  std::istream > >>(files);
-        
-    std::shared_ptr<requests::PostCompressRequest> request(new requests::PostCompressRequest(
+      
+    
+    std::shared_ptr<requests::PostWatermarkRequest> request(new requests::PostWatermarkRequest(
         ptrFiles,
-        std::make_shared< int >(50) 
+        std::make_shared< std::wstring >(L"PostWatermarkRequest"),
+        std::make_shared< std::wstring >(L"004433ff")
     ));
 
-    auto actual = getApi()->postCompress(request);
+    auto actual = getApi()->postWatermark(request);
 
 }
+

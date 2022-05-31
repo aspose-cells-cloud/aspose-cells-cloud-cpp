@@ -38,6 +38,7 @@
 #include "aspose_cells_cloud/requests/get_files_list_request.h"
 #include "aspose_cells_cloud/requests/move_file_request.h"
 #include "aspose_cells_cloud/requests/move_folder_request.h"
+#include "aspose_cells_cloud/requests/post_clear_objects_request.h"
 #include "aspose_cells_cloud/requests/post_split_request.h"
 #include "aspose_cells_cloud/requests/post_workbook_split_request.h"
 #include "aspose_cells_cloud/requests/upload_file_request.h"
@@ -275,14 +276,26 @@ namespace aspose::cells::cloud::api {
         /// </summary>
         /// <param name="file">File to upload</param>
         /// <param name="CompressLevel"> </param>
-        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> PostCompress(std::shared_ptr<aspose::cells::cloud::requests::PostCompressRequest> request);
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> postCompress(std::shared_ptr<aspose::cells::cloud::requests::PostCompressRequest> request);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="file">File to upload</param>
         /// <param name="CompressLevel"> </param>
-        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> PostReplace(std::shared_ptr<aspose::cells::cloud::requests::PostReplaceRequest> request);
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> postReplace(std::shared_ptr<aspose::cells::cloud::requests::PostReplaceRequest> request);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file">File to upload</param>
+        /// <param name="CompressLevel"> </param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> postClearObjects(std::shared_ptr<aspose::cells::cloud::requests::PostClearObjectsRequest> request);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file">File to upload</param>
+        /// <param name="CompressLevel"> </param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> postWatermark(std::shared_ptr<aspose::cells::cloud::requests::PostWatermarkRequest> request);
     public:
         ASPOSE_CELLS_CLOUD_EXPORT CellsApi(std::shared_ptr<ApiConfiguration> configuration);
         ASPOSE_CELLS_CLOUD_EXPORT virtual ~CellsApi() = default;

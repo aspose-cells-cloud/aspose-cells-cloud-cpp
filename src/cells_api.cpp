@@ -250,7 +250,7 @@ namespace aspose::cells::cloud::api {
 
         return response->getResult();
     }
-    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::PostCompress(std::shared_ptr<aspose::cells::cloud::requests::PostCompressRequest> request)
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::postCompress(std::shared_ptr<aspose::cells::cloud::requests::PostCompressRequest> request)
     {
         auto response = std::make_shared< aspose::cells::cloud::responses::PostCompressResponse >();
         m_ApiClient->call( request->createHttpRequest(), *response);
@@ -260,7 +260,7 @@ namespace aspose::cells::cloud::api {
 
         return response->getResult();
     }    
-    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::PostReplace(std::shared_ptr<aspose::cells::cloud::requests::PostReplaceRequest> request)
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::postReplace(std::shared_ptr<aspose::cells::cloud::requests::PostReplaceRequest> request)
     {
         auto response = std::make_shared< aspose::cells::cloud::responses::PostReplaceResponse >();
         m_ApiClient->call( request->createHttpRequest(), *response);
@@ -270,4 +270,24 @@ namespace aspose::cells::cloud::api {
 
         return response->getResult();
     } 
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::postClearObjects(std::shared_ptr<aspose::cells::cloud::requests::PostClearObjectsRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostClearObjectsResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    } 
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::postWatermark(std::shared_ptr<aspose::cells::cloud::requests::PostWatermarkRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostWatermarkResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }     
 }
