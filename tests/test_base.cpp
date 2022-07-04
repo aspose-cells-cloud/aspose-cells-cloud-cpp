@@ -33,8 +33,10 @@
 #include "./api/merge_test.h"
 #include "./api/compress_test.h"
 #include "./api/batch_convert_test.h"
+#include "./api/reverse_test.h"
 #include "./api/clear_objects_test.h"
 #include "./api/watermark_test.h"
+#include "./api/digital_signature_response_test.h"
 // Include support headers
 #include <filesystem>
 #include <random>

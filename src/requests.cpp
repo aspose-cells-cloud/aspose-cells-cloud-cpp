@@ -1444,8 +1444,7 @@ namespace aspose::cells::cloud::requests {
             new aspose::cells::cloud::responses::PostClearObjectsResponse()
         );
     }   
-
-     /*
+ /*
      * PostWatermarkRequest implementation
      */
 
@@ -1495,6 +1494,128 @@ namespace aspose::cells::cloud::requests {
     {
         return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
             new aspose::cells::cloud::responses::PostWatermarkResponse()
+        );
+    }   
+
+
+     /*
+     * PostReverseRequest implementation
+     */
+
+    PostReverseRequest::PostReverseRequest(
+            std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+            const std::shared_ptr< std::wstring > rotatetype,
+            const std::shared_ptr< std::wstring > format
+    ) : 
+            m_Files(files),
+            m_RotateType(rotatetype),
+            m_Format(format)
+    {
+    }
+
+    const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> PostReverseRequest::getFiles() const
+    {
+        return m_Files;
+    }
+
+    const std::shared_ptr<  std::wstring > PostReverseRequest::getRotateType() const
+    {
+        return m_RotateType;
+    }
+    const std::shared_ptr<  std::wstring > PostReverseRequest::getFormat() const
+    {
+        return m_Format;
+    }
+ 
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostReverseRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/reverse");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }
+        if (!m_RotateType) throw aspose::cells::cloud::ApiException(400, L"Parameter 'RotateType' is required.");
+        if (m_RotateType) result->addQueryParam(L"rotateType", *m_RotateType);
+        if (m_Format) result->addQueryParam(L"format", *m_Format);       
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostReverseRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostReverseResponse()
+        );
+    }   
+
+    
+     /*
+     * PostDigitalSignatureRequest implementation
+     */
+
+    PostDigitalSignatureRequest::PostDigitalSignatureRequest(
+            const std::shared_ptr< std::wstring > name,
+            const std::shared_ptr< std::wstring > digitalsignaturefile ,
+            const std::shared_ptr< std::wstring > password ,
+            const std::shared_ptr< std::wstring > folder ,
+            const std::shared_ptr< std::wstring > storageName 
+    ) : 
+            m_Name(name),
+            m_DigitalSignatureFile(digitalsignaturefile),
+            m_Password(password),
+            m_Folder(folder),
+            m_StorageName(storageName)
+    {
+    }
+
+    const std::shared_ptr< std::wstring> PostDigitalSignatureRequest::getName() const
+    {
+        return m_Name;
+    }
+
+    const std::shared_ptr<  std::wstring > PostDigitalSignatureRequest::getDigitalSignatureFile() const
+    {
+        return m_DigitalSignatureFile;
+    }
+
+    const std::shared_ptr<  std::wstring > PostDigitalSignatureRequest::getPassword() const
+    {
+        return m_Password;
+    }
+
+    const std::shared_ptr<  std::wstring > PostDigitalSignatureRequest::getFolder() const
+    {
+        return m_Folder;
+    }
+
+    const std::shared_ptr<  std::wstring > PostDigitalSignatureRequest::getStorageName() const
+    {
+        return m_StorageName;
+    }
+ 
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostDigitalSignatureRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/{name}/digitalsignature");
+        if (!m_Name) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Name' is required.");
+        result->setPathParam(L"{name}", *m_Name);
+        if (!m_DigitalSignatureFile) throw aspose::cells::cloud::ApiException(400, L"Parameter 'DigitalSignatureFile' is required.");
+        result->addQueryParam(L"digitalsignaturefile", *m_DigitalSignatureFile);
+        if (!m_Password) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Password' is required.");
+        result->addQueryParam(L"password", *m_Password);
+
+        if (m_Folder) result->addQueryParam(L"folder", *m_Folder);
+        if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostDigitalSignatureRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostDigitalSignatureResponse()
         );
     }   
 }

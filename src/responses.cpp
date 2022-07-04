@@ -467,4 +467,35 @@ namespace aspose::cells::cloud::responses {
         m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
         m_Result->fromJson(&json);
     } 
+    /*
+     * PostReverseResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > PostReverseResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostReverseResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    }    
+
+    /*
+     * PostDigitalSignatureResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::CellsCloudResponse > PostDigitalSignatureResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostDigitalSignatureResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::CellsCloudResponse >();
+        m_Result->fromJson(&json);
+    } 
 }

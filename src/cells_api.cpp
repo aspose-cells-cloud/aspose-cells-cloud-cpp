@@ -290,4 +290,26 @@ namespace aspose::cells::cloud::api {
 
         return response->getResult();
     }     
+    
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::postReverse(std::shared_ptr<aspose::cells::cloud::requests::PostReverseRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostReverseResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }  
+
+    std::shared_ptr< aspose::cells::cloud::models::CellsCloudResponse>  CellsApi::postDigitalSignature(std::shared_ptr<aspose::cells::cloud::requests::PostDigitalSignatureRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostDigitalSignatureResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }  
 }

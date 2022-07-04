@@ -171,7 +171,7 @@ namespace aspose::cells::cloud {
 
         ::httplib::Headers headers;
         headers.emplace("Authorization", m_AccessToken);
-        headers.emplace("x-aspose-client-version", "22.1");
+        headers.emplace("x-aspose-client-version", "22.6");
         headers.emplace("x-aspose-client", "C++ SDK");
 
         for (auto& pair : httpRequest->getHeaders()) {
