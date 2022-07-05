@@ -8,10 +8,10 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Document Processing Features
 
 
-## Enhancements in Version 22.5
+## Enhancements in Version 22.6
 
-- Add watermark api.
-- Add clear objects api.
+- Add postReverse api.
+- Add clear postDigitalSignature api.
 
 ## Read & Write Spreadsheet Formats
 
