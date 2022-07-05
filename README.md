@@ -11,7 +11,7 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Enhancements in Version 22.6
 
 - Add postReverse api.
-- Add clear postDigitalSignature api.
+- Add postDigitalSignature api.
 
 ## Read & Write Spreadsheet Formats
 
