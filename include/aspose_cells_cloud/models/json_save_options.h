@@ -1,6 +1,6 @@
 
 /** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file=" post_document_save_as_response.h">
+* <copyright company="Aspose" file=" dif_save_options.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -24,19 +24,30 @@
 * </summary> 
 -------------------------------------------------------------------------------------------------------------------- **/   
         
-
 #pragma once
-#include "./response_model_base.h"
+#include "./model_base.h"
+#include "./save_options.h"
 
-namespace aspose::cells::cloud::responses {
-    class PostDocumentSaveAsResponse : public ResponseModelBase {
+namespace aspose::cells::cloud::models {
+    /// <summary>
+    /// 
+    /// </summary>
+    class JsonSaveOptions : public SaveOptions
+    {
     public:
-        ASPOSE_CELLS_CLOUD_EXPORT virtual ~PostDocumentSaveAsResponse() = default;
-
-        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SaveResponse > getResult() const;
-
-        ASPOSE_CELLS_CLOUD_EXPORT virtual void deserialize(const std::string_view& response) override;
-    private:
-        std::shared_ptr<  aspose::cells::cloud::models::SaveResponse > m_Result;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual ~JsonSaveOptions() = default;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual void toJson(void* jsonIfc) const override;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual void fromJson(const void* jsonIfc) override;
+    public:
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< bool > getExportAsString() const;
+        ASPOSE_CELLS_CLOUD_EXPORT void setExportAsString(  std::shared_ptr< bool> value );
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< bool > getHasHeaderRow() const;
+        ASPOSE_CELLS_CLOUD_EXPORT void setHasHeaderRow(  std::shared_ptr< bool> value );
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< std::wstring  > getIndent() const;
+        ASPOSE_CELLS_CLOUD_EXPORT void setIndent ( std::shared_ptr< std::wstring > value );
+    protected:
+        std::shared_ptr< bool > m_HasHeaderRow;
+        std::shared_ptr< bool > m_ExportAsString;        
+        std::shared_ptr< std::wstring > m_Indent;    
     };
 }

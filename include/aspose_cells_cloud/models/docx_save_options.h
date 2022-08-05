@@ -1,6 +1,6 @@
 
 /** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file=" post_document_save_as_response.h">
+* <copyright company="Aspose" file=" dif_save_options.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -24,19 +24,20 @@
 * </summary> 
 -------------------------------------------------------------------------------------------------------------------- **/   
         
-
 #pragma once
-#include "./response_model_base.h"
+#include "./model_base.h"
+#include "./save_options.h"
 
-namespace aspose::cells::cloud::responses {
-    class PostDocumentSaveAsResponse : public ResponseModelBase {
+namespace aspose::cells::cloud::models {
+    /// <summary>
+    /// 
+    /// </summary>
+    class DocxSaveOptions : public SaveOptions
+    {
     public:
-        ASPOSE_CELLS_CLOUD_EXPORT virtual ~PostDocumentSaveAsResponse() = default;
-
-        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SaveResponse > getResult() const;
-
-        ASPOSE_CELLS_CLOUD_EXPORT virtual void deserialize(const std::string_view& response) override;
-    private:
-        std::shared_ptr<  aspose::cells::cloud::models::SaveResponse > m_Result;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual ~DocxSaveOptions() = default;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual void toJson(void* jsonIfc) const override;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual void fromJson(const void* jsonIfc) override;
+    protected:
     };
 }

@@ -579,28 +579,22 @@ namespace aspose::cells::cloud::requests {
     */
 
     ConvertRequest::ConvertRequest(
-        // const std::shared_ptr< std::wstring > path,
         const std::shared_ptr< std::wstring > format,
-        // const std::shared_ptr< std::wstring > filename,
         const std::shared_ptr< std::istream > fileStream,
         const std::shared_ptr< std::wstring > outPath,
         const std::shared_ptr< std::wstring > storageName,
-        const std::shared_ptr< std::wstring > password
+        const std::shared_ptr< std::wstring > password,
+        const std::shared_ptr< bool > checkExcelRestriction
     ) : 
-        // m_Path(path),
         m_Format(format),
-        // m_Filename(filename),
         m_FileStream(fileStream),
         m_OutPath(outPath),              
         m_StorageName(storageName),
-        m_Password(password)
+        m_Password(password),
+        m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
-    // const std::shared_ptr< std::wstring > ConvertRequest::getPath() const
-    // {
-    //     return m_Path;
-    // }
     const std::shared_ptr< std::wstring > ConvertRequest::getOutPath() const
     {
         return m_OutPath;
@@ -609,10 +603,6 @@ namespace aspose::cells::cloud::requests {
     {
         return m_Format;
     }
-    // const std::shared_ptr< std::wstring > ConvertRequest::getFilename() const
-    // {
-    //     return m_Filename;
-    // }
     const std::shared_ptr< std::istream > ConvertRequest::getFileStream() const
     {
         return m_FileStream;
@@ -624,6 +614,10 @@ namespace aspose::cells::cloud::requests {
     const std::shared_ptr< std::wstring > ConvertRequest::getPassword() const
     {
         return m_Password;
+    }
+    const std::shared_ptr< bool > ConvertRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
     }
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > ConvertRequest::createHttpRequest() const
     {
@@ -637,6 +631,7 @@ namespace aspose::cells::cloud::requests {
         if (m_Password) result->addQueryParam(L"password", *m_Password);
         if (m_OutPath) result->addQueryParam(L"outPath", *m_OutPath);
         if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
         // result->addFormDataParam(std::filesystem::path(*m_Path).filename().c_str(),*(std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(m_Path.get()->c_str()), std::istream::binary))));       
         // result->addFormDataParam(L"SaveOptions",L"{\"SaveFormat\":\"pdf\"}");        
         // result->setBody(*(std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(m_Path.get()->c_str()), std::istream::binary))));
@@ -664,7 +659,8 @@ namespace aspose::cells::cloud::requests {
         const std::shared_ptr< std::wstring > folder,
         const std::shared_ptr< std::wstring > storageName,
         const std::shared_ptr< std::wstring > outPath,
-        const std::shared_ptr< std::wstring > outStorageName
+        const std::shared_ptr< std::wstring > outStorageName,
+        const std::shared_ptr< bool > checkExcelRestriction
     ) : 
         m_Name(name),
         m_Format(format),
@@ -674,7 +670,8 @@ namespace aspose::cells::cloud::requests {
         m_Folder(folder),
         m_StorageName(storageName),
         m_OutPath(outPath),
-        m_OutStorageName(outStorageName)
+        m_OutStorageName(outStorageName),
+        m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
@@ -719,7 +716,10 @@ namespace aspose::cells::cloud::requests {
     {
         return m_OutStorageName;
     }
-
+    const std::shared_ptr< bool > GetWorkbookRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > GetWorkbookRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
@@ -735,6 +735,7 @@ namespace aspose::cells::cloud::requests {
         if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
         if (m_OutPath) result->addQueryParam(L"outPath", *m_OutPath);
         if (m_OutStorageName) result->addQueryParam(L"outStorageName", *m_OutStorageName);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false"); 
 
         return result;
     }
@@ -903,7 +904,7 @@ namespace aspose::cells::cloud::requests {
      * postDocumentSaveAsRequest implementation
      */
 
-    postDocumentSaveAsRequest::postDocumentSaveAsRequest(
+    PostDocumentSaveAsRequest::PostDocumentSaveAsRequest(
             const std::shared_ptr< std::wstring > name,
             const std::shared_ptr< aspose::cells::cloud::models::SaveOptions > saveOptions,
             const std::shared_ptr< std::wstring > newfilename,
@@ -911,7 +912,8 @@ namespace aspose::cells::cloud::requests {
             const std::shared_ptr< bool > isAutoFitColumns,
             const std::shared_ptr< std::wstring > folder,
             const std::shared_ptr< std::wstring > storageName,
-            const std::shared_ptr< std::wstring > outStorageName
+            const std::shared_ptr< std::wstring > outStorageName,
+            const std::shared_ptr< bool > checkExcelRestriction
     ) : 
             m_Name(name),
             m_SaveOptions(saveOptions),
@@ -920,44 +922,49 @@ namespace aspose::cells::cloud::requests {
             m_IsAutoFitColumns(isAutoFitColumns),
             m_Folder(folder),
             m_StorageName(storageName),
-            m_OutStorageName(outStorageName)
+            m_OutStorageName(outStorageName),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
-    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getName() const
+    const std::shared_ptr< std::wstring > PostDocumentSaveAsRequest::getName() const
     {
         return m_Name;
     }
-    const std::shared_ptr< aspose::cells::cloud::models::SaveOptions > postDocumentSaveAsRequest::getSaveOptions() const
+    const std::shared_ptr< aspose::cells::cloud::models::SaveOptions > PostDocumentSaveAsRequest::getSaveOptions() const
     {
         return m_SaveOptions;
     }
-    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getNewfilename() const
+    const std::shared_ptr< std::wstring > PostDocumentSaveAsRequest::getNewfilename() const
     {
         return m_Newfilename;
     }
-    const std::shared_ptr< bool > postDocumentSaveAsRequest::getIsAutoFitRows() const
+    const std::shared_ptr< bool > PostDocumentSaveAsRequest::getIsAutoFitRows() const
     {
         return m_IsAutoFitRows;
     }
-    const std::shared_ptr< bool > postDocumentSaveAsRequest::getIsAutoFitColumns() const
+    const std::shared_ptr< bool > PostDocumentSaveAsRequest::getIsAutoFitColumns() const
     {
         return m_IsAutoFitColumns;
     }
-    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getFolder() const
+    const std::shared_ptr< std::wstring > PostDocumentSaveAsRequest::getFolder() const
     {
         return m_Folder;
     }
-    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getStorageName() const
+    const std::shared_ptr< std::wstring > PostDocumentSaveAsRequest::getStorageName() const
     {
         return m_StorageName;
     }
-    const std::shared_ptr< std::wstring > postDocumentSaveAsRequest::getOutStorageName() const
+    const std::shared_ptr< std::wstring > PostDocumentSaveAsRequest::getOutStorageName() const
     {
         return m_OutStorageName;
     }
+    const std::shared_ptr< bool > PostDocumentSaveAsRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
 
-    std::shared_ptr< aspose::cells::cloud::HttpRequestData > postDocumentSaveAsRequest::createHttpRequest() const
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostDocumentSaveAsRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
         result->setMethod(HttpRequestMethod::HttpPOST);
@@ -972,13 +979,14 @@ namespace aspose::cells::cloud::requests {
         if (m_Folder) result->addQueryParam(L"folder", *m_Folder);
         if (m_StorageName) result->addQueryParam(L"storageName", *m_StorageName);
         if (m_OutStorageName) result->addQueryParam(L"outStorageName", *m_OutStorageName);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false"); 
         return result;
     }
 
-    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > postDocumentSaveAsRequest::createResponse() const
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostDocumentSaveAsRequest::createResponse() const
     {
         return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
-            new aspose::cells::cloud::responses::postDocumentSaveAsResponse()
+            new aspose::cells::cloud::responses::PostDocumentSaveAsResponse()
         );
     }
     /*
@@ -1085,13 +1093,15 @@ namespace aspose::cells::cloud::requests {
             const std::shared_ptr< std::wstring > format,
             const std::shared_ptr< std::wstring > password,
             const std::shared_ptr< int > from,
-            const std::shared_ptr< int > to
+            const std::shared_ptr< int > to,
+            const std::shared_ptr< bool > checkExcelRestriction
     ) : 
             m_Files(files),
             m_Format(format),
             m_Password(password),
             m_From(from),
-            m_To(to)
+            m_To(to),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
@@ -1115,6 +1125,10 @@ namespace aspose::cells::cloud::requests {
     {
         return m_To;
     }
+    const std::shared_ptr< bool > PostSplitRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
 
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostSplitRequest::createHttpRequest() const
     {
@@ -1130,6 +1144,7 @@ namespace aspose::cells::cloud::requests {
         if (m_Password) result->addQueryParam(L"password", *m_Password);
         if (m_From) result->addQueryParam(L"from", *m_From);
         if (m_To) result->addQueryParam(L"to", *m_To);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false"); 
         return result;
     }
 
@@ -1147,19 +1162,21 @@ namespace aspose::cells::cloud::requests {
     PostMergeRequest::PostMergeRequest(
             std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
             const std::shared_ptr< std::wstring > format,
-            const std::shared_ptr< bool > mergeToOneSheet
+            const std::shared_ptr< bool > mergeToOneSheet,
+            const std::shared_ptr< bool > checkExcelRestriction
     ) : 
             // m_File(file),
             m_Files(files),
             m_Format(format),
-            m_MergeToOneSheet(mergeToOneSheet)
+            m_MergeToOneSheet(mergeToOneSheet),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
-    // const std::shared_ptr< std::istream > PostMergeRequest::getFile() const
-    // {
-    //     return m_File;
-    // }
+    const std::shared_ptr< bool > PostMergeRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
     const std::shared_ptr< std::map< std::wstring,std::shared_ptr<  std::istream >> > PostMergeRequest::getFiles() const
     {
         return m_Files;
@@ -1185,6 +1202,7 @@ namespace aspose::cells::cloud::requests {
         }
         if (m_Format) result->addQueryParam(L"format", *m_Format);
         if (m_MergeToOneSheet) result->addQueryParam(L"mergeToOneSheet", *m_MergeToOneSheet);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false");         
         return result;
     }
 
@@ -1294,10 +1312,14 @@ namespace aspose::cells::cloud::requests {
 
     PostCompressRequest::PostCompressRequest(
             std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
-            const std::shared_ptr< int > CompressLevel
+            const std::shared_ptr< int > CompressLevel,
+            const std::shared_ptr< std::wstring > password ,
+            const std::shared_ptr< bool > checkExcelRestriction 
     ) : 
             m_Files(files),
-            m_CompressLevel(CompressLevel)
+            m_CompressLevel(CompressLevel),
+            m_Password(password),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
@@ -1310,7 +1332,14 @@ namespace aspose::cells::cloud::requests {
     {
         return m_CompressLevel;
     }
-
+    const std::shared_ptr< std::wstring > PostCompressRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< bool > PostCompressRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostCompressRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
@@ -1322,8 +1351,10 @@ namespace aspose::cells::cloud::requests {
             result->addFormDataParam(it->first, *(it->second));   
         }
         if (!m_CompressLevel) throw aspose::cells::cloud::ApiException(400, L"Parameter 'CompressLevel' is required.");
-        if (m_CompressLevel) result->addQueryParam(L"CompressLevel", *m_CompressLevel);
-        else throw aspose::cells::cloud::ApiException(400, L"Parameter 'CompressLevel' is required.");
+        if (m_CompressLevel) result->addQueryParam(L"CompressLevel", *m_CompressLevel);        
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false"); 
+        
         return result;
     }
 
@@ -1342,12 +1373,14 @@ namespace aspose::cells::cloud::requests {
             std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
             const std::shared_ptr< std::wstring > text,
             const std::shared_ptr< std::wstring > newtext,
-            const std::shared_ptr< std::wstring > password
+            const std::shared_ptr< std::wstring > password,
+            const std::shared_ptr< bool > checkExcelRestriction
     ) : 
             m_Files(files),
             m_Text(text),
             m_Newtext(newtext),
-            m_Password(password)
+            m_Password(password),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
@@ -1368,6 +1401,10 @@ namespace aspose::cells::cloud::requests {
     {
         return m_Password;
     }    
+    const std::shared_ptr< bool > PostReplaceRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }    
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostReplaceRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
@@ -1383,6 +1420,7 @@ namespace aspose::cells::cloud::requests {
         if (!m_Newtext) throw aspose::cells::cloud::ApiException(400, L"Parameter 'newtext' is required.");
         if (m_Newtext) result->addQueryParam(L"newtext", *m_Newtext);        
         if (m_Password) result->addQueryParam(L"password", *m_Password);        
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false"); 
         return result;
     }
 
@@ -1400,11 +1438,13 @@ namespace aspose::cells::cloud::requests {
     PostClearObjectsRequest::PostClearObjectsRequest(
             std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
             const std::shared_ptr< std::wstring > objecttype,
-            const std::shared_ptr< std::wstring > sheetname
+            const std::shared_ptr< std::wstring > sheetname,
+            const std::shared_ptr< bool > checkExcelRestriction 
     ) : 
             m_Files(files),
             m_ObjectType(objecttype),
-            m_SheetName(sheetname)
+            m_SheetName(sheetname),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
@@ -1421,7 +1461,10 @@ namespace aspose::cells::cloud::requests {
     {
         return m_SheetName;
     }
- 
+    const std::shared_ptr< bool > PostClearObjectsRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostClearObjectsRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
@@ -1434,7 +1477,8 @@ namespace aspose::cells::cloud::requests {
         }
         if (!m_ObjectType) throw aspose::cells::cloud::ApiException(400, L"Parameter 'objecttype' is required.");
         if (m_ObjectType) result->addQueryParam(L"objecttype", *m_ObjectType);
-        if (m_SheetName) result->addQueryParam(L"sheetname", *m_SheetName);       
+        if (m_SheetName) result->addQueryParam(L"sheetname", *m_SheetName);     
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false");   
         return result;
     }
 
@@ -1451,11 +1495,13 @@ namespace aspose::cells::cloud::requests {
     PostWatermarkRequest::PostWatermarkRequest(
             std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
             const std::shared_ptr< std::wstring > text,
-            const std::shared_ptr< std::wstring > color
+            const std::shared_ptr< std::wstring > color,
+            const std::shared_ptr< bool > checkExcelRestriction
     ) : 
             m_Files(files),
             m_Text(text),
-            m_Color(color)
+            m_Color(color),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
@@ -1472,7 +1518,10 @@ namespace aspose::cells::cloud::requests {
     {
         return m_Color;
     }
- 
+    const std::shared_ptr< bool > PostWatermarkRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostWatermarkRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
@@ -1486,7 +1535,8 @@ namespace aspose::cells::cloud::requests {
         if (!m_Text) throw aspose::cells::cloud::ApiException(400, L"Parameter 'text' is required.");
         if (!m_Color) throw aspose::cells::cloud::ApiException(400, L"Parameter 'color' is required.");
         if (m_Text) result->addQueryParam(L"text", *m_Text);
-        if (m_Color) result->addQueryParam(L"color", *m_Color);       
+        if (m_Color) result->addQueryParam(L"color", *m_Color);     
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false");   
         return result;
     }
 
@@ -1505,11 +1555,13 @@ namespace aspose::cells::cloud::requests {
     PostReverseRequest::PostReverseRequest(
             std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
             const std::shared_ptr< std::wstring > rotatetype,
-            const std::shared_ptr< std::wstring > format
+            const std::shared_ptr< std::wstring > format,
+            const std::shared_ptr< bool > checkExcelRestriction
     ) : 
             m_Files(files),
             m_RotateType(rotatetype),
-            m_Format(format)
+            m_Format(format),
+            m_CheckExcelRestriction(checkExcelRestriction)
     {
     }
 
@@ -1526,7 +1578,10 @@ namespace aspose::cells::cloud::requests {
     {
         return m_Format;
     }
- 
+    const std::shared_ptr< bool > PostReverseRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
     std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostReverseRequest::createHttpRequest() const
     {
         auto result = std::make_shared<HttpRequestData>();
@@ -1540,6 +1595,7 @@ namespace aspose::cells::cloud::requests {
         if (!m_RotateType) throw aspose::cells::cloud::ApiException(400, L"Parameter 'RotateType' is required.");
         if (m_RotateType) result->addQueryParam(L"rotateType", *m_RotateType);
         if (m_Format) result->addQueryParam(L"format", *m_Format);       
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false"); 
         return result;
     }
 

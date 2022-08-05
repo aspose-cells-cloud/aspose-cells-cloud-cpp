@@ -8,10 +8,10 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Document Processing Features
 
 
-## Enhancements in Version 22.6
+## Enhancements in Version 22.7
 
-- Add postReverse api.
-- Add postDigitalSignature api.
+- Add 4 kinds of Save Option.
+- Add the checkExcelRestriction parameter for multiple APIs.
 
 ## Read & Write Spreadsheet Formats
 

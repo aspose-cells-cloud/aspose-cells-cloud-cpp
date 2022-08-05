@@ -36,27 +36,27 @@ namespace aspose::cells::cloud::requests {
             const std::shared_ptr< std::istream > fileStream,
             const std::shared_ptr< std::wstring > outPath = nullptr,
             const std::shared_ptr< std::wstring > storageName = nullptr,
-            const std::shared_ptr< std::wstring > password = nullptr
+            const std::shared_ptr< std::wstring > password = nullptr,
+            const std::shared_ptr< bool > checkExcelRestriction = nullptr
         );
 
         // ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPath() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getOutPath() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getStorageName() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getFormat() const;
-        // ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getFilename() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::istream > getFileStream() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPassword() const;
-
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< bool > getCheckExcelRestriction() const;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
 
     private:
         // const std::shared_ptr< std::wstring > m_Path;
-        const std::shared_ptr< std::wstring > m_OutPath;
-        // const std::shared_ptr< std::wstring > m_Filename;
+        const std::shared_ptr< std::wstring > m_OutPath;        
         const std::shared_ptr< std::istream > m_FileStream;
         const std::shared_ptr< std::wstring > m_StorageName;
         const std::shared_ptr< std::wstring > m_Format;
         const std::shared_ptr< std::wstring > m_Password;
+        const std::shared_ptr< bool > m_CheckExcelRestriction ;
     };
 }

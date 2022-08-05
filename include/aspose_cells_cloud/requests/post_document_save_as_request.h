@@ -29,9 +29,9 @@
 #include "./request_model_base.h"
 
 namespace aspose::cells::cloud::requests {
-    class postDocumentSaveAsRequest : public RequestModelBase {
+    class PostDocumentSaveAsRequest : public RequestModelBase {
     public:
-        ASPOSE_CELLS_CLOUD_EXPORT postDocumentSaveAsRequest(
+        ASPOSE_CELLS_CLOUD_EXPORT PostDocumentSaveAsRequest(
             const std::shared_ptr< std::wstring > name,
             const std::shared_ptr< aspose::cells::cloud::models::SaveOptions > saveOptions =  nullptr,
             const std::shared_ptr< std::wstring > newfilename =  nullptr,
@@ -39,7 +39,8 @@ namespace aspose::cells::cloud::requests {
             const std::shared_ptr< bool > isAutoFitColumns =  nullptr,
             const std::shared_ptr< std::wstring > folder =  nullptr,
             const std::shared_ptr< std::wstring > storageName =  nullptr,
-            const std::shared_ptr< std::wstring > outStorageName =  nullptr
+            const std::shared_ptr< std::wstring > outStorageName =  nullptr,
+            const std::shared_ptr< bool > checkExcelRestriction = nullptr
         );
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getName() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< aspose::cells::cloud::models::SaveOptions > getSaveOptions() const;
@@ -49,6 +50,7 @@ namespace aspose::cells::cloud::requests {
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getFolder() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getStorageName() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getOutStorageName() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< bool > getCheckExcelRestriction() const;
 
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
@@ -62,6 +64,6 @@ namespace aspose::cells::cloud::requests {
         const std::shared_ptr<  std::wstring > m_Folder;
         const std::shared_ptr<  std::wstring > m_StorageName;
         const std::shared_ptr<  std::wstring > m_OutStorageName;
-
+        const std::shared_ptr< bool > m_CheckExcelRestriction ;
     };
 }

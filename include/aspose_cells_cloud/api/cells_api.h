@@ -224,7 +224,7 @@ namespace aspose::cells::cloud::api {
         /// <param name="folder">The document folder.</param>
         /// <param name="storageName">storage name.</param>
         /// <param name="outStorageName">output storage name.</param>
-        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SaveResponse > postDocumentSaveAs(std::shared_ptr<aspose::cells::cloud::requests::postDocumentSaveAsRequest> request);
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::SaveResponse > postDocumentSaveAs(std::shared_ptr<aspose::cells::cloud::requests::PostDocumentSaveAsRequest> request);
         
         /// <summary>
         /// Split workbook.

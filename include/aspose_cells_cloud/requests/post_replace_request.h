@@ -33,13 +33,15 @@ namespace aspose::cells::cloud::requests {
             const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> files,
             const std::shared_ptr< std::wstring > text,
             const std::shared_ptr< std::wstring > newtext,
-            const std::shared_ptr< std::wstring > password = nullptr
+            const std::shared_ptr< std::wstring > password = nullptr,
+            const std::shared_ptr< bool > checkExcelRestriction = nullptr
         );
 
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream > > > getFiles() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getText() const;  
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getNewtext() const;  
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPassword() const;        
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< bool > getCheckExcelRestriction() const;
 
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
@@ -49,6 +51,7 @@ namespace aspose::cells::cloud::requests {
         const std::shared_ptr< std::wstring > m_Newtext;
         const std::shared_ptr< std::wstring > m_Password;
         const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > m_Files;
+        const std::shared_ptr< bool > m_CheckExcelRestriction ;
 
     };
 }

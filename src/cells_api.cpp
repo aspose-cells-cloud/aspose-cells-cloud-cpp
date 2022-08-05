@@ -187,9 +187,9 @@ namespace aspose::cells::cloud::api {
         return response->getResult();
     }
 
-    std::shared_ptr< aspose::cells::cloud::models::SaveResponse>  CellsApi::postDocumentSaveAs(std::shared_ptr<aspose::cells::cloud::requests::postDocumentSaveAsRequest> request)
+    std::shared_ptr< aspose::cells::cloud::models::SaveResponse>  CellsApi::postDocumentSaveAs(std::shared_ptr<aspose::cells::cloud::requests::PostDocumentSaveAsRequest> request)
     {
-        auto response = std::make_shared< aspose::cells::cloud::responses::postDocumentSaveAsResponse >();
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostDocumentSaveAsResponse >();
         m_ApiClient->call( request->createHttpRequest(), *response);
         if (response->getStatusCode() != 200) {
             throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());

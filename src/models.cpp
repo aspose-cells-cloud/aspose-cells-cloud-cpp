@@ -1363,6 +1363,32 @@ namespace aspose::cells::cloud::models {
         ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
     }
     /// <summary>
+    /// DocxSaveOptions class implementation
+    /// </summary>
+    void DocxSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    void DocxSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }    
+    /// <summary>
+    /// PptxSaveOptions class implementation
+    /// </summary>
+    void PptxSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }
+    void PptxSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+    }    
+    /// <summary>
     /// OdsSaveOptions class implementation
     /// </summary>
     void OdsSaveOptions::toJson(void* jsonIfc) const
@@ -1376,6 +1402,260 @@ namespace aspose::cells::cloud::models {
         ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
     }
     /// <summary>
+    /// JsonSaveOptions class implementation
+    /// </summary>
+    void JsonSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_Indent) {
+            json["Indent"] =convertUtf16(*m_Indent);
+        }
+        if (m_HasHeaderRow) {
+            json["HasHeaderRow"] =*m_HasHeaderRow;
+        }
+        if (m_ExportAsString) {
+            json["ExportAsString"] =*m_ExportAsString;
+        }
+    }
+    void JsonSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("HasHeaderRow") && !json["HasHeaderRow"].is_null()) {
+            m_HasHeaderRow = std::make_shared< bool >( json["HasHeaderRow"].get< bool >());
+        }
+        if (json.contains("ExportAsString") && !json["ExportAsString"].is_null()) {
+            m_ExportAsString = std::make_shared< bool >( json["ExportAsString"].get< bool >());
+        }
+        if (json.contains("Indent") && !json["Indent"].is_null()) {
+            m_Indent = std::make_shared< std::wstring >( convertUtf8( json["Indent"].get< std::string >() ));
+        }
+    }    
+    std::shared_ptr< bool > JsonSaveOptions::getExportAsString() const
+    {
+        return m_ExportAsString;
+    }
+    void JsonSaveOptions::setExportAsString( std::shared_ptr< bool > value)
+    {
+        m_ExportAsString = value;
+    }
+    std::shared_ptr< bool > JsonSaveOptions::getHasHeaderRow() const
+    {
+        return m_HasHeaderRow;
+    }
+    void JsonSaveOptions::setHasHeaderRow( std::shared_ptr< bool > value)
+    {
+        m_HasHeaderRow= value;
+    }
+    std::shared_ptr< std::wstring > JsonSaveOptions::getIndent() const
+    {
+        return m_Indent;
+    }
+    void JsonSaveOptions::setIndent( std::shared_ptr< std::wstring > value)
+    {
+        m_Indent = value;
+    }
+
+    /// <summary>
+    /// JsonSaveOptions class implementation
+    /// </summary>
+    void SqlScriptSaveOptions::toJson(void* jsonIfc) const
+    {
+        SaveOptions::toJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (m_ColumnTypeMap) {
+            json["ColumnTypeMap"] =convertUtf16(*m_ColumnTypeMap);
+        }
+        if (m_OperatorType) {
+            json["OperatorType"] =convertUtf16(*m_OperatorType);
+        }
+        if (m_IdName) {
+            json["IdName"] =convertUtf16(*m_IdName);
+        }
+        if (m_TableName) {
+            json["TableName"] =convertUtf16(*m_TableName);
+        }
+
+        if (m_CheckIfTableExists) {
+            json["CheckIfTableExists"] =*m_CheckIfTableExists;
+        }
+        if (m_CheckAllDataForColumnType) {
+            json["CheckAllDataForColumnType"] =*m_CheckAllDataForColumnType;
+        }
+        if (m_AddBlankLineBetweenRows) {
+            json["AddBlankLineBetweenRows"] =*m_AddBlankLineBetweenRows;
+        }
+        if (m_CreateTable) {
+            json["CreateTable"] =*m_CreateTable;
+        }
+        if (m_HasHeaderRow) {
+            json["HasHeaderRow"] =*m_HasHeaderRow;
+        }
+        if (m_Separator) {
+            json["Separator"] =*m_Separator;
+        }
+        if (m_PrimaryKey) {
+            json["PrimaryKey"] =*m_PrimaryKey;
+        }
+        if (m_StartId) {
+            json["StartId"] =*m_StartId;
+        }
+        if (m_ExportAsString) {
+            json["ExportAsString"] =*m_ExportAsString;
+        }
+    }
+    void SqlScriptSaveOptions::fromJson(const void* jsonIfc)
+    {
+        SaveOptions::fromJson(jsonIfc);
+        ::nlohmann::json& json = *((::nlohmann::json*)jsonIfc);
+        if (json.contains("HasHeaderRow") && !json["HasHeaderRow"].is_null()) {
+            m_HasHeaderRow = std::make_shared< bool >( json["HasHeaderRow"].get< bool >());
+        }
+        if (json.contains("CheckIfTableExists") && !json["CheckIfTableExists"].is_null()) {
+            m_CheckIfTableExists = std::make_shared< bool >( json["CheckIfTableExists"].get< bool >());
+        }
+        if (json.contains("CheckAllDataForColumnType") && !json["CheckAllDataForColumnType"].is_null()) {
+            m_CheckAllDataForColumnType = std::make_shared< bool >( json["CheckAllDataForColumnType"].get< bool >());
+        }
+        if (json.contains("AddBlankLineBetweenRows") && !json["AddBlankLineBetweenRows"].is_null()) {
+            m_AddBlankLineBetweenRows = std::make_shared< bool >( json["AddBlankLineBetweenRows"].get< bool >());
+        }
+        if (json.contains("CreateTable") && !json["CreateTable"].is_null()) {
+            m_CreateTable = std::make_shared< bool >( json["CreateTable"].get< bool >());
+        }
+        if (json.contains("Separator") && !json["Separator"].is_null()) {
+            m_Separator = std::make_shared< char >( json["Separator"].get< bool >());
+        }
+        if (json.contains("PrimaryKey") && !json["PrimaryKey"].is_null()) {
+            m_PrimaryKey = std::make_shared< int >( json["PrimaryKey"].get< int >());
+        }
+        if (json.contains("StartId") && !json["StartId"].is_null()) {
+            m_StartId = std::make_shared< int >( json["StartId"].get< int >());
+        }
+        if (json.contains("ExportAsString") && !json["ExportAsString"].is_null()) {
+            m_ExportAsString = std::make_shared< int >( json["ExportAsString"].get< int >());
+        }
+        if (json.contains("ColumnTypeMap") && !json["ColumnTypeMap"].is_null()) {
+            m_ColumnTypeMap = std::make_shared< std::wstring >( convertUtf8( json["ColumnTypeMap"].get< std::string >() ));
+        }
+        if (json.contains("OperatorType") && !json["OperatorType"].is_null()) {
+            m_OperatorType = std::make_shared< std::wstring >( convertUtf8( json["OperatorType"].get< std::string >() ));
+        }
+        if (json.contains("IdName") && !json["IdName"].is_null()) {
+            m_IdName = std::make_shared< std::wstring >( convertUtf8( json["IdName"].get< std::string >() ));
+        }
+        if (json.contains("TableName") && !json["TableName"].is_null()) {
+            m_TableName = std::make_shared< std::wstring >( convertUtf8( json["TableName"].get< std::string >() ));
+        }        
+    } 
+        std::shared_ptr< bool > SqlScriptSaveOptions::SqlScriptSaveOptions::getCheckIfTableExists() const
+        {
+            return m_CheckIfTableExists;
+        }
+        void SqlScriptSaveOptions::SqlScriptSaveOptions::setCheckIfTableExists(  std::shared_ptr< bool> value )
+        {
+            m_CheckIfTableExists = value;
+        }
+        std::shared_ptr< bool > SqlScriptSaveOptions::getCheckAllDataForColumnType() const
+        {
+            return m_CheckAllDataForColumnType;
+        }
+        void SqlScriptSaveOptions::setCheckAllDataForColumnType(  std::shared_ptr< bool> value )
+        {
+            m_CheckAllDataForColumnType = value;
+        }
+        std::shared_ptr< bool > SqlScriptSaveOptions::getAddBlankLineBetweenRows() const
+        {
+            return m_AddBlankLineBetweenRows;
+        }
+        void SqlScriptSaveOptions::setAddBlankLineBetweenRows(  std::shared_ptr< bool> value )
+        {
+            m_AddBlankLineBetweenRows = value;
+        }
+        std::shared_ptr< bool > SqlScriptSaveOptions::getCreateTable() const
+        {
+            return m_CreateTable;
+        }
+        void SqlScriptSaveOptions::setCreateTable(  std::shared_ptr< bool> value )
+        {
+            m_CreateTable = value;
+        }
+        std::shared_ptr< bool > SqlScriptSaveOptions::getHasHeaderRow() const
+        {
+            return m_HasHeaderRow;
+        }
+        void SqlScriptSaveOptions::setHasHeaderRow(  std::shared_ptr< bool> value )
+        {
+            m_HasHeaderRow = value;
+        }
+
+        std::shared_ptr< char > SqlScriptSaveOptions::getSeparator() const
+        {
+            return m_Separator;
+        }
+        void SqlScriptSaveOptions::setSeparator(  std::shared_ptr< char> value )
+        {
+            m_Separator = value;
+        }
+        std::shared_ptr< int > SqlScriptSaveOptions::getPrimaryKey() const
+        {
+            return m_PrimaryKey;
+        }
+        void SqlScriptSaveOptions::setPrimaryKey(  std::shared_ptr< int> value )
+        {
+            m_PrimaryKey = value;
+        }
+        std::shared_ptr< int > SqlScriptSaveOptions::getStartId() const
+        {
+            return m_StartId;
+        }
+        void SqlScriptSaveOptions::setStartId(  std::shared_ptr< int> value )
+        {
+            m_StartId = value;
+        }
+        std::shared_ptr< int > SqlScriptSaveOptions::getExportAsString() const
+        {
+            return m_ExportAsString;
+        }
+        void SqlScriptSaveOptions::setExportAsString(  std::shared_ptr< int> value )
+        {
+            m_ExportAsString = value;
+        }
+
+        std::shared_ptr< std::wstring  > SqlScriptSaveOptions::getColumnTypeMap() const
+        {
+            return m_ColumnTypeMap;
+        }
+        void SqlScriptSaveOptions::setColumnTypeMap ( std::shared_ptr< std::wstring > value )
+        {
+            m_ColumnTypeMap = value;
+        }
+        std::shared_ptr< std::wstring  > SqlScriptSaveOptions::getOperatorType() const
+        {
+            return m_OperatorType;
+        }
+        void SqlScriptSaveOptions::setOperatorType ( std::shared_ptr< std::wstring > value )
+        {
+            m_OperatorType = value;
+        }
+        std::shared_ptr< std::wstring  > SqlScriptSaveOptions::getIdName() const
+        {
+            return m_IdName;
+        }
+        void SqlScriptSaveOptions::setIdName ( std::shared_ptr< std::wstring > value )
+        {
+            m_IdName = value;
+        }
+        std::shared_ptr< std::wstring  > SqlScriptSaveOptions::getTableName() const
+        {
+            return m_TableName;
+        }
+        void SqlScriptSaveOptions::setTableName ( std::shared_ptr< std::wstring > value )
+        {
+           m_TableName  = value;
+        }
+    /// <summary>
     /// OoxmlSaveOptions class implementation
     /// </summary>
     void OoxmlSaveOptions::toJson(void* jsonIfc) const
@@ -1386,6 +1666,7 @@ namespace aspose::cells::cloud::models {
             json["ExportCellName"] =*m_ExportCellName;
         }
     }
+
     void OoxmlSaveOptions::fromJson(const void* jsonIfc)
     {
         SaveOptions::fromJson(jsonIfc);

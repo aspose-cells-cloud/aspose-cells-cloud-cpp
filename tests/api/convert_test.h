@@ -36,135 +36,135 @@ protected:
 
 };
 
-// /// <summary>
-// /// Test for convert file.
-// /// </summary>
-// TEST_F(ConvertTests, TestConvertFile) {
-//     std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
-//     auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+/// <summary>
+/// Test for convert file.
+/// </summary>
+TEST_F(ConvertTests, TestConvertFile) {
+    std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
     
-//     std::shared_ptr<requests::ConvertRequest> request(new requests::ConvertRequest(
-//         std::make_shared< std::wstring >(L"pdf") ,        
-//         requestFile,
-//         nullptr,
-//         nullptr,
-//         nullptr
-//     ));
+    std::shared_ptr<requests::ConvertRequest> request(new requests::ConvertRequest(
+        std::make_shared< std::wstring >(L"pdf") ,        
+        requestFile,
+        nullptr,
+        nullptr,
+        nullptr
+    ));
 
-//     auto actual = getApi()->convert(request);
-//     if(actual->good()){
-//         std::ofstream out("out/TestConvertFile_CPP.pdf", std::istream::binary);
-//         actual->seekg(0,std::ios_base::beg);
-//         while(!actual->eof()){
-//             char* buffer = new char[256];
-//             actual->read(buffer,256);             
-//             out.write(buffer,256);
-//         }
+    auto actual = getApi()->convert(request);
+    if(actual->good()){
+        std::ofstream out("out/TestConvertFile_CPP.pdf", std::istream::binary);
+        actual->seekg(0,std::ios_base::beg);
+        while(!actual->eof()){
+            char* buffer = new char[256];
+            actual->read(buffer,256);             
+            out.write(buffer,256);
+        }
         
-//     }
-// }
+    }
+}
 
-// /// <summary>
-// /// Test for get workbook.
-// /// </summary>
-// TEST_F(ConvertTests, TesGetWorkbookFormat) {
-//     std::wstring remoteFileName = L"TestGetWorkBook_CPP.xlsx";
+/// <summary>
+/// Test for get workbook.
+/// </summary>
+TEST_F(ConvertTests, TesGetWorkbookFormat) {
+    std::wstring remoteFileName = L"TestGetWorkBook_CPP.xlsx";
     
-//     uploadFileToStorage(
-//         localTestDataFolder + L"/" + localFile,
-//         remoteDataFolder + L"/" + remoteFileName
-//     );
-//     std::shared_ptr<requests::GetWorkbookRequest> request(new requests::GetWorkbookRequest(
-//         std::make_shared< std::wstring >(remoteFileName) ,        
-//         std::make_shared< std::wstring >(L"pdf"),
-//         nullptr,
-//         nullptr,
-//         nullptr,
-//         std::make_shared< std::wstring >(remoteDataFolder),
-//         nullptr,
-//         nullptr,
-//         nullptr
-//     ));
+    uploadFileToStorage(
+        localTestDataFolder + L"/" + localFile,
+        remoteDataFolder + L"/" + remoteFileName
+    );
+    std::shared_ptr<requests::GetWorkbookRequest> request(new requests::GetWorkbookRequest(
+        std::make_shared< std::wstring >(remoteFileName) ,        
+        std::make_shared< std::wstring >(L"pdf"),
+        nullptr,
+        nullptr,
+        nullptr,
+        std::make_shared< std::wstring >(remoteDataFolder),
+        nullptr,
+        nullptr,
+        nullptr
+    ));
 
-//     auto actual = getApi()->getWorkbook(request);
-//     if(actual->good()){
-//         std::ofstream out("out/TestGetWorkBook_CPP.pdf", std::istream::binary);
-//         actual->seekg(0,std::ios_base::beg);
-//         while(!actual->eof()){
-//             char* buffer = new char[256];
-//             actual->read(buffer,256);             
-//             out.write(buffer,256);
-//         }        
-//     }
-// }
+    auto actual = getApi()->getWorkbook(request);
+    if(actual->good()){
+        std::ofstream out("out/TestGetWorkBook_CPP.pdf", std::istream::binary);
+        actual->seekg(0,std::ios_base::beg);
+        while(!actual->eof()){
+            char* buffer = new char[256];
+            actual->read(buffer,256);             
+            out.write(buffer,256);
+        }        
+    }
+}
 
-// /// <summary>
-// /// Test for get workbook.
-// /// </summary>
-// TEST_F(ConvertTests, TesGetWorkbook) {
-//     std::wstring remoteFileName = L"TestGetWorkBook_CPP.xlsx";
+/// <summary>
+/// Test for get workbook.
+/// </summary>
+TEST_F(ConvertTests, TesGetWorkbook) {
+    std::wstring remoteFileName = L"TestGetWorkBook_CPP.xlsx";
     
-//     uploadFileToStorage(
-//         localTestDataFolder + L"/" + localFile,
-//         remoteDataFolder + L"/" + remoteFileName
-//     );
-//     std::shared_ptr<requests::GetWorkbookRequest> request(new requests::GetWorkbookRequest(
-//         std::make_shared< std::wstring >(remoteFileName) ,        
-//         nullptr,
-//         nullptr,
-//         nullptr,
-//         nullptr,
-//         std::make_shared< std::wstring >(remoteDataFolder),
-//         nullptr,
-//         nullptr,
-//         nullptr
-//     ));
+    uploadFileToStorage(
+        localTestDataFolder + L"/" + localFile,
+        remoteDataFolder + L"/" + remoteFileName
+    );
+    std::shared_ptr<requests::GetWorkbookRequest> request(new requests::GetWorkbookRequest(
+        std::make_shared< std::wstring >(remoteFileName) ,        
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr,
+        std::make_shared< std::wstring >(remoteDataFolder),
+        nullptr,
+        nullptr,
+        nullptr
+    ));
 
-//     auto actual = getApi()->getWorkbook(request);
-//     if(actual->good()){       
-//         std::ofstream out("out/TestGetWorkBook_CPP.xml", std::istream::binary);
-//         actual->seekg(0,std::ios_base::beg);
-//         while(!actual->eof()){
-//             char* buffer = new char[256];
-//             actual->read(buffer,256);             
-//             out.write(buffer,256);
-//         }        
-//     }
-// }
+    auto actual = getApi()->getWorkbook(request);
+    if(actual->good()){       
+        std::ofstream out("out/TestGetWorkBook_CPP.xml", std::istream::binary);
+        actual->seekg(0,std::ios_base::beg);
+        while(!actual->eof()){
+            char* buffer = new char[256];
+            actual->read(buffer,256);             
+            out.write(buffer,256);
+        }        
+    }
+}
 
-// /// <summary>
-// /// Test for get workbook.
-// /// </summary>
-// TEST_F(ConvertTests, TesGetWorkbookFormatOutPath) {
-//     std::wstring remoteFileName = L"TestGetWorkBook_CPP.xlsx";
+/// <summary>
+/// Test for get workbook.
+/// </summary>
+TEST_F(ConvertTests, TesGetWorkbookFormatOutPath) {
+    std::wstring remoteFileName = L"TestGetWorkBook_CPP.xlsx";
     
-//     uploadFileToStorage(
-//         localTestDataFolder + L"/" + localFile,
-//         remoteDataFolder + L"/" + remoteFileName
-//     );
-//     std::shared_ptr<requests::GetWorkbookRequest> request(new requests::GetWorkbookRequest(
-//         std::make_shared< std::wstring >(remoteFileName) ,        
-//         std::make_shared< std::wstring >(L"pdf"),
-//         nullptr,
-//         nullptr,
-//         nullptr,
-//         std::make_shared< std::wstring >(remoteDataFolder),
-//         nullptr,
-//         std::make_shared< std::wstring >(L"TesGetWorkbookFormatOutPath.pdf") ,
-//         nullptr
-//     ));
+    uploadFileToStorage(
+        localTestDataFolder + L"/" + localFile,
+        remoteDataFolder + L"/" + remoteFileName
+    );
+    std::shared_ptr<requests::GetWorkbookRequest> request(new requests::GetWorkbookRequest(
+        std::make_shared< std::wstring >(remoteFileName) ,        
+        std::make_shared< std::wstring >(L"pdf"),
+        nullptr,
+        nullptr,
+        nullptr,
+        std::make_shared< std::wstring >(remoteDataFolder),
+        nullptr,
+        std::make_shared< std::wstring >(L"TesGetWorkbookFormatOutPath.pdf") ,
+        nullptr
+    ));
 
-//     auto actual = getApi()->getWorkbook(request);
-//     if(actual->good()){       
-//         std::ofstream out("out/TesGetWorkbookFormatOutPath.xml", std::istream::binary);
-//         actual->seekg(0,std::ios_base::beg);
-//         while(!actual->eof()){
-//             char* buffer = new char[256];
-//             actual->read(buffer,256);             
-//             out.write(buffer,256);
-//         }        
-//     }
-// }
+    auto actual = getApi()->getWorkbook(request);
+    if(actual->good()){       
+        std::ofstream out("out/TesGetWorkbookFormatOutPath.xml", std::istream::binary);
+        actual->seekg(0,std::ios_base::beg);
+        while(!actual->eof()){
+            char* buffer = new char[256];
+            actual->read(buffer,256);             
+            out.write(buffer,256);
+        }        
+    }
+}
 
 /// <summary>
 /// Test for workbook save as. 
@@ -172,17 +172,18 @@ protected:
 TEST_F(ConvertTests, TesWorkbookSaveAs) {
     std::wstring remoteFileName = L"TestWorkBookSaveAs_CPP.xlsx";
     
-    uploadFileToStorage(
-        localTestDataFolder + L"/" + localFile,
-        remoteDataFolder + L"/" + remoteFileName
-    );
-    std::shared_ptr<requests::postDocumentSaveAsRequest> request(new requests::postDocumentSaveAsRequest(
+    // uploadFileToStorage(
+    //     localTestDataFolder + L"/" + localFile,
+    //     remoteDataFolder + L"/" + remoteFileName
+    // );
+    std::shared_ptr<requests::PostDocumentSaveAsRequest> request(new requests::PostDocumentSaveAsRequest(
         std::make_shared< std::wstring >(remoteFileName) ,    
         nullptr,    
         std::make_shared< std::wstring >(L"OutResult/TestWorkBookSaveAs_CPP.xlsx.pdf"),
         nullptr,
         nullptr,
         std::make_shared< std::wstring >(remoteDataFolder),
+        nullptr,
         nullptr,
         nullptr
     ));

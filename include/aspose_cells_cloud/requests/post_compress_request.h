@@ -33,17 +33,21 @@ namespace aspose::cells::cloud::requests {
     public:
         ASPOSE_CELLS_CLOUD_EXPORT PostCompressRequest(
             const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> files,
-            const std::shared_ptr< int > CompressLevel
+            const std::shared_ptr< int > CompressLevel,
+            const std::shared_ptr< std::wstring > password =  nullptr,
+            const std::shared_ptr< bool > checkExcelRestriction = nullptr
         );
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream > > > getFiles() const;
         ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< int > getCompressLevel() const;
-
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPassword() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< bool > getCheckExcelRestriction() const;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
         ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
 
     private:
         const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > m_Files;
         const std::shared_ptr<  int > m_CompressLevel;
-
+        const std::shared_ptr< std::wstring > m_Password ;
+        const std::shared_ptr< bool > m_CheckExcelRestriction ;
     };
 }

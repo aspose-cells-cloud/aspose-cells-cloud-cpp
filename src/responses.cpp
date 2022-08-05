@@ -319,15 +319,15 @@ namespace aspose::cells::cloud::responses {
         m_Result->fromJson(&json);
     }    
     /*
-     * postDocumentSaveAsResponse implementation
+     * PostDocumentSaveAsResponse implementation
      */
 
-    std::shared_ptr< aspose::cells::cloud::models::SaveResponse > postDocumentSaveAsResponse::getResult() const
+    std::shared_ptr< aspose::cells::cloud::models::SaveResponse > PostDocumentSaveAsResponse::getResult() const
     {
         return m_Result;
     }
 
-    void postDocumentSaveAsResponse::deserialize(const std::string_view& response)
+    void PostDocumentSaveAsResponse::deserialize(const std::string_view& response)
     {
         auto json = ::nlohmann::json::parse(response);
         m_Result = std::make_shared< aspose::cells::cloud::models::SaveResponse >();
