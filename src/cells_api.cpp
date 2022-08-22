@@ -312,4 +312,15 @@ namespace aspose::cells::cloud::api {
 
         return response->getResult();
     }  
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult>  CellsApi::postRotate(std::shared_ptr<aspose::cells::cloud::requests::PostRotateRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::PostRotateResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+
+        return response->getResult();
+    }  
 }

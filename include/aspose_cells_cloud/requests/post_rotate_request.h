@@ -1,6 +1,6 @@
 
 /** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file=" post_reverse_request.h">
+* <copyright company="Aspose" file=" post_rotate_request.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -29,9 +29,9 @@
 #include "./request_model_base.h"
 
 namespace aspose::cells::cloud::requests {
-    class PostReverseRequest : public RequestModelBase {
+    class PostRotateRequest : public RequestModelBase {
     public:
-        ASPOSE_CELLS_CLOUD_EXPORT PostReverseRequest(
+        ASPOSE_CELLS_CLOUD_EXPORT PostRotateRequest(
             const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> files,
             const std::shared_ptr< std::wstring > rotatetype,
             const std::shared_ptr< std::wstring > format =  nullptr,

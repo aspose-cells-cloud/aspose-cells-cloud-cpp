@@ -8,10 +8,9 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Document Processing Features
 
 
-## Enhancements in Version 22.7
+## Enhancements in Version 22.8
 
-- Add 4 kinds of Save Option.
-- Add the checkExcelRestriction parameter for multiple APIs.
+- Support transposing Excel Rows to Columns.
 
 ## Read & Write Spreadsheet Formats
 

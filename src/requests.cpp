@@ -1673,5 +1673,64 @@ namespace aspose::cells::cloud::requests {
         return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
             new aspose::cells::cloud::responses::PostDigitalSignatureResponse()
         );
+    }
+
+     /*
+     * PostRotateRequest implementation
+     */
+
+    PostRotateRequest::PostRotateRequest(
+            std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >> > files,
+            const std::shared_ptr< std::wstring > rotatetype,
+            const std::shared_ptr< std::wstring > format,
+            const std::shared_ptr< bool > checkExcelRestriction
+    ) : 
+            m_Files(files),
+            m_RotateType(rotatetype),
+            m_Format(format),
+            m_CheckExcelRestriction(checkExcelRestriction)
+    {
+    }
+
+    const std::shared_ptr< std::map< std::wstring ,std::shared_ptr<  std::istream >>> PostRotateRequest::getFiles() const
+    {
+        return m_Files;
+    }
+
+    const std::shared_ptr<  std::wstring > PostRotateRequest::getRotateType() const
+    {
+        return m_RotateType;
+    }
+    const std::shared_ptr<  std::wstring > PostRotateRequest::getFormat() const
+    {
+        return m_Format;
+    }
+    const std::shared_ptr< bool > PostRotateRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > PostRotateRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/reverse");
+        if (!m_Files) throw aspose::cells::cloud::ApiException(400, L"Parameter 'Files' is required.");
+        for(std::map< std::wstring ,std::shared_ptr<  std::istream > >::iterator it=m_Files->begin();it!=m_Files->end();it++)
+        {             
+            result->addFormDataParam(it->first, *(it->second));   
+        }
+        if (!m_RotateType) throw aspose::cells::cloud::ApiException(400, L"Parameter 'RotateType' is required.");
+        if (m_RotateType) result->addQueryParam(L"rotateType", *m_RotateType);
+        if (m_Format) result->addQueryParam(L"format", *m_Format);       
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction?"true":"false"); 
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > PostRotateRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::PostReverseResponse()
+        );
     }   
+
 }

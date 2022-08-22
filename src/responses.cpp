@@ -498,4 +498,21 @@ namespace aspose::cells::cloud::responses {
         m_Result = std::make_shared< aspose::cells::cloud::models::CellsCloudResponse >();
         m_Result->fromJson(&json);
     } 
+
+    /*
+     * PostRotateResponse implementation
+     */
+
+    std::shared_ptr< aspose::cells::cloud::models::FilesResult > PostRotateResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void PostRotateResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FilesResult >();
+        m_Result->fromJson(&json);
+    }    
+
 }

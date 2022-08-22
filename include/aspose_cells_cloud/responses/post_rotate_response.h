@@ -1,6 +1,6 @@
 
 /** --------------------------------------------------------------------------------------------------------------------
-* <copyright company="Aspose" file=" post_reverse_response.h">
+* <copyright company="Aspose" file=" post_rotate_response.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -29,9 +29,9 @@
 #include "./response_model_base.h"
 
 namespace aspose::cells::cloud::responses {
-    class PostReverseResponse : public ResponseModelBase {
+    class PostRotateResponse : public ResponseModelBase {
     public:
-        ASPOSE_CELLS_CLOUD_EXPORT virtual ~PostReverseResponse() = default;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual ~PostRotateResponse() = default;
 
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult > getResult() const;
 

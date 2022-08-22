@@ -28,32 +28,6 @@
 #include "aspose_cells_cloud/common.h"
 #include "aspose_cells_cloud/api_client.h"
 #include "aspose_cells_cloud.h"
-// #include "aspose_cells_cloud/requests/copy_file_request.h"
-// #include "aspose_cells_cloud/requests/copy_folder_request.h"
-// #include "aspose_cells_cloud/requests/convert_request.h"
-// #include "aspose_cells_cloud/requests/create_folder_request.h"
-// #include "aspose_cells_cloud/requests/delete_file_request.h"
-// #include "aspose_cells_cloud/requests/delete_folder_request.h"
-// #include "aspose_cells_cloud/requests/download_file_request.h"
-// #include "aspose_cells_cloud/requests/get_public_key_request.h"
-// #include "aspose_cells_cloud/requests/get_files_list_request.h"
-// #include "aspose_cells_cloud/requests/move_file_request.h"
-// #include "aspose_cells_cloud/requests/move_folder_request.h"
-// #include "aspose_cells_cloud/requests/post_clear_objects_request.h"
-// #include "aspose_cells_cloud/requests/post_split_request.h"
-// #include "aspose_cells_cloud/requests/post_workbook_split_request.h"
-// #include "aspose_cells_cloud/requests/upload_file_request.h"
-// #include "aspose_cells_cloud/responses/create_folder_response.h"
-// #include "aspose_cells_cloud/responses/copy_file_response.h"
-// #include "aspose_cells_cloud/responses/copy_folder_response.h"
-// #include "aspose_cells_cloud/responses/delete_file_response.h"
-// #include "aspose_cells_cloud/responses/delete_folder_response.h"
-// #include "aspose_cells_cloud/responses/download_file_response.h"
-// #include "aspose_cells_cloud/responses/get_files_list_response.h"
-// #include "aspose_cells_cloud/responses/get_public_key_response.h"
-// #include "aspose_cells_cloud/responses/move_file_response.h"
-// #include "aspose_cells_cloud/responses/move_folder_response.h"
-// #include "aspose_cells_cloud/responses/upload_file_response.h"
 
 namespace aspose::cells::cloud::api {
     class CellsApi
@@ -309,6 +283,13 @@ namespace aspose::cells::cloud::api {
         /// <param name="file">File to upload</param>
         /// <param name="CompressLevel"> </param>
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::CellsCloudResponse> postDigitalSignature(std::shared_ptr<aspose::cells::cloud::requests::PostDigitalSignatureRequest> request);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file">File to upload</param>
+        /// <param name="CompressLevel"> </param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FilesResult> postRotate(std::shared_ptr<aspose::cells::cloud::requests::PostRotateRequest> request);
+
     public:
         ASPOSE_CELLS_CLOUD_EXPORT CellsApi(std::shared_ptr<ApiConfiguration> configuration);
         ASPOSE_CELLS_CLOUD_EXPORT virtual ~CellsApi() = default;

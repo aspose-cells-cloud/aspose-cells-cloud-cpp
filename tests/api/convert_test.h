@@ -172,13 +172,15 @@ TEST_F(ConvertTests, TesGetWorkbookFormatOutPath) {
 TEST_F(ConvertTests, TesWorkbookSaveAs) {
     std::wstring remoteFileName = L"TestWorkBookSaveAs_CPP.xlsx";
     
-    // uploadFileToStorage(
-    //     localTestDataFolder + L"/" + localFile,
-    //     remoteDataFolder + L"/" + remoteFileName
-    // );
+    uploadFileToStorage(
+        localTestDataFolder + L"/" + localFile,
+        remoteDataFolder + L"/" + remoteFileName
+    );
+    auto pdfSaveOptions = std::make_shared< aspose::cells::cloud::models::PdfSaveOptions >();
+    pdfSaveOptions->setSaveFormat(std::make_shared< std::wstring >(L"pdf"));
     std::shared_ptr<requests::PostDocumentSaveAsRequest> request(new requests::PostDocumentSaveAsRequest(
         std::make_shared< std::wstring >(remoteFileName) ,    
-        nullptr,    
+        pdfSaveOptions,    
         std::make_shared< std::wstring >(L"OutResult/TestWorkBookSaveAs_CPP.xlsx.pdf"),
         nullptr,
         nullptr,
