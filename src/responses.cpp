@@ -261,7 +261,48 @@ namespace aspose::cells::cloud::responses {
     {
         m_Result = std::shared_ptr< std::istream >(new std::istringstream(std::string(response), std::ios_base::in));
     }
+    /*
+     * Convert Workbook to Docx Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToDocxResponse::getResult() const
+    {
+        return m_Result;
+    }
 
+    void ConvertWorkbookToDocxResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }
+    /*
+     * Convert Workbook to pdf Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToPdfResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToPdfResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }
+    /*
+     * Convert Workbook to Png Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToPNGResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToPNGResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }        
     /*
      * GetWorkbook Response implementation
      */

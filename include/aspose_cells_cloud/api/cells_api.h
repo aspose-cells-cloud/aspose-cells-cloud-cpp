@@ -149,6 +149,24 @@ namespace aspose::cells::cloud::api {
         /// <param name="storageName">Original document storage.</param>
         /// <param name="saveOption">Folder in filestorage with custom fonts.</param>
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< std::istream > convert(std::shared_ptr<aspose::cells::cloud::requests::ConvertRequest> request);
+        /// <summary>
+        /// Converts workbook to docx.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToDocx(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToDocxRequest> request);
+        /// <summary>
+        /// Converts workbook to docx.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToPdf(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToPdfRequest> request);
+        /// <summary>
+        /// Converts workbook to docx.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToPNG(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToPNGRequest> request);
 
         /// <summary>
         /// Get a document in cloud storage to the specified format.
