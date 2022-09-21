@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-/** --------------------------------------------------------------------------------------------------------------------
-=======
 ﻿/** --------------------------------------------------------------------------------------------------------------------
->>>>>>> 2fe3dcd63b703f9c8987ef7d657c0f2ad68be804
-* <copyright company="Aspose" file="file_test.h">
+* <copyright company="Aspose" file="convert_workbook_to_pdf_response.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -28,27 +24,17 @@
 -------------------------------------------------------------------------------------------------------------------- **/
 
 #pragma once
-#include "../test_base.h"
-#include "../thirdparty/httplib.h"
-<<<<<<< HEAD
-=======
-#define CPPHTTPLIB_OPENSSL_SUPPORT
->>>>>>> 2fe3dcd63b703f9c8987ef7d657c0f2ad68be804
-/// <summary>
-/// Example of how to work with files.
-/// </summary>
-class HttpTests : public InfrastructureTest {
-protected:
-    std::wstring url =L"https://windocks.com/blog-2/Docker-SQL-Containers-with-SSRS";
-    
-};
+#include "./response_model_base.h"
+#include "../models/file_info.h"
+namespace aspose::cells::cloud::responses {
+    class ConvertWorkbookToPdfResponse : public ResponseModelBase {
+    public: 
+        ASPOSE_CELLS_CLOUD_EXPORT virtual ~ConvertWorkbookToPdfResponse() = default;
 
-/// <summary>
-/// Test for uploading file.
-/// </summary>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > getResult() const;
 
-TEST_F(HttpTests, TesGetFile) {
-    httplib::Client cli("https://cpp-httplib-server.yhirose.repl.co"); 
-    auto res = cli.Get("/hi");
-     std::cout <<  res.value().body <<std::endl;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual void deserialize(const std::string_view& response) override;
+    private:
+        std::shared_ptr< aspose::cells::cloud::models::FileInfo > m_Result;
+    };
 }

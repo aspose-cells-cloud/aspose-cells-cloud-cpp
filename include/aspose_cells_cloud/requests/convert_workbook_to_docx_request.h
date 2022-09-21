@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-/** --------------------------------------------------------------------------------------------------------------------
-=======
 ﻿/** --------------------------------------------------------------------------------------------------------------------
->>>>>>> 2fe3dcd63b703f9c8987ef7d657c0f2ad68be804
-* <copyright company="Aspose" file="file_test.h">
+* <copyright company="Aspose" file="convert_workbook_to_docx_request.h">
 *   Copyright (c) 2022 Aspose.Cells for Cloud
 * </copyright>
 * <summary>
@@ -28,27 +24,26 @@
 -------------------------------------------------------------------------------------------------------------------- **/
 
 #pragma once
-#include "../test_base.h"
-#include "../thirdparty/httplib.h"
-<<<<<<< HEAD
-=======
-#define CPPHTTPLIB_OPENSSL_SUPPORT
->>>>>>> 2fe3dcd63b703f9c8987ef7d657c0f2ad68be804
-/// <summary>
-/// Example of how to work with files.
-/// </summary>
-class HttpTests : public InfrastructureTest {
-protected:
-    std::wstring url =L"https://windocks.com/blog-2/Docker-SQL-Containers-with-SSRS";
-    
-};
+#include "./request_model_base.h"
 
-/// <summary>
-/// Test for uploading file.
-/// </summary>
+namespace aspose::cells::cloud::requests {
+    class ConvertWorkbookToDocxRequest : public RequestModelBase {
+    public:
+        ASPOSE_CELLS_CLOUD_EXPORT ConvertWorkbookToDocxRequest(
+            const std::shared_ptr< std::istream > fileStream,
+            const std::shared_ptr< std::wstring > password = nullptr,
+            const std::shared_ptr< bool > checkExcelRestriction = nullptr
+        );
 
-TEST_F(HttpTests, TesGetFile) {
-    httplib::Client cli("https://cpp-httplib-server.yhirose.repl.co"); 
-    auto res = cli.Get("/hi");
-     std::cout <<  res.value().body <<std::endl;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::istream > getFileStream() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< std::wstring > getPassword() const;
+        ASPOSE_CELLS_CLOUD_EXPORT const std::shared_ptr< bool > getCheckExcelRestriction() const;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::HttpRequestData > createHttpRequest() const override;
+        ASPOSE_CELLS_CLOUD_EXPORT virtual std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > createResponse() const override;
+
+    private:
+        const std::shared_ptr< std::istream > m_FileStream;
+        const std::shared_ptr< std::wstring > m_Password;
+        const std::shared_ptr< bool > m_CheckExcelRestriction ;
+    };
 }

@@ -8,9 +8,11 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Document Processing Features
 
 
-## Enhancements in Version 22.8
+## Enhancements in Version 22.9
 
-- Support transposing Excel Rows to Columns.
+- Add api for converting workbook to png.
+- Add api for converting workbook to pdf.
+- Add api for converting workbook to docx
 
 ## Read & Write Spreadsheet Formats
 
