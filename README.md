@@ -49,7 +49,7 @@ vcpkg install openssl:x64-windows
 git clone https://github.com/aspose-cells-cloud/aspose-cells-cloud-cpp
 cd aspose-cells-cloud-cpp
 mkdir .\build
-cmake -G "Visual Studio 16 2019" -Thost=x64 -Ax64 -S . -B ./build
+cmake -G "Visual Studio 17 2022" -Thost=x64 -Ax64 -S . -B ./build
 cmake --build ./build --config Release --target aspose_cells_cloud_sdk
 ```
 

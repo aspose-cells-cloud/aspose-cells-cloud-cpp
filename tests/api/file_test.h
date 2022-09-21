@@ -138,3 +138,4 @@ TEST_F(FileTests, TestDownloadFile) {
 
     auto actual = getApi()->downloadFile(request);
 }
+

@@ -39,6 +39,7 @@
 #include "./api/watermark_test.h"
 #include "./api/digital_signature_response_test.h"
 // Include support headers
+#include "./api/http_test.h"
 #include <filesystem>
 #include <random>
 #include <fstream>
