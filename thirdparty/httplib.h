@@ -4,7 +4,7 @@
 //  Copyright (c) 2020 Yuji Hirose. All rights reserved.
 //  MIT License
 //
-#define CPPHTTPLIB_OPENSSL_SUPPORT
+
 #ifndef CPPHTTPLIB_HTTPLIB_H
 #define CPPHTTPLIB_HTTPLIB_H
 

@@ -24,24 +24,23 @@
 -------------------------------------------------------------------------------------------------------------------- **/
 
 // Include all testsing cases
-// #include "./api/file_test.h"
-// #include "./api/folder_test.h"
-// #include "./api/convert_test.h"
-// #include "./api/protect_test.h"
-// #include "./api/unlock_test.h"
-// #include "./api/split_test.h"
-// #include "./api/merge_test.h"
-// #include "./api/compress_test.h"
-// #include "./api/batch_convert_test.h"
-// #include "./api/reverse_test.h"
-// #include "./api/rotate_test.h"
-// #include "./api/clear_objects_test.h"
-// #include "./api/watermark_test.h"
-// #include "./api/digital_signature_response_test.h"
+#include "./api/file_test.h"
+#include "./api/folder_test.h"
+#include "./api/convert_test.h"
+#include "./api/protect_test.h"
+#include "./api/unlock_test.h"
+#include "./api/split_test.h"
+#include "./api/merge_test.h"
+#include "./api/compress_test.h"
+#include "./api/batch_convert_test.h"
+#include "./api/reverse_test.h"
+#include "./api/rotate_test.h"
+#include "./api/clear_objects_test.h"
+#include "./api/watermark_test.h"
+#include "./api/digital_signature_response_test.h"
 // #include "./api/http_test.h"
 #include "./api/convert_workbook_test.h"
 // Include support headers
-#include "./api/http_test.h"
 #include <filesystem>
 #include <random>
 #include <fstream>

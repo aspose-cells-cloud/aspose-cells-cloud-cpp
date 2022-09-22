@@ -682,7 +682,8 @@ namespace aspose::cells::cloud::requests {
 
         if (m_Password) result->addQueryParam(L"password", *m_Password);
         if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
-        result->setBody(*m_FileStream);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
         return result;
     }
 
@@ -728,7 +729,8 @@ namespace aspose::cells::cloud::requests {
 
         if (m_Password) result->addQueryParam(L"password", *m_Password);
         if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
-        result->setBody(*m_FileStream);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
         return result;
     }
 
@@ -774,7 +776,8 @@ namespace aspose::cells::cloud::requests {
 
         if (m_Password) result->addQueryParam(L"password", *m_Password);
         if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
-        result->setBody(*m_FileStream);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream); 
         return result;
     }
 
