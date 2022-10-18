@@ -8,11 +8,11 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/c
 ## Document Processing Features
 
 
-## Enhancements in Version 22.9
+## Enhancements in Version 22.10
 
-- Add api for converting workbook to png.
-- Add api for converting workbook to pdf.
-- Add api for converting workbook to docx
+- Add api for converting workbook to pptx.
+- Add api for converting workbook to html.
+- Add api for converting workbook to markdown
 
 ## Read & Write Spreadsheet Formats
 

@@ -169,6 +169,25 @@ namespace aspose::cells::cloud::api {
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToPNG(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToPNGRequest> request);
 
         /// <summary>
+        /// Converts workbook to pptx.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToPptx(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToPptxRequest> request);
+        /// <summary>
+        /// Converts workbook to docx.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToHtml(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToHtmlRequest> request);
+        /// <summary>
+        /// Converts workbook to docx.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToMarkdown(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToMarkdownRequest> request);
+
+        /// <summary>
         /// Get a document in cloud storage to the specified format.
         /// </summary>
         /// <param name="name">The filename of the input document.</param>

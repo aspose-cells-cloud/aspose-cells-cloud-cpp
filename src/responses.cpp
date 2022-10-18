@@ -303,6 +303,48 @@ namespace aspose::cells::cloud::responses {
         m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
         m_Result->fromJson(&json);
     }        
+	/*
+     * Convert Workbook to Pptx Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToPptxResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToPptxResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }
+	/*
+     * Convert Workbook to Html Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToHtmlResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToHtmlResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }
+	/*
+     * Convert Workbook to Markdown Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToMarkdownResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToMarkdownResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }            
     /*
      * GetWorkbook Response implementation
      */

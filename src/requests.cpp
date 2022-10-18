@@ -787,6 +787,150 @@ namespace aspose::cells::cloud::requests {
             new aspose::cells::cloud::responses::ConvertWorkbookToDocxResponse()
         );
     }
+
+    /*
+     * ConvertWorkbookToPptxRequest request implementation
+    */
+
+    ConvertWorkbookToPptxRequest::ConvertWorkbookToPptxRequest(
+        const std::shared_ptr< std::istream > fileStream,
+        const std::shared_ptr< std::wstring > password,
+        const std::shared_ptr< bool > checkExcelRestriction
+    ) : 
+        m_FileStream(fileStream),
+        m_Password(password),
+        m_CheckExcelRestriction(checkExcelRestriction)
+    {
+    }
+
+    const std::shared_ptr< std::istream > ConvertWorkbookToPptxRequest::getFileStream() const
+    {
+        return m_FileStream;
+    }
+
+    const std::shared_ptr< std::wstring > ConvertWorkbookToPptxRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< bool > ConvertWorkbookToPptxRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > ConvertWorkbookToPptxRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/convert/pptx");
+
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToPptxRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::ConvertWorkbookToPptxResponse()
+        );
+    }
+
+    /*
+     * ConvertWorkbookToHtmlRequest request implementation
+    */
+
+    ConvertWorkbookToHtmlRequest::ConvertWorkbookToHtmlRequest(
+        const std::shared_ptr< std::istream > fileStream,
+        const std::shared_ptr< std::wstring > password,
+        const std::shared_ptr< bool > checkExcelRestriction
+    ) : 
+        m_FileStream(fileStream),
+        m_Password(password),
+        m_CheckExcelRestriction(checkExcelRestriction)
+    {
+    }
+
+    const std::shared_ptr< std::istream > ConvertWorkbookToHtmlRequest::getFileStream() const
+    {
+        return m_FileStream;
+    }
+
+    const std::shared_ptr< std::wstring > ConvertWorkbookToHtmlRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< bool > ConvertWorkbookToHtmlRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > ConvertWorkbookToHtmlRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/convert/html");
+
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToHtmlRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::ConvertWorkbookToDocxResponse()
+        );
+    }
+
+    /*
+     * ConvertWorkbookToMarkdownRequest request implementation
+    */
+
+    ConvertWorkbookToMarkdownRequest::ConvertWorkbookToMarkdownRequest(
+        const std::shared_ptr< std::istream > fileStream,
+        const std::shared_ptr< std::wstring > password,
+        const std::shared_ptr< bool > checkExcelRestriction
+    ) : 
+        m_FileStream(fileStream),
+        m_Password(password),
+        m_CheckExcelRestriction(checkExcelRestriction)
+    {
+    }
+
+    const std::shared_ptr< std::istream > ConvertWorkbookToMarkdownRequest::getFileStream() const
+    {
+        return m_FileStream;
+    }
+
+    const std::shared_ptr< std::wstring > ConvertWorkbookToMarkdownRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< bool > ConvertWorkbookToMarkdownRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > ConvertWorkbookToMarkdownRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/convert/markdown");
+
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToMarkdownRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::ConvertWorkbookToDocxResponse()
+        );
+    }    
     /*
      * GetDocument request implementation
      */

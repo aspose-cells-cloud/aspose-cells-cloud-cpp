@@ -85,3 +85,54 @@ TEST_F(ConvertWorkbookTests, TestConvertWorkbookToPNGFile) {
     auto actual = getApi()->convertWorkbookToPNG(request);
 
 }
+
+/// <summary>
+/// Test for convert file.
+/// </summary>
+TEST_F(ConvertWorkbookTests, TestConvertWorkbookToHtmlFile) {
+    std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+    
+    std::shared_ptr<requests::ConvertWorkbookToHtmlRequest> request(new requests::ConvertWorkbookToHtmlRequest(  
+        requestFile,
+        nullptr,
+        nullptr
+    ));
+
+    auto actual = getApi()->convertWorkbookToHtml(request);
+
+}
+
+/// <summary>
+/// Test for convert file.
+/// </summary>
+TEST_F(ConvertWorkbookTests, TestConvertWorkbookToPptxFile) {
+    std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+    
+    std::shared_ptr<requests::ConvertWorkbookToPptxRequest> request(new requests::ConvertWorkbookToPptxRequest(  
+        requestFile,
+        nullptr,
+        nullptr
+    ));
+
+    auto actual = getApi()->convertWorkbookToPptx(request);
+
+}
+
+/// <summary>
+/// Test for convert file.
+/// </summary>
+TEST_F(ConvertWorkbookTests, TestConvertWorkbookToMarkdownFile) {
+    std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+    
+    std::shared_ptr<requests::ConvertWorkbookToMarkdownRequest> request(new requests::ConvertWorkbookToMarkdownRequest(  
+        requestFile,
+        nullptr,
+        nullptr
+    ));
+
+    auto actual = getApi()->convertWorkbookToMarkdown(request);
+
+}
