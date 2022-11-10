@@ -203,7 +203,33 @@ namespace aspose::cells::cloud::api {
         }
         return response->getResult();
     }
-
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > CellsApi::convertWorkbookToJson(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToJsonRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::ConvertWorkbookToJsonResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+        return response->getResult();
+    }
+        std::shared_ptr< aspose::cells::cloud::models::FileInfo > CellsApi::convertWorkbookToSQL(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToSQLRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::ConvertWorkbookToSQLResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+        return response->getResult();
+    }
+        std::shared_ptr< aspose::cells::cloud::models::FileInfo > CellsApi::convertWorkbookToCSV(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToCSVRequest> request)
+    {
+        auto response = std::make_shared< aspose::cells::cloud::responses::ConvertWorkbookToCSVResponse >();
+        m_ApiClient->call( request->createHttpRequest(), *response);
+        if (response->getStatusCode() != 200) {
+            throw aspose::cells::cloud::ApiException(response->getStatusCode(), response->getErrorMessage());
+        }
+        return response->getResult();
+    }
     std::shared_ptr< std::istream > CellsApi::getWorkbook(std::shared_ptr<aspose::cells::cloud::requests::GetWorkbookRequest> request)
     {
         auto response = std::make_shared< aspose::cells::cloud::responses::GetWorkbookResponse >();

@@ -880,7 +880,7 @@ namespace aspose::cells::cloud::requests {
     std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToHtmlRequest::createResponse() const
     {
         return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
-            new aspose::cells::cloud::responses::ConvertWorkbookToDocxResponse()
+            new aspose::cells::cloud::responses::ConvertWorkbookToHtmlResponse()
         );
     }
 
@@ -928,7 +928,149 @@ namespace aspose::cells::cloud::requests {
     std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToMarkdownRequest::createResponse() const
     {
         return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
-            new aspose::cells::cloud::responses::ConvertWorkbookToDocxResponse()
+            new aspose::cells::cloud::responses::ConvertWorkbookToMarkdownResponse()
+        );
+    }    
+
+    /*
+     * ConvertWorkbookToJsonRequest request implementation
+    */
+
+    ConvertWorkbookToJsonRequest::ConvertWorkbookToJsonRequest(
+        const std::shared_ptr< std::istream > fileStream,
+        const std::shared_ptr< std::wstring > password,
+        const std::shared_ptr< bool > checkExcelRestriction
+    ) : 
+        m_FileStream(fileStream),
+        m_Password(password),
+        m_CheckExcelRestriction(checkExcelRestriction)
+    {
+    }
+
+    const std::shared_ptr< std::istream > ConvertWorkbookToJsonRequest::getFileStream() const
+    {
+        return m_FileStream;
+    }
+
+    const std::shared_ptr< std::wstring > ConvertWorkbookToJsonRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< bool > ConvertWorkbookToJsonRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > ConvertWorkbookToJsonRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/convert/json");
+
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToJsonRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::ConvertWorkbookToJsonResponse()
+        );
+    }    	
+    /*
+     * ConvertWorkbookToSQLRequest request implementation
+    */
+
+    ConvertWorkbookToSQLRequest::ConvertWorkbookToSQLRequest(
+        const std::shared_ptr< std::istream > fileStream,
+        const std::shared_ptr< std::wstring > password,
+        const std::shared_ptr< bool > checkExcelRestriction
+    ) : 
+        m_FileStream(fileStream),
+        m_Password(password),
+        m_CheckExcelRestriction(checkExcelRestriction)
+    {
+    }
+
+    const std::shared_ptr< std::istream > ConvertWorkbookToSQLRequest::getFileStream() const
+    {
+        return m_FileStream;
+    }
+
+    const std::shared_ptr< std::wstring > ConvertWorkbookToSQLRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< bool > ConvertWorkbookToSQLRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > ConvertWorkbookToSQLRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/convert/sql");
+
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToSQLRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::ConvertWorkbookToSQLResponse()
+        );
+    }
+    /*
+     * ConvertWorkbookToCSVRequest request implementation
+    */
+
+    ConvertWorkbookToCSVRequest::ConvertWorkbookToCSVRequest(
+        const std::shared_ptr< std::istream > fileStream,
+        const std::shared_ptr< std::wstring > password,
+        const std::shared_ptr< bool > checkExcelRestriction
+    ) : 
+        m_FileStream(fileStream),
+        m_Password(password),
+        m_CheckExcelRestriction(checkExcelRestriction)
+    {
+    }
+
+    const std::shared_ptr< std::istream > ConvertWorkbookToCSVRequest::getFileStream() const
+    {
+        return m_FileStream;
+    }
+
+    const std::shared_ptr< std::wstring > ConvertWorkbookToCSVRequest::getPassword() const
+    {
+        return m_Password;
+    }
+    const std::shared_ptr< bool > ConvertWorkbookToCSVRequest::getCheckExcelRestriction() const
+    {
+        return m_CheckExcelRestriction;
+    }
+    std::shared_ptr< aspose::cells::cloud::HttpRequestData > ConvertWorkbookToCSVRequest::createHttpRequest() const
+    {
+        auto result = std::make_shared<HttpRequestData>();
+        result->setMethod(HttpRequestMethod::HttpPOST);
+        result->setPath(L"/cells/convert/csv");
+
+        if (m_Password) result->addQueryParam(L"password", *m_Password);
+        if (m_CheckExcelRestriction) result->addQueryParam(L"checkExcelRestriction", *m_CheckExcelRestriction);
+        result->addFormDataParam(L"file",*m_FileStream);       
+        // result->setBody(*m_FileStream);
+        return result;
+    }
+
+    std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase > ConvertWorkbookToCSVRequest::createResponse() const
+    {
+        return std::shared_ptr< aspose::cells::cloud::responses::ResponseModelBase >(
+            new aspose::cells::cloud::responses::ConvertWorkbookToCSVResponse()
         );
     }    
     /*

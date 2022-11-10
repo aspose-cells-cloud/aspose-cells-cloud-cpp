@@ -136,3 +136,53 @@ TEST_F(ConvertWorkbookTests, TestConvertWorkbookToMarkdownFile) {
     auto actual = getApi()->convertWorkbookToMarkdown(request);
 
 }
+/// <summary>
+/// Test for convert file.
+/// </summary>
+TEST_F(ConvertWorkbookTests, TestConvertWorkbookToJsonFile) {
+    std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+    
+    std::shared_ptr<requests::ConvertWorkbookToJsonRequest> request(new requests::ConvertWorkbookToJsonRequest(  
+        requestFile,
+        nullptr,
+        nullptr
+    ));
+
+    auto actual = getApi()->convertWorkbookToJson(request);
+
+}
+
+/// <summary>
+/// Test for convert file.
+/// </summary>
+TEST_F(ConvertWorkbookTests, TestConvertWorkbookToSQLFile) {
+    std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+    
+    std::shared_ptr<requests::ConvertWorkbookToSQLRequest> request(new requests::ConvertWorkbookToSQLRequest(  
+        requestFile,
+        nullptr,
+        nullptr
+    ));
+
+    auto actual = getApi()->convertWorkbookToSQL(request);
+
+}
+
+/// <summary>
+/// Test for convert file.
+/// </summary>
+TEST_F(ConvertWorkbookTests, TestConvertWorkbookToCSVFile) {
+    std::wstring remoteFileName = L"TestConvertFile_CPP.xlsx";
+    auto requestFile = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+    
+    std::shared_ptr<requests::ConvertWorkbookToCSVRequest> request(new requests::ConvertWorkbookToCSVRequest(  
+        requestFile,
+        nullptr,
+        nullptr
+    ));
+
+    auto actual = getApi()->convertWorkbookToCSV(request);
+
+}

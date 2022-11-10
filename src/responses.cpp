@@ -346,6 +346,48 @@ namespace aspose::cells::cloud::responses {
         m_Result->fromJson(&json);
     }            
     /*
+     * Convert Workbook to Json Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToJsonResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToJsonResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }   
+    /*
+     * Convert Workbook to SQL Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToSQLResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToSQLResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }   
+	/*
+     * Convert Workbook to CSV Response implementation
+     */
+    std::shared_ptr< aspose::cells::cloud::models::FileInfo > ConvertWorkbookToCSVResponse::getResult() const
+    {
+        return m_Result;
+    }
+
+    void ConvertWorkbookToCSVResponse::deserialize(const std::string_view& response)
+    {
+        auto json = ::nlohmann::json::parse(response);
+        m_Result = std::make_shared< aspose::cells::cloud::models::FileInfo >();
+        m_Result->fromJson(&json);
+    }       
+    /*
      * GetWorkbook Response implementation
      */
     std::shared_ptr< std::istream  > GetWorkbookResponse::getResult() const

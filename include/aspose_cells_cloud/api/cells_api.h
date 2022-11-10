@@ -187,6 +187,26 @@ namespace aspose::cells::cloud::api {
         /// <param name="password">The password of the excel file</param>
         ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToMarkdown(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToMarkdownRequest> request);
 
+
+        /// <summary>
+        /// Converts workbook to json.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToJson(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToJsonRequest> request);
+        /// <summary>
+        /// Converts workbook to sql.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToSQL(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToSQLRequest> request);
+        /// <summary>
+        /// Converts workbook to csv.
+        /// </summary>
+        /// <param name="file">filename.</param>
+        /// <param name="password">The password of the excel file</param>
+        ASPOSE_CELLS_CLOUD_EXPORT std::shared_ptr< aspose::cells::cloud::models::FileInfo > convertWorkbookToCSV(std::shared_ptr<aspose::cells::cloud::requests::ConvertWorkbookToCSVRequest> request);
+
         /// <summary>
         /// Get a document in cloud storage to the specified format.
         /// </summary>
