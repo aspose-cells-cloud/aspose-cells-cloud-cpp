@@ -37,7 +37,7 @@
 #include "./api/rotate_test.h"
 #include "./api/clear_objects_test.h"
 #include "./api/watermark_test.h"
-#include "./api/digital_signature_response_test.h"
+#include "./api/digital_signature_test.h"
 // #include "./api/http_test.h"
 #include "./api/convert_workbook_test.h"
 // Include support headers
