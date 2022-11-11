@@ -41,23 +41,23 @@ protected:
 /// </summary>
 TEST_F(DigitalSignatureTests, PostDigitalSignatureTests) {
 
-    // std::wstring remoteFileName = L"PostDigitalSignature_CPP.xlsx";
-    // auto requestFileContent = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
-    // std::shared_ptr<requests::UploadFileRequest> request(new requests::UploadFileRequest(
-    //     requestFileContent,
-    //     std::make_shared< std::wstring >(remoteDataFolder + L"/" + remoteFileName),
-    //     nullptr
-    // ));
-    // auto actual = getApi()->uploadFile(request);
+    std::wstring remoteFileName = L"PostDigitalSignature_CPP.xlsx";
+    auto requestFileContent = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile)), std::istream::binary));
+    std::shared_ptr<requests::UploadFileRequest> request(new requests::UploadFileRequest(
+        requestFileContent,
+        std::make_shared< std::wstring >(remoteDataFolder + L"/" + remoteFileName),
+        nullptr
+    ));
+    auto actual = getApi()->uploadFile(request);
 
-    // std::wstring remotePfxFileName = L"roywang.pfx";
-    // auto requestPfxFileContent = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile2)), std::istream::binary));
-    // std::shared_ptr<requests::UploadFileRequest> pfxRequest(new requests::UploadFileRequest(
-    //     requestPfxFileContent,
-    //     std::make_shared< std::wstring >( remotePfxFileName),
-    //     nullptr
-    // ));
-    // auto actual2 = getApi()->uploadFile(pfxRequest);
+    std::wstring remotePfxFileName = L"roywang.pfx";
+    auto requestPfxFileContent = std::shared_ptr<std::istream>(new std::ifstream(std::filesystem::path(getDataDir(localFile2)), std::istream::binary));
+    std::shared_ptr<requests::UploadFileRequest> pfxRequest(new requests::UploadFileRequest(
+        requestPfxFileContent,
+        std::make_shared< std::wstring >( remotePfxFileName),
+        nullptr
+    ));
+    auto actual2 = getApi()->uploadFile(pfxRequest);
 
 
     std::shared_ptr<requests::PostDigitalSignatureRequest> requestDigitalSignature(new requests::PostDigitalSignatureRequest(
